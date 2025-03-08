@@ -1,0 +1,109 @@
+'use client';
+
+import React from 'react';
+import { useTheme } from '@/context/SwitchTheme';
+import { Box, Button, Container, Flex, Icon, ListCollection, Select } from '@chakra-ui/react';
+import clsx from 'clsx';
+import { HEADER_DATA, LANGUAGE_DATA } from './Header.constants';
+import Link from 'next/link';
+import { HeaderData } from './Header.types';
+import {
+   SelectContent,
+   SelectItem,
+   SelectRoot,
+   SelectTrigger,
+   SelectValueText,
+} from '@/ui/chakra/select';
+import { MotionBox } from '@/ui/animation';
+
+export const Header = () => {
+   const { theme } = useTheme();
+
+   const renderHeaderElements = (headerItem: HeaderData): JSX.Element | null => {
+      const safetyHeaderLink = typeof headerItem.link === 'string' ? headerItem.link : '/';
+
+      switch (headerItem.type) {
+         case 'link':
+            return <Link href={safetyHeaderLink}>{headerItem.title}</Link>;
+         case 'select':
+            return (
+               <SelectRoot collection={headerItem.children as ListCollection} size="sm" w="28">
+                  <SelectTrigger>
+                     <SelectValueText placeholder={headerItem.title} />
+                  </SelectTrigger>
+                  <SelectContent>
+                     {Array.isArray(headerItem.children?.items) &&
+                        headerItem.children.items.length > 0 &&
+                        headerItem.children.items.map((item) => (
+                           <SelectItem item={item} key={item.value}>
+                              {item.label}
+                           </SelectItem>
+                        ))}
+                  </SelectContent>
+               </SelectRoot>
+            );
+         default:
+            return null;
+      }
+   };
+
+   return (
+      <header>
+         <MotionBox
+            className="w-full"
+            py="12"
+            shadow="sm"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+         >
+            <Container maxW="max-w-6xl">
+               <Flex justifyContent="space-between" alignItems="center">
+                  <Box>
+                     <Link href="/">
+                        <Button
+                           className={clsx(
+                              'border py-4 px-8 rounded-full',
+                              theme === 'light' ? 'border-black' : 'border-white',
+                           )}
+                        >
+                           Logo
+                        </Button>
+                     </Link>
+                  </Box>
+                  <Flex placeItems="center" gap="12">
+                     {HEADER_DATA.map((headerItem) => {
+                        return <Box key={headerItem.id}>{renderHeaderElements(headerItem)}</Box>;
+                     })}
+                  </Flex>
+                  <Flex gap="8" placeItems="center">
+                     <Box>
+                        <Button
+                           className={clsx(
+                              'border py-4 px-8 rounded-full',
+                              theme === 'light' ? 'border-black' : 'border-white',
+                           )}
+                        >
+                           Обсудить проект
+                        </Button>
+                     </Box>
+                     <Box>
+                        <SelectRoot collection={LANGUAGE_DATA} size="sm" width="60px">
+                           <SelectTrigger>
+                              <SelectValueText placeholder={LANGUAGE_DATA.items[0].label} />
+                           </SelectTrigger>
+                           <SelectContent>
+                              {LANGUAGE_DATA.items.map((language) => (
+                                 <SelectItem item={language} key={language.value}>
+                                    {language.label}
+                                 </SelectItem>
+                              ))}
+                           </SelectContent>
+                        </SelectRoot>
+                     </Box>
+                  </Flex>
+               </Flex>
+            </Container>
+         </MotionBox>
+      </header>
+   );
+};
