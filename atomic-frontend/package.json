@@ -28,6 +28,7 @@
     "react-icons": "^5.4.0",
     "react-intersection-observer": "^9.16.0",
     "react-youtube": "^10.1.0",
+    "sharp": "^0.33.5",
     "uuidv4": "^6.2.13"
   },
   "devDependencies": {
