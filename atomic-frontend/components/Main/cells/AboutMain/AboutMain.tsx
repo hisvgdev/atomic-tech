@@ -5,8 +5,10 @@ import Image from 'next/image';
 import avatarFounder from '@/public/assets/images/main/avatarFounder.svg';
 import { AboutMainProps } from './AboutMain.types';
 import { Box, Stack, Heading, Text, Flex } from '@chakra-ui/react';
-import TeamSection from '../TeamSection';
-import ForecastSection from '../ForecastSection';
+import TeamSection from '../../atoms/TeamSection';
+import ForecastSection from '../../molecules/ForecastWrapper';
+import TechnologyWrapper from '../../molecules/TechnologyWrapper';
+import { ServiceWrapper } from '../../molecules/ServiceWrapper';
 
 export const AboutMain: FC<AboutMainProps> = (props) => {
    const {} = props;
@@ -50,6 +52,8 @@ export const AboutMain: FC<AboutMainProps> = (props) => {
          <Flex direction="column" gap="32">
             <TeamSection />
             <ForecastSection />
+            <TechnologyWrapper />
+            <ServiceWrapper />
          </Flex>
       </Box>
    );

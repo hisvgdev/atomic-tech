@@ -1,0 +1,1 @@
+export { ServiceFourColumn as default } from './ServiceFourColumn';

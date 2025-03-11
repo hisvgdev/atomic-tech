@@ -5,7 +5,7 @@ import { Sizes, SizeValues } from '@/types/Size.types';
 import { Box, Container } from '@chakra-ui/react';
 import clsx from 'clsx';
 import React from 'react';
-import AboutMain from '../../atoms/AboutMain';
+import AboutMain from '../../cells/AboutMain';
 
 export const MainWrapper = () => {
    const { theme } = useTheme();
