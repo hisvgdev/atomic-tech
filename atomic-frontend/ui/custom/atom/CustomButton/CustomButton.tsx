@@ -11,6 +11,8 @@ export const CustomButton: FC<CustomButtonProps> = (props) => {
               background:
                  'linear-gradient(258.97deg, #4A41FF -3.45%, #6EB2FF 55.6%, #19C8E3 100.54%)',
               color: 'white',
+              boxShadow: '0px 4px 10px 0px #00000026',
+
               _hover: {
                  background:
                     'linear-gradient(258.97deg, #3A30FF -3.45%, #5EA2FF 55.6%, #10B8D3 100.54%)',
@@ -28,7 +30,6 @@ export const CustomButton: FC<CustomButtonProps> = (props) => {
          w={width || 'full'}
          fontWeight="semibold"
          rounded="full"
-         shadow="md"
          py="6"
          px="10"
          {...buttonStyles}

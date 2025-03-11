@@ -3,27 +3,27 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Копирование зависимостей и установка
+# Комируем зависимости и устанавливаем
 COPY package*.json ./
 RUN npm install --legacy-peer-deps
 
-# Копирование исходных файлов и сборка
+# Копируем исходные файлы и сборка
 COPY . .
 RUN npm run build
 
-# Этап продакшн
+# Этап production
 FROM node:20-alpine AS production
 
 WORKDIR /app
 
-# Копирование всех файлов из этапа сборки
+# Копируем все файлы из этапа сборки
 COPY --from=builder /app ./
 
-# Установка только производственных зависимостей
+# Устанавливаем только производственные зависимости
 RUN npm install --legacy-peer-deps --only=production
 
-# Открытие порта 3000
+# Открываем порт 3000
 EXPOSE 3000
 
-# Запуск приложения в продакшн-режиме
+# Запускаем приложение в продакшн-режиме
 CMD ["npm", "start"]

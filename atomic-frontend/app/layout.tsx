@@ -3,7 +3,6 @@ import { Montserrat } from 'next/font/google';
 import { Provider } from '@/ui/chakra/provider';
 import ThemeLayout from '@/config/ThemeLayout/ThemeLayout';
 import './globals.css';
-import FooterLayout from '@/components/Footer/cells/FooterLayout';
 
 const montserrat = Montserrat({
    weight: ['300', '400', '500', '600', '700'],
@@ -27,7 +26,6 @@ export default function RootLayout({
          <body className={`${Object.values(montserrat.style).join(' ')} antialiased`}>
             <Provider>
                <ThemeLayout>{children}</ThemeLayout>
-               <FooterLayout />
             </Provider>
          </body>
       </html>
