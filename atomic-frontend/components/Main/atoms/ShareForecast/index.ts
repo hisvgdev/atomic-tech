@@ -1,2 +1,2 @@
-export type { ShareForecastProps } from './Shareforecast.types';
+export type { ShareForecastProps } from './ShareForecast.types';
 export { ShareForecast as default } from './ShareForecast';
