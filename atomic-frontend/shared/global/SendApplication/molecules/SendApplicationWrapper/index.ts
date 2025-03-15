@@ -1,0 +1,1 @@
+export type { SendApplicationWrapperProps } from './SendApplicationWrapper.types';

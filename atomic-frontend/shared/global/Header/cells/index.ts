@@ -1,0 +1,1 @@
+export { HeaderWrapper as default } from './HeaderWrapper';

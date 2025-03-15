@@ -1,1 +1,0 @@
-export { TopWrapper as default } from './TopWrapper';
