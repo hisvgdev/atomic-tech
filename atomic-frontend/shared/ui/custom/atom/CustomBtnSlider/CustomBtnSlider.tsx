@@ -4,9 +4,9 @@ import { CustomBtnSliderProps } from './CustomBtnSlider.types';
 import { MoveLeft, MoveRight } from 'lucide-react';
 
 export const CustomBtnSlider: FC<CustomBtnSliderProps> = (props) => {
-   const { hasSpacing = true, slideNext, slidePrev } = props;
+   const { slideNext, slidePrev } = props;
    return (
-      <Box pt={hasSpacing ? '16' : undefined}>
+      <Box>
          <Flex w="full" justify="center" align="center" gap="10">
             <Button
                rounded="full"

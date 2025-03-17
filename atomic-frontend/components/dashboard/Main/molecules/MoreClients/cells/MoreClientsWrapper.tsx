@@ -1,8 +1,8 @@
 import { Box, Flex } from '@chakra-ui/react';
 import React from 'react';
 import MoreClientsHeading from '../atoms/MoreClientsHeading';
-import MoreClientsArticles from '../molecules/MoreClientsArticles';
 import MoreClientsInfinityTape from '../atoms/MoreClientsInfinityTape';
+import Feedbacks from '@/shared/global/Feedbacks/molecules/Feedbacks';
 
 export const MoreClientsWrapper = () => {
    return (
@@ -10,7 +10,7 @@ export const MoreClientsWrapper = () => {
          <Flex direction="column" gap="14">
             <Flex direction="column" gap="24">
                <MoreClientsHeading />
-               <MoreClientsArticles />
+               <Feedbacks />
             </Flex>
             <MoreClientsInfinityTape />
          </Flex>

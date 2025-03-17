@@ -1,7 +1,6 @@
 'use client';
 
-import { SwitchThemeContext, useTheme } from '@/context/SwitchTheme';
-import clsx from 'clsx';
+import { useTheme } from '@/context/SwitchTheme';
 import React from 'react';
 import { Switch } from '@/shared/ui/chakra/switch';
 import { FaMoon, FaSun } from 'react-icons/fa';
@@ -11,23 +10,26 @@ import NavContent from '../atom/NavContent';
 import DevTeamWrapper from '@/components/dashboard/DevTeam/organism/DevTeamWrapper';
 import { Sizes, SizeValues } from '@/types/frontend/size.types';
 import { usePathname } from 'next/navigation';
-import PreviewWrapper from '@/components/chat-bots/Preview/organism/PreviewWrapper';
+import PreviewWrapper from '@/shared/global/Preview/organism/PreviewWrapper';
+
+import atomicPhonePreviewImage from '@/public/assets/images/chat-bots/atomicCodePhone.png';
+import atomicTatletPreviewImage from '@/public/assets/images/websites/atomicCodeTablet.svg';
+import clsx from 'clsx';
 
 export const HeaderWrapper = () => {
    const { theme, handleChangeTheme } = useTheme();
    const pathname = usePathname();
    return (
-      <SwitchThemeContext>
-         <Box
-            className={clsx(
-               'rounded-b-[15rem]',
-               theme === 'light'
-                  ? 'bg-white text-gray-800 rounded-md shadow-md'
-                  : 'bg-black text-white rounded-md shadow-lg',
-            )}
-         >
+      <Box
+         className={clsx(
+            'overflow-hidden',
+            theme === 'light' ? 'bg-white text-gray-800' : 'bg-black text-white',
+         )}
+         borderBottomRadius="15rem"
+      >
+         <Flex direction="column" gap="8">
             <NavContent />
-            <Container maxW={Sizes[SizeValues.primaryContainerSize].primary}>
+            <Container maxW={Sizes[SizeValues.primaryContainerSize].primary} h="vh">
                <MotionBox
                   className="py-9"
                   initial={{ opacity: 0, y: 20 }}
@@ -54,10 +56,35 @@ export const HeaderWrapper = () => {
                      />
                   </Flex>
                </MotionBox>
-               {pathname.includes('/dashboard') && <DevTeamWrapper />}
-               {pathname.includes('/chat-bots') && <PreviewWrapper />}
+               <Flex justify="center" align="center" className="h-full" pb="48">
+                  {pathname.includes('/dashboard') && <DevTeamWrapper />}
+                  {pathname.includes('/chat-bots') && (
+                     <PreviewWrapper
+                        imgSrc={atomicPhonePreviewImage}
+                        title="Создание чат-ботов"
+                        width={545}
+                        height={630}
+                     />
+                  )}
+                  {pathname.includes('/websites') && (
+                     <PreviewWrapper
+                        imgSrc={atomicTatletPreviewImage}
+                        title="Создание сайтов"
+                        width={605}
+                        height={440}
+                     />
+                  )}
+                  {pathname.includes('/mobile-apps') && (
+                     <PreviewWrapper
+                        imgSrc={atomicPhonePreviewImage}
+                        title="Создание мобильных приложений"
+                        width={545}
+                        height={630}
+                     />
+                  )}
+               </Flex>
             </Container>
-         </Box>
-      </SwitchThemeContext>
+         </Flex>
+      </Box>
    );
 };

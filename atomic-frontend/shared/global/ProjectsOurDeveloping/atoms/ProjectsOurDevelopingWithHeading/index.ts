@@ -1,0 +1,1 @@
+export { ProjectsOurDevelopingWithHeading as default } from './ProjectsOurDevelopingWithHeading';

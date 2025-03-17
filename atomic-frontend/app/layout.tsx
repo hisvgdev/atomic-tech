@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import { Provider } from '@/shared/ui/chakra/provider';
-import ThemeLayout from '@/config/ThemeLayout/ThemeLayout';
-import './globals.css';
 import FooterLayout from '@/shared/global/Footer/cells/FooterLayout';
 import ArticleLayout from '@/shared/global/Articles/cells/ArticleLayout';
+import { SwitchThemeContext } from '@/context/SwitchTheme';
+import './globals.css';
 
 const montserrat = Montserrat({
    weight: ['300', '400', '500', '600', '700'],
@@ -27,7 +27,7 @@ export default function RootLayout({
       <html lang="en" suppressHydrationWarning>
          <body className={`${Object.values(montserrat.style).join(' ')} antialiased`}>
             <Provider>
-               <ThemeLayout>{children}</ThemeLayout>
+               <SwitchThemeContext>{children}</SwitchThemeContext>
                <ArticleLayout />
                <FooterLayout />
             </Provider>

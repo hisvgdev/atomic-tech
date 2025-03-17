@@ -1,23 +1,20 @@
 'use client';
 
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 interface IThemeContextProps {
    theme: 'dark' | 'light';
-   setTheme: (theme: 'dark' | 'light') => void;
+   setTheme: React.Dispatch<React.SetStateAction<'dark' | 'light'>>;
    handleChangeTheme?: () => void;
 }
 
-export const ThemeContext = createContext<IThemeContextProps>({
-   theme: 'dark',
-   setTheme: () => {},
-});
+export const ThemeContext = createContext<IThemeContextProps | undefined>(undefined);
 
-export const SwitchThemeContext = ({ children }: { children: React.ReactElement }) => {
-   const { theme, setTheme } = useContext(ThemeContext);
+export const SwitchThemeContext = ({ children }: { children: React.ReactNode }) => {
+   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
 
    const handleChangeTheme = () => {
-      setTheme(theme === 'dark' ? 'light' : 'dark');
+      setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
    };
 
    return (

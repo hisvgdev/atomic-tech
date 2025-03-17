@@ -12,19 +12,19 @@ export const NAV_DATA: NavData[] = [
       items: [
         {
           label: "Чат-боты",
-          value: "chat-bots",
+          value: "/chat-bots",
         },
         {
           label: "Сайты",
-          value: "websites",
+          value: "/websites",
         },
         {
           label: "Мобильные приложения",
-          value: "mobile-apps",
+          value: "/mobile-apps",
         },
         {
           label: "Блокчейн",
-          value: "blockchain",
+          value: "/blockchain",
         },
       ]
     }),

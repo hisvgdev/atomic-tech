@@ -1,0 +1,1 @@
+export type { ProjectsOurDevelopingProps } from './ProjectsOurDeveloping.types';

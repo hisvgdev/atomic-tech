@@ -32,6 +32,7 @@ export const TechnologyWrapper = () => {
          align="center"
          position="relative"
          overflow="hidden"
+         pt="20"
       >
          <Flex justify="center" align="center">
             <HeaderSection

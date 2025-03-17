@@ -11,7 +11,7 @@ import { useEmblaSlider } from '@/hooks/useEmblaSlider';
 export const PortfolioCard = () => {
    const { emblaRef, scrollNext, scrollPrev } = useEmblaSlider();
    return (
-      <Box overflow="hidden" ref={emblaRef}>
+      <Flex overflow="hidden" ref={emblaRef} direction="column" gap="8">
          <Flex>
             {PORTFOLIO_CARDS_DATA.map((ptCards) => (
                <Box key={ptCards.id} flex="0 0 33.333%" minW="0" p="2">
@@ -43,6 +43,6 @@ export const PortfolioCard = () => {
             ))}
          </Flex>
          <CustomBtnSlider slideNext={scrollNext} slidePrev={scrollPrev} />
-      </Box>
+      </Flex>
    );
 };

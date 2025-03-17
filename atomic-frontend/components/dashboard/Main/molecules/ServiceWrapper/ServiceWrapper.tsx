@@ -1,5 +1,5 @@
 import CustomTitle from '@/shared/ui/custom/atom/CustomTitle';
-import { Box, Flex } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import ServiceFirstColumn from '../../atoms/ServiceFirstColumn';
 import ServiceSecondColumn from '../../atoms/ServiceSecondColumn';
 import ServiceThirdColumn from '../../atoms/ServiceThirdColumn';
@@ -10,16 +10,14 @@ export const ServiceWrapper = () => {
       <Flex justify="center" align="center" direction="column" gap="12">
          <CustomTitle title="Услуги" italic size="3rem" weight="semibold" />
 
-         <Box maxW="72.5rem" w="full">
-            <Flex direction="column" gap="5">
-               <Flex align="center" gap="10">
-                  <ServiceFirstColumn />
-                  <ServiceSecondColumn />
-               </Flex>
-               <ServiceThirdColumn />
-               <ServiceFourColumn />
+         <Flex direction="column" gap="5">
+            <Flex align="center" gap="10">
+               <ServiceFirstColumn />
+               <ServiceSecondColumn />
             </Flex>
-         </Box>
+            <ServiceThirdColumn />
+            <ServiceFourColumn />
+         </Flex>
       </Flex>
    );
 };

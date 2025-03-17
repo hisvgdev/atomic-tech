@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTheme } from '@/context/SwitchTheme';
 import { Box, Button, Container, Flex, Icon, ListCollection, Select } from '@chakra-ui/react';
 import clsx from 'clsx';
@@ -36,7 +36,7 @@ export const NavContent = () => {
                         headerItem.children.items.length > 0 &&
                         headerItem.children.items.map((item) => (
                            <SelectItem item={item} key={item.value}>
-                              {item.label}
+                              <Link href={item.value}>{item.label}</Link>
                            </SelectItem>
                         ))}
                   </SelectContent>
@@ -60,8 +60,9 @@ export const NavContent = () => {
                   <Box>
                      <Link href="/">
                         <Button
+                           w="10rem"
                            className={clsx(
-                              'border py-4 px-8 rounded-full',
+                              'border-2 py-4 px-8 rounded-full',
                               theme === 'light' ? 'border-black' : 'border-white',
                            )}
                         >
@@ -69,7 +70,7 @@ export const NavContent = () => {
                         </Button>
                      </Link>
                   </Box>
-                  <Flex placeItems="center" gap="12">
+                  <Flex placeItems="center" gap="16">
                      {NAV_DATA.map((headerItem) => {
                         return <Box key={headerItem.id}>{renderHeaderElements(headerItem)}</Box>;
                      })}
@@ -77,8 +78,9 @@ export const NavContent = () => {
                   <Flex gap="8" placeItems="center">
                      <Box>
                         <Button
+                           w="10rem"
                            className={clsx(
-                              'border py-4 px-8 rounded-full',
+                              'border-2  py-4 px-8 rounded-full',
                               theme === 'light' ? 'border-black' : 'border-white',
                            )}
                         >
