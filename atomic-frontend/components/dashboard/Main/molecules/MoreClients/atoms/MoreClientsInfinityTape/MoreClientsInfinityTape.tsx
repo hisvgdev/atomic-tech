@@ -20,10 +20,10 @@ export const MoreClientsInfinityTape = () => {
          <Flex overflow="hidden" whiteSpace="nowrap" position="relative">
             <motion.div
                style={{ display: 'flex', gap: '9rem', minWidth: 'max-content' }}
-               animate={{ x: ['0%', '-100%'] }}
-               transition={{ ease: 'linear', duration: 10, repeat: Infinity }}
+               animate={{ x: [0, -1000] }}
+               transition={{ repeat: Infinity, duration: 10, ease: 'linear' }}
             >
-               {[...logos, ...logos].map((logo, index) => (
+               {[...logos, ...logos, ...logos, ...logos].map((logo, index) => (
                   <Box key={index} flexShrink={0} w="8rem" h="4rem" position="relative">
                      <Image src={logo.src} alt={logo.alt} fill style={{ objectFit: 'contain' }} />
                   </Box>

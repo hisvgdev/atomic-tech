@@ -5,6 +5,10 @@ const customConfig = defineConfig({
     tokens: {
       // primary content size
       sizes: {},
+      fonts: {
+        heading: { value: "var(--font-montserrat)" },
+        body: { value: "var(--font-montserrat)" },
+      },
       // priamry font size
       fontSizes: {
         default: { value: "1rem" },

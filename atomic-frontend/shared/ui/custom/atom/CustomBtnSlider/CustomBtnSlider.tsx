@@ -15,7 +15,7 @@ export const CustomBtnSlider: FC<CustomBtnSliderProps> = (props) => {
                border="1px solid white"
                onClick={slidePrev ? slidePrev : undefined}
             >
-               <MoveLeft />
+               <MoveLeft color="white" />
             </Button>
             <Button
                rounded="full"

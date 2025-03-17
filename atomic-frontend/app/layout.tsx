@@ -10,6 +10,7 @@ const montserrat = Montserrat({
    weight: ['300', '400', '500', '600', '700'],
    subsets: ['latin'],
    display: 'swap',
+   variable: '--font-montserrat',
    fallback: ['Arial', 'sans-serif'],
 });
 
@@ -24,8 +25,8 @@ export default function RootLayout({
    children: React.ReactNode;
 }>) {
    return (
-      <html lang="en" suppressHydrationWarning>
-         <body className={`${Object.values(montserrat.style).join(' ')} antialiased`}>
+      <html lang="en" suppressHydrationWarning className={montserrat.variable}>
+         <body>
             <Provider>
                <SwitchThemeContext>{children}</SwitchThemeContext>
                <ArticleLayout />

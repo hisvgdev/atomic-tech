@@ -29,7 +29,7 @@ export const Feedbacks: FC<FeedbacksProps> = (props) => {
             >
                {withTitle && (
                   <Flex justify="center" align="center">
-                     <Heading className="italic" fontSize="3xl" fontWeight="semibold">
+                     <Heading className="italic" fontSize="3xl" fontWeight="semibold" color="white">
                         Отзывы
                      </Heading>
                   </Flex>

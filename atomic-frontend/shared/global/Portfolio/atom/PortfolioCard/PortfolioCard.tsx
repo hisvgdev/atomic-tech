@@ -20,7 +20,7 @@ export const PortfolioCard = () => {
                      <Stack spaceY={5}>
                         <CustomTitle size="1.75rem" italic weight="500" title={ptCards.title} />
                         <Box>
-                           <Text fontSize="md" fontWeight="light">
+                           <Text fontSize="md" fontWeight="light" color="white">
                               <b className="font-bold">
                                  <Text as="span" fontStyle="italic">
                                     Ниша:{' '}
@@ -28,7 +28,7 @@ export const PortfolioCard = () => {
                               </b>
                               {ptCards.niche}
                            </Text>
-                           <Text fontSize="md" fontWeight="light">
+                           <Text fontSize="md" fontWeight="light" color="white">
                               <b className="font-bold">
                                  <Text as="span" fontStyle="italic">
                                     App:{' '}
