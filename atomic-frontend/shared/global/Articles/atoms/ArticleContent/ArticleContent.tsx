@@ -1,3 +1,4 @@
+import { inter } from '@/constants/fonts/inter/inter.constants';
 import { Box, GridItem, Heading, VStack, Text, Flex, Button } from '@chakra-ui/react';
 import React from 'react';
 
@@ -7,10 +8,15 @@ export const ArticleContent = () => {
          <VStack bg="#F4F4F4" borderRadius="1.875rem" p={5} spaceY={4} align="stretch">
             <Box w="full" h="9.375rem" borderRadius="1.25rem" bg="blue.200" />
             <VStack align="start">
-               <Heading size="md" fontWeight="semibold" color="black">
+               <Heading
+                  size="md"
+                  fontWeight="semibold"
+                  color="black"
+                  className={`${inter.className}`}
+               >
                   Заголовок
                </Heading>
-               <Text fontSize="sm" color="black" maxW="xs">
+               <Text fontSize="sm" color="black" maxW="xs" className={`${inter.className}`}>
                   Идейные соображения высшего порядка, а также сложившаяся структура организации
                   требуют определения и уточнения систем массового участия.
                </Text>
@@ -20,6 +26,7 @@ export const ArticleContent = () => {
                   fontWeight="light"
                   color="black"
                   alignSelf="end"
+                  className={`${inter.className}`}
                >
                   01.01.2025
                </Text>
@@ -29,7 +36,7 @@ export const ArticleContent = () => {
                   color="black"
                   fontWeight="semibold"
                   fontSize="base"
-                  className="underline uppercase"
+                  className={`${inter.className} underline uppercase`}
                >
                   Читать полностью
                </Button>

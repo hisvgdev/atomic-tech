@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { INFINITY_SLOGAN_DATA } from './InfinitySloganLine.constans';
+import { inter } from '@/constants/fonts/inter/inter.constants';
 
 export const InfinitySloganLine = () => {
    return (
@@ -26,7 +27,11 @@ export const InfinitySloganLine = () => {
                   px="4"
                   borderRadius="full"
                >
-                  <Text color={sloganItem.textColor || '#000000'} fontSize="xs">
+                  <Text
+                     color={sloganItem.textColor || '#000000'}
+                     fontSize="xs"
+                     className={`${inter.className}`}
+                  >
                      {sloganItem.title}
                   </Text>
                </Flex>

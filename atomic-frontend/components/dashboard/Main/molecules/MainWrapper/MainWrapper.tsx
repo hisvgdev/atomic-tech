@@ -17,7 +17,7 @@ export const MainWrapper = () => {
    return (
       <Box
          className={clsx(
-            'overflow-hidden rounded-[15rem] py-28',
+            'overflow-hidden rounded-[15rem]',
             theme === 'light'
                ? 'bg-white text-gray-800 shadow-md'
                : 'bg-[#232323] text-white shadow-lg',

@@ -50,7 +50,7 @@ export const MainWrapper = () => {
          <Flex direction="column" gap="20">
             <InfinitySloganLine />
             <Container as="main" maxW={Sizes[SizeValues.primaryContainerSize].primary} mx="auto">
-               <Flex direction="column" gap="80">
+               <Flex direction="column" gap="28">
                   <ProjectsOurDeveloping />
                   <SendApplication />
                </Flex>

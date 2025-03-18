@@ -48,7 +48,7 @@ export const MainWrapper = () => {
             }}
          />
          <Container as="main" maxW={Sizes[SizeValues.primaryContainerSize].primary} mx="auto">
-            <Flex direction="column" gap="20">
+            <Flex direction="column" gap="28">
                <ChatBotsWrapper />
                <DevelopingWrapper />
                <DevWorkLayout />

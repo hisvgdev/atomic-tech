@@ -21,7 +21,7 @@ export const CustomButton: FC<CustomButtonProps> = (props) => {
          : {
               bg: 'white',
               color: 'black',
-              _hover: { bg: 'gray.100' },
+              _hover: { bg: 'gray.200' },
            };
 
    return (

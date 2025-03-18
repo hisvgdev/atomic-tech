@@ -4,6 +4,7 @@ import React, { FC } from 'react';
 import { FeedbackProps } from './Feedback.types';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import Image from 'next/image';
+import { inter } from '@/constants/fonts/inter/inter.constants';
 
 export const Feedback: FC<FeedbackProps> = (props) => {
    const { author, desc, logoCompany, id, blackLogoCompany, isBgWhite } = props;
@@ -28,12 +29,15 @@ export const Feedback: FC<FeedbackProps> = (props) => {
                   fontSize="base"
                   color={isBgWhite ? 'black' : ''}
                   flexGrow={1}
+                  className={`${inter.className}`}
                >
                   {desc}
                </Text>
             </Box>
             <Flex direction="column" gap="1.25rem" align="center" justify="center" mt="auto">
-               <Text color={isBgWhite ? 'black' : undefined}>{author}</Text>
+               <Text color={isBgWhite ? 'black' : undefined} className={`${inter.className}`}>
+                  {author}
+               </Text>
                <Image
                   src={isBgWhite ? blackLogoCompany : logoCompany}
                   width={110}

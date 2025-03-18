@@ -1,6 +1,7 @@
 import { Box, Heading, VStack, Text, Icon, Circle } from '@chakra-ui/react';
 import { FC } from 'react';
 import { FeatureCardProps } from './FeatureCard.types';
+import { inter } from '@/constants/fonts/inter/inter.constants';
 
 export const FeatureCard: FC<FeatureCardProps> = (props) => {
    const { title, description, icon, reverse = false } = props;
@@ -18,10 +19,20 @@ export const FeatureCard: FC<FeatureCardProps> = (props) => {
       >
          {reverse ? (
             <VStack align="start" spaceY={4}>
-               <Heading size="md" color="white">
+               <Heading
+                  size="md"
+                  color="white"
+                  fontWeight="semibold"
+                  className={`${inter.className}`}
+               >
                   {title}
                </Heading>
-               <Text fontSize="sm" color="white" fontWeight="light">
+               <Text
+                  fontSize="sm"
+                  color="white"
+                  fontWeight="normal"
+                  className={`${inter.className}`}
+               >
                   {description}
                </Text>
             </VStack>
@@ -47,10 +58,20 @@ export const FeatureCard: FC<FeatureCardProps> = (props) => {
 
          {!reverse ? (
             <VStack align="start" spaceY={4}>
-               <Heading size="md" color="white">
+               <Heading
+                  size="md"
+                  fontWeight="semibold"
+                  color="white"
+                  className={`${inter.className}`}
+               >
                   {title}
                </Heading>
-               <Text fontSize="sm" color="white" fontWeight="light">
+               <Text
+                  fontSize="sm"
+                  color="white"
+                  fontWeight="normal"
+                  className={`${inter.className}`}
+               >
                   {description}
                </Text>
             </VStack>

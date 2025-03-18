@@ -5,14 +5,15 @@ import { ForecastSectionProps } from './ForecastSection.types';
 import FeatureCard from '../../atoms/FeatureCard';
 import ShareForecast from '../../atoms/ShareForecast';
 import HeaderSection from '../../atoms/HeaderSection';
+import { inter } from '@/constants/fonts/inter/inter.constants';
 
 export const ForecastSection: FC<ForecastSectionProps> = () => {
    return (
       <Flex direction="column" gap="24">
          <HeaderSection title="Узнайте прогноз окупаемости разработки">
-            <Text fontSize="1rem" fontWeight="light" color="white">
+            <Text fontSize="1rem" fontWeight="light" color="white" className={`${inter.className}`}>
                Изучим ваш запрос, предложим разные варианты и{' '}
-               <Text as="span" fontStyle="italic" fontWeight="semibold">
+               <Text as="span" fontStyle="italic" fontWeight="medium">
                   объясним всё простым языком
                </Text>
             </Text>

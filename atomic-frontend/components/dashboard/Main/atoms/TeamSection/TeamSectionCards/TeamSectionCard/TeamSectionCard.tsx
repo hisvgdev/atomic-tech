@@ -5,6 +5,7 @@ import Image from 'next/image';
 import React, { FC } from 'react';
 import ourTeamsAvatar from '@/public/assets/images/main/ourTeamsAvatar.svg';
 import { TeamSectionCardProps } from './TeamSectionCard.types';
+import { inter } from '@/constants/fonts/inter/inter.constants';
 
 export const TeamSectionCard: FC<TeamSectionCardProps> = (props) => {
    const { emblaRef } = props;
@@ -22,10 +23,20 @@ export const TeamSectionCard: FC<TeamSectionCardProps> = (props) => {
                >
                   <Flex flexDirection="column" justify="center" align="center" gap={4} pt={4}>
                      <Flex flexDirection="column" align="center" justify="center">
-                        <Heading color="black" fontWeight="semibold" fontSize="md">
+                        <Heading
+                           color="black"
+                           fontWeight="semibold"
+                           fontSize="md"
+                           className={`${inter.className}`}
+                        >
                            Василий Пупочек
                         </Heading>
-                        <Text color="black" fontSize="4" fontWeight="light">
+                        <Text
+                           color="black"
+                           fontSize="4"
+                           fontWeight="light"
+                           className={`${inter.className}`}
+                        >
                            Таргетолог
                         </Text>
                      </Flex>

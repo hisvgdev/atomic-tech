@@ -20,11 +20,11 @@ export const PortfolioWrapper = () => {
          as="section"
          mx="auto"
          maxW={Sizes[SizeValues.primaryContainerSize].primary}
-         py="40"
+         py="28"
          ref={ref}
       >
          <MotionBox initial={{ opacity: 0, y: 50 }} animate={inView ? { opacity: 1, y: 0 } : {}}>
-            <Flex direction="column" gap={10}>
+            <Flex direction="column" gap={12}>
                <Flex justify="center" align="center">
                   <CustomTitle size="3rem" title="Портфолио" weight="semibold" italic />
                </Flex>

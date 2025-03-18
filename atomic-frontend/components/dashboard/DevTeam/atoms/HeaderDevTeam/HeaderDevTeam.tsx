@@ -1,16 +1,9 @@
-import { Inter } from 'next/font/google';
 import React, { FC } from 'react';
 import { Flex, Text } from '@chakra-ui/react';
 import { MotionBox } from '@/shared/ui/animation';
 import CustomButton, { VariantButton } from '@/shared/ui/custom/atom/CustomButton';
 import { HeaderDevTeamProps } from './HeaderDevTeam.types';
-
-const inter = Inter({
-   weight: ['300', '700'],
-   subsets: ['latin'],
-   display: 'swap',
-   fallback: ['Arial', 'sans-serif'],
-});
+import { inter } from '@/constants/fonts/inter/inter.constants';
 
 export const HeaderDevTeam: FC<HeaderDevTeamProps> = (props) => {
    const {} = props;

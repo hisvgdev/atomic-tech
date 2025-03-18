@@ -20,7 +20,7 @@ export const ArticleWrapper: FC<ArticleWrapperProps> = (props) => {
       <Container
          as="section"
          maxW={Sizes[SizeValues.primaryContainerSize].primary}
-         py={16}
+         py="28"
          ref={ref}
       >
          <MotionBox initial={{ opacity: 0, y: 50 }} animate={inView ? { opacity: 1, y: 0 } : {}}>

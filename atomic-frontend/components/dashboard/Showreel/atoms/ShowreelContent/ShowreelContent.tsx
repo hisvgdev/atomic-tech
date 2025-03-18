@@ -8,6 +8,7 @@ import YouTube from 'react-youtube';
 import atomicCodePreviewVideo from '@/public/assets/images/atomicCodePreviewVideo.png';
 import atomicCodeStartVideo from '@/public/assets/images/atomicCodeStartVideo.svg';
 import { ShowreelContentProps } from './ShowreelContent.types';
+import { inter } from '@/constants/fonts/inter/inter.constants';
 
 export const ShowreelContent: FC<ShowreelContentProps> = (props) => {
    const {} = props;
@@ -24,8 +25,15 @@ export const ShowreelContent: FC<ShowreelContentProps> = (props) => {
       <Flex direction="column" gap={12} align="center">
          <Flex direction="column" justify="center" align="center" gap="7">
             <CustomTitle size="3rem" title="Посмотрите шоурил" weight="semibold" italic />
-            <Text className="font-light text-base max-w-80 text-center overflow-hidden">
-               В нем мы показали еще одну часть <b className="font-bold">наших проектов</b>
+            <Text
+               fontWeight="light"
+               maxW="65%"
+               textAlign="center"
+               overflow="hidden"
+               className={`${inter.className} text-md`}
+            >
+               В нем мы показали еще одну часть <br />
+               <b className="font-bold italic">наших проектов</b>
             </Text>
          </Flex>
 

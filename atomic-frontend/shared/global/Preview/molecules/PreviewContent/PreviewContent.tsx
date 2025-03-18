@@ -33,9 +33,14 @@ export const PreviewContent: FC<PreviewContentProps> = (props) => {
                </Flex>
                <Flex direction="column" gap="14">
                   <Box maxW="xs">
-                     <Text fontSize="5" fontWeight="light">
+                     <Text fontSize="5" fontWeight="light" className={`${inter.className}`}>
                         Которые окупаются и приносят прибыль{' '}
-                        <Text as="span" fontWeight="semibold" className="italic">
+                        <Text
+                           as="span"
+                           fontWeight="semibold"
+                           fontStyle="italic"
+                           className={`${inter.className}`}
+                        >
                            вашему бизнесу
                         </Text>
                      </Text>

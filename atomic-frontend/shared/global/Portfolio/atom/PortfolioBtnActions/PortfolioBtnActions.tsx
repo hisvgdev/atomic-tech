@@ -1,6 +1,7 @@
 import { Box, Button, Flex, Text } from '@chakra-ui/react';
 import React, { FC, useState } from 'react';
 import { PortfolioBtnActionsProps } from './PortfolioBtnActions.types';
+import { inter } from '@/constants/fonts/inter/inter.constants';
 
 export const PortfolioBtnActions: FC<PortfolioBtnActionsProps> = () => {
    const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -21,8 +22,6 @@ export const PortfolioBtnActions: FC<PortfolioBtnActionsProps> = () => {
                         px="1.25rem"
                         border="1px solid"
                         rounded="full"
-                        fontWeight="light"
-                        fontSize="md"
                         transition="all 0.3s ease"
                         color="white"
                         bg={isActive ? '#5547FF' : 'transparent'}
@@ -33,7 +32,9 @@ export const PortfolioBtnActions: FC<PortfolioBtnActionsProps> = () => {
                         }}
                         onClick={() => handleFindActiveIndex(idx)}
                      >
-                        <Text>{btnItem}</Text>
+                        <Text fontWeight="light" fontSize="md" className={`${inter.className}`}>
+                           {btnItem}
+                        </Text>
                      </Button>
                   </Box>
                );

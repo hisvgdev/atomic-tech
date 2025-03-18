@@ -16,7 +16,7 @@ export const ServiceThirdColumn: FC<ServiceThirdColumnProps> = (props) => {
             </Text>
          </Box>
 
-         <Box flex="1" bg="#97C5FF" rounded="1.25rem" p="16" position="relative">
+         <Box flex="1" bg="#97C5FF" rounded="1.25rem" p="16" py="20" position="relative">
             <Image
                src={atomicServiceLeftHand}
                width={150}
@@ -31,11 +31,11 @@ export const ServiceThirdColumn: FC<ServiceThirdColumnProps> = (props) => {
                alt="right-hand"
                style={{ position: 'absolute', right: '25%', top: 0 }}
             />
-            <Flex justify="end" align="end">
-               <Text fontWeight="bold" fontSize="1.56rem">
+            <Box position="absolute" right="10%" bottom="3">
+               <Text fontWeight="bold" fontSize="1.56rem" color="black">
                   Нейросети
                </Text>
-            </Flex>
+            </Box>
          </Box>
 
          <Flex

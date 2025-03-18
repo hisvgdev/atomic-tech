@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { CustomTitleProps } from './CustomTitle.types';
 import { Heading } from '@chakra-ui/react';
+import { inter } from '@/constants/fonts/inter/inter.constants';
 
 export const CustomTitle: FC<CustomTitleProps> = (props) => {
    const { size, title, italic, weight, isCenter, lineHeight } = props;
@@ -12,6 +13,7 @@ export const CustomTitle: FC<CustomTitleProps> = (props) => {
          lineHeight={lineHeight}
          textAlign={isCenter ? 'center' : ''}
          color="white"
+         className={`${inter.className}`}
       >
          {title}
       </Heading>

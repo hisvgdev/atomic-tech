@@ -10,8 +10,8 @@ import msgIcon from '@/public/assets/images/chat-bots/msgIcon.svg';
 export const DevelopingPreviewCards: FC<DevelopingPreviewCardsProps> = (props) => {
    const {} = props;
    return (
-      <VStack spaceY={20} align="center">
-         <Flex justify="center" gap={24} align="center" wrap="wrap">
+      <VStack spaceY={20}>
+         <Flex gap={24} w="100%" justify="space-between">
             <DevelopingPreviewCard
                icon={gearIcon}
                text="Честно говорим об ожидаемом результате работы и обо всех подводных камнях разработки"

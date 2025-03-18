@@ -1,3 +1,4 @@
+import { inter } from '@/constants/fonts/inter/inter.constants';
 import CustomSplittedText from '@/shared/ui/custom/atom/CustomSplittedText';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import React from 'react';
@@ -13,7 +14,7 @@ export const SendApplicationHeading = () => {
                size="3rem"
                lineHeight="1.5rem"
             />
-            <Text fontSize="1.2rem" textAlign="center">
+            <Text fontSize="1.2rem" textAlign="center" className={`${inter.className}`}>
                Узнаем ваш запрос и предложим{' '}
                <Text as="span" className="italic font-bold">
                   {' '}

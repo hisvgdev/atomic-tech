@@ -1,9 +1,8 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useTheme } from '@/context/SwitchTheme';
 import { Box, Button, Container, Flex, Icon, ListCollection, Select } from '@chakra-ui/react';
-import clsx from 'clsx';
 import { NAV_DATA, LANGUAGE_DATA } from './NavContent.constants';
 import Link from 'next/link';
 import { NavData } from './NavContent.types';
@@ -60,11 +59,12 @@ export const NavContent = () => {
                   <Box>
                      <Link href="/">
                         <Button
+                           borderWidth="1px"
+                           rounded="full"
                            w="10rem"
-                           className={clsx(
-                              'border-2 py-4 px-8 rounded-full',
-                              theme === 'light' ? 'border-black' : 'border-white',
-                           )}
+                           py="4"
+                           px="8"
+                           borderColor={theme === 'light' ? 'black' : 'white'}
                         >
                            Logo
                         </Button>
@@ -79,10 +79,11 @@ export const NavContent = () => {
                      <Box>
                         <Button
                            w="10rem"
-                           className={clsx(
-                              'border-2  py-4 px-8 rounded-full',
-                              theme === 'light' ? 'border-black' : 'border-white',
-                           )}
+                           borderWidth="1px"
+                           rounded="full"
+                           py="4"
+                           px="8"
+                           borderColor={theme === 'light' ? 'black' : 'white'}
                         >
                            Обсудить проект
                         </Button>

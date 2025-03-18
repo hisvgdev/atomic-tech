@@ -6,6 +6,7 @@ import { avatars } from '../../organism/DevTeamWrapper/DevTeamWrapper.constants'
 import atomicImage from '@/public/assets/images/atomicIcon.svg';
 import Image from 'next/image';
 import { MotionBox } from '@/shared/ui/animation';
+import { inter } from '@/constants/fonts/inter/inter.constants';
 
 export const CardsDevTeam = () => {
    const [items, setItems] = useState<{ id: number; x: number; y: number; angle: number }[]>([]);
@@ -104,7 +105,7 @@ export const CardsDevTeam = () => {
                initial={{ opacity: 0, y: 20 }}
                animate={{ opacity: 1, y: 0 }}
                bg="white"
-               maxW={'24rem'}
+               maxW="96"
                w="full"
                px={14}
                py={5}
@@ -146,10 +147,20 @@ export const CardsDevTeam = () => {
                      textAlign="center"
                      w="full"
                   >
-                     <Text fontSize="md" fontWeight="semibold" color="black" className="leading-6">
+                     <Text
+                        fontSize="md"
+                        fontWeight="semibold"
+                        color="black"
+                        className={`${inter.className} leading-6`}
+                     >
                         Команда профессионалов
                      </Text>
-                     <Text color="black" fontSize="sm">
+                     <Text
+                        color="black"
+                        fontSize="sm"
+                        fontWeight="normal"
+                        className={`${inter.className} leading-6`}
+                     >
                         Справимся с любой задачей
                      </Text>
                   </MotionBox>
@@ -178,10 +189,16 @@ export const CardsDevTeam = () => {
                rounded="3xl"
                p={6}
             >
-               <Text fontSize="sm" fontWeight="medium" maxW="52" color="white">
+               <Text
+                  fontSize="sm"
+                  fontWeight="medium"
+                  maxW="52"
+                  color="white"
+                  className={`${inter.className} leading-6`}
+               >
                   Создаем продукты,{' '}
                   <Text as="span" fontStyle="italic" fontWeight="bold">
-                     которые приносят прибыль
+                     которые приносят прибыль{' '}
                   </Text>
                   вашему бизнесу
                </Text>
@@ -201,7 +218,11 @@ export const CardsDevTeam = () => {
                      <Text fontSize="3.125rem" fontWeight="bold">
                         {value}
                      </Text>
-                     <Text fontSize="base" fontWeight="light" className="leading-5">
+                     <Text
+                        fontSize="base"
+                        fontWeight="light"
+                        className={`${inter.className} leading-5`}
+                     >
                         {index === 0
                            ? 'Успешных проектов'
                            : index === 1

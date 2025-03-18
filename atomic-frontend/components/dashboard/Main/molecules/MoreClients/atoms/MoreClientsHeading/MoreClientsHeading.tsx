@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import CustomTitle from '@/shared/ui/custom/atom/CustomTitle';
 import CustomButton, { VariantButton } from '@/shared/ui/custom/atom/CustomButton';
+import { inter } from '@/constants/fonts/inter/inter.constants';
 
 export const MoreClientsHeading = () => {
    return (
@@ -17,7 +18,7 @@ export const MoreClientsHeading = () => {
                />
             </Box>
             <Box>
-               <Text fontSize="lg" fontWeight="light">
+               <Text fontSize="lg" fontWeight="light" className={`${inter.className}`}>
                   Станьте одним из них.
                </Text>
             </Box>
@@ -29,7 +30,12 @@ export const MoreClientsHeading = () => {
                width="18rem"
                isUppercase
             />
-            <Text textDecoration="underline" fontWeight="normal" fontSize="5">
+            <Text
+               textDecoration="underline"
+               fontWeight="normal"
+               fontSize="5"
+               className={`${inter.className}`}
+            >
                Оставить отзыв
             </Text>
          </Flex>

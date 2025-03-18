@@ -2,6 +2,7 @@ import { Flex, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import React, { FC } from 'react';
 import { DevelopingPreviewCardProps } from './DevelopingPreviewCard.types';
+import { inter } from '@/constants/fonts/inter/inter.constants';
 
 export const DevelopingPreviewCard: FC<DevelopingPreviewCardProps> = (props) => {
    const { icon, maxWidth, text } = props;
@@ -18,7 +19,7 @@ export const DevelopingPreviewCard: FC<DevelopingPreviewCardProps> = (props) => 
          >
             <Image src={icon} width={45} height={45} alt="icon" />
          </Flex>
-         <Text maxW={maxWidth} fontSize="sm" fontWeight="normal">
+         <Text maxW={maxWidth} fontSize="sm" fontWeight="normal" className={`${inter.className}`}>
             {text}
          </Text>
       </Flex>

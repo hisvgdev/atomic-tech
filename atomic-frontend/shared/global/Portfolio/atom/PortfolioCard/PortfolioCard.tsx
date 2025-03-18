@@ -1,12 +1,13 @@
 'use client';
 
 import React from 'react';
-import { Box, Flex, Stack, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading, Stack, Text } from '@chakra-ui/react';
 import { PORTFOLIO_CARDS_DATA } from '../../molecules/PortfolioCards/PortfolioCards.constants';
 import CustomTitle from '@/shared/ui/custom/atom/CustomTitle';
 import Image from 'next/image';
 import CustomBtnSlider from '@/shared/ui/custom/atom/CustomBtnSlider';
 import { useEmblaSlider } from '@/hooks/useEmblaSlider';
+import { inter } from '@/constants/fonts/inter/inter.constants';
 
 export const PortfolioCard = () => {
    const { emblaRef, scrollNext, scrollPrev } = useEmblaSlider();
@@ -18,9 +19,21 @@ export const PortfolioCard = () => {
                   <Stack spaceY={9} align="start">
                      <Image src={ptCards.img} width={360} height={411} alt="" />
                      <Stack spaceY={5}>
-                        <CustomTitle size="1.75rem" italic weight="500" title={ptCards.title} />
+                        <Heading
+                           fontSize="xl"
+                           fontWeight="extrabold"
+                           fontStyle="italic"
+                           className={`${inter.className}`}
+                        >
+                           {ptCards.title}
+                        </Heading>
                         <Box>
-                           <Text fontSize="md" fontWeight="light" color="white">
+                           <Text
+                              fontSize="1.125rem"
+                              fontWeight="light"
+                              color="white"
+                              className={`${inter.className}`}
+                           >
                               <b className="font-bold">
                                  <Text as="span" fontStyle="italic">
                                     Ниша:{' '}
@@ -28,7 +41,12 @@ export const PortfolioCard = () => {
                               </b>
                               {ptCards.niche}
                            </Text>
-                           <Text fontSize="md" fontWeight="light" color="white">
+                           <Text
+                              fontSize="1.125rem"
+                              fontWeight="light"
+                              color="white"
+                              className={`${inter.className}`}
+                           >
                               <b className="font-bold">
                                  <Text as="span" fontStyle="italic">
                                     App:{' '}

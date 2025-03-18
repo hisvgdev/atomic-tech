@@ -17,7 +17,7 @@ export const ShowreelWrapper = () => {
          as="section"
          mx="auto"
          maxW={Sizes[SizeValues.primaryContainerSize].primary}
-         pb="32"
+         pb="28"
          ref={ref}
       >
          <MotionBox initial={{ opacity: 0, y: 50 }} animate={inView ? { opacity: 1, y: 0 } : {}}>

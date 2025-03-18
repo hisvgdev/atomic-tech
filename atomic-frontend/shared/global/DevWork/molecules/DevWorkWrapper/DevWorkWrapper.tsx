@@ -10,7 +10,7 @@ import DevWorkStep from '../../atoms/DevWorkStep';
 export const DevWorkWrapper: FC<DevWorkWrapperProps> = () => {
    return (
       <div className="w-full">
-         <Flex direction="column" gap={24} align="center" justify="center">
+         <Flex direction="column" gap="24" align="center" justify="center">
             <DevWorkHeading />
             <Flex direction="column" align="center" gap="24" justify="center" w="full">
                <DevWorkStep

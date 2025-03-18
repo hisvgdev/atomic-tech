@@ -12,6 +12,7 @@ import atomicReactIcon from '@/public/assets/images/main/tech/atomicReactIcon.sv
 import atomicWeb3Icon from '@/public/assets/images/main/tech/atomicWeb3Icon.svg';
 import CustomButton, { VariantButton } from '@/shared/ui/custom/atom/CustomButton';
 import TechnologyIcon from '../../atoms/TechnologyIcon';
+import { inter } from '@/constants/fonts/inter/inter.constants';
 
 const technologies = [
    { title: 'Vue.js', icon: atomicVueJsIcon, width: 120, height: 120, top: '45%', left: '15%' },
@@ -40,7 +41,12 @@ export const TechnologyWrapper = () => {
                title="Используем десятки инструментов и сервисов под любые задачи и бюджет"
                isCenter
             >
-               <Text fontSize="1rem" fontWeight="light" color="white">
+               <Text
+                  fontSize="1rem"
+                  fontWeight="light"
+                  color="white"
+                  className={`${inter.className}`}
+               >
                   Предлагаем{' '}
                   <Text as="span" fontStyle="italic" fontWeight="semibold">
                      несколько решений
