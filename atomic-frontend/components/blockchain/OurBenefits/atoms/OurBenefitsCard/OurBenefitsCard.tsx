@@ -27,9 +27,7 @@ export const OurBenefitsCard: FC<OurBenefitsCardProps> = (props) => {
             rounded="1.875rem"
             backdropFilter="blur(20px)"
             boxShadow="0px 0px 15px 0px #FFFFFF14 inset, 0px 4px 25px 0px #00000040"
-            sx={{
-               backdropFilter: 'blur(20px)',
-            }}
+            backdropBlur="1.25rem"
          >
             <Card.Header display="flex" justifyContent="center" alignItems="center">
                <Image src={icon} width={120} height={120} alt="dex-icon" className="object-cover" />
