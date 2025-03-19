@@ -1,0 +1,1 @@
+export { OurBenefitsHeading as default } from './OurBenefitsHeading';

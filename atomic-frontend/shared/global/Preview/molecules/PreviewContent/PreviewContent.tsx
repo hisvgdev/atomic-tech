@@ -55,7 +55,13 @@ export const PreviewContent: FC<PreviewContentProps> = (props) => {
                </Flex>
             </Flex>
             <Box className="flex-1">
-               <Image src={imgSrc} alt="atomic-preview-phone-image" width={width} height={height} />
+               <Image
+                  src={imgSrc}
+                  alt="atomic-preview-phone-image"
+                  width={width}
+                  height={height}
+                  className="object-cover"
+               />
             </Box>
          </Flex>
       </Box>

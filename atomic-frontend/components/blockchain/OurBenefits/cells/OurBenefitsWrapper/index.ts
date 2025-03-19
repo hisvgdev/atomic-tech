@@ -1,0 +1,1 @@
+export { OurBenefitsWrapper as default } from './OurBenefitsWrapper';

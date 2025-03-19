@@ -13,7 +13,8 @@ import { usePathname } from 'next/navigation';
 import PreviewWrapper from '@/shared/global/Preview/organism/PreviewWrapper';
 
 import atomicPhonePreviewImage from '@/public/assets/images/chat-bots/atomicCodePhone.png';
-import atomicTatletPreviewImage from '@/public/assets/images/websites/atomicCodeTablet.svg';
+import atomicTabletPreviewImage from '@/public/assets/images/websites/atomicCodeTablet.svg';
+import atomicBlockchainImage from '@/public/assets/images/blockchain/blockchainLogo.svg';
 import clsx from 'clsx';
 
 export const HeaderWrapper = () => {
@@ -22,14 +23,14 @@ export const HeaderWrapper = () => {
    return (
       <Box
          className={clsx(
-            'overflow-hidden',
+            'overflow-hidden h-screen',
             theme === 'light' ? 'bg-white text-gray-800' : 'bg-black text-white',
          )}
          borderBottomRadius="15rem"
       >
          <Flex direction="column" gap="8">
             <NavContent />
-            <Container maxW={Sizes[SizeValues.primaryContainerSize].primary} h="vh">
+            <Container maxW={Sizes[SizeValues.primaryContainerSize].primary}>
                <MotionBox
                   className="py-9"
                   initial={{ opacity: 0, y: 20 }}
@@ -56,34 +57,49 @@ export const HeaderWrapper = () => {
                      />
                   </Flex>
                </MotionBox>
-               <Flex justify="center" align="center" className="h-full" pb="48">
-                  {pathname.includes('/dashboard') && <DevTeamWrapper />}
-                  {pathname.includes('/chat-bots') && (
-                     <PreviewWrapper
-                        imgSrc={atomicPhonePreviewImage}
-                        title="Создание чат-ботов"
-                        width={545}
-                        height={630}
-                     />
-                  )}
-                  {pathname.includes('/websites') && (
-                     <PreviewWrapper
-                        imgSrc={atomicTatletPreviewImage}
-                        title="Создание сайтов"
-                        width={605}
-                        height={440}
-                     />
-                  )}
-                  {pathname.includes('/mobile-apps') && (
-                     <PreviewWrapper
-                        imgSrc={atomicPhonePreviewImage}
-                        title="Создание мобильных приложений"
-                        width={545}
-                        height={630}
-                     />
-                  )}
-               </Flex>
             </Container>
+
+            <Flex justify="center" align="center" pb="48">
+               {pathname.includes('/dashboard') && (
+                  <Container maxW={Sizes[SizeValues.primaryContainerSize].primary}>
+                     <DevTeamWrapper />
+                  </Container>
+               )}
+               {pathname.includes('/chat-bots') && (
+                  <PreviewWrapper
+                     imgSrc={atomicPhonePreviewImage}
+                     title="Создание чат-ботов"
+                     width={545}
+                     height={630}
+                  />
+               )}
+               {pathname.includes('/websites') && (
+                  <PreviewWrapper
+                     imgSrc={atomicTabletPreviewImage}
+                     title="Создание сайтов"
+                     width={605}
+                     height={440}
+                  />
+               )}
+               {pathname.includes('/mobile-apps') && (
+                  <PreviewWrapper
+                     imgSrc={atomicPhonePreviewImage}
+                     title="Создание мобильных приложений"
+                     width={545}
+                     height={630}
+                  />
+               )}
+               {pathname.includes('/blockchain') && (
+                  <Container maxW={Sizes[SizeValues.primaryContainerSize].primary}>
+                     <PreviewWrapper
+                        imgSrc={atomicBlockchainImage}
+                        title="Создание блокчейн проектов"
+                        width={760}
+                        height={650}
+                     />
+                  </Container>
+               )}
+            </Flex>
          </Flex>
       </Box>
    );

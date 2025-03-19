@@ -1,0 +1,1 @@
+export type { ThemesEnumHeadingProps } from './ThemesEnumHeading.types';

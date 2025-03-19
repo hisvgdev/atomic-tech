@@ -49,8 +49,9 @@ export const NavContent = () => {
    return (
       <header>
          <MotionBox
-            className="w-full shadow-md rounded-b-[7rem]"
+            className="w-full"
             py="12"
+            shadow="sm"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
          >

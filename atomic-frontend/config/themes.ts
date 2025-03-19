@@ -34,6 +34,13 @@ const customConfig = defineConfig({
       lineHeights: {},
       // primary margins , padding
       spacing: {},
+      // colors
+      colors: {
+        dark: { value: "#232323" },
+        black: { value: "#383838" },
+        softPink: { value: "#C6C1FF" },
+        ctGray: { value: "#F4F4F4" }
+      }
     },
   },
 })
