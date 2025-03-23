@@ -1,8 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
 import { RiArrowDropDownLine } from "react-icons/ri";
-import { NavData } from "./NavContent.types";
+import { MobileNavData, NavData } from "./NavContent.types";
 import { createListCollection } from "@chakra-ui/react";
-
+import { BookUser, Bot, Briefcase, Layers, Link, Newspaper, TabletSmartphone, User } from 'lucide-react'
 export const NAV_DATA: NavData[] = [
   {
     id: uuidv4(),
@@ -59,6 +59,57 @@ export const NAV_DATA: NavData[] = [
     title: "О нас",
     type: "link",
     link: "/about-us"
+  },
+]
+
+export const MOBILE_NAV_DATA: MobileNavData[] = [
+  {
+    id: uuidv4(),
+    title: "Чат-боты",
+    link: "/chat-bots",
+    icon: Bot,
+  },
+  {
+    id: uuidv4(),
+    title: "Сайты",
+    link: "/websites",
+    icon: Layers
+  },
+  {
+    id: uuidv4(),
+    title: "Мобильные приложения",
+    link: "/mobile-apps",
+    icon: TabletSmartphone
+  },
+  {
+    id: uuidv4(),
+    title: "Блокчейн",
+    link: "/blockchain",
+    icon: Link
+  },
+  {
+    id: uuidv4(),
+    title: "Кейсы",
+    link: "/case",
+    icon: Briefcase
+  },
+  {
+    id: uuidv4(),
+    title: "Контакты",
+    link: "/contacts",
+    icon: BookUser
+  },
+  {
+    id: uuidv4(),
+    title: "Статьи",
+    link: "/articles",
+    icon: Newspaper
+  },
+  {
+    id: uuidv4(),
+    title: "О нас",
+    link: "/about-us",
+    icon: User
   },
 ]
 

@@ -13,7 +13,7 @@ import {
    ListCollection,
    Portal,
 } from '@chakra-ui/react';
-import { NAV_DATA, LANGUAGE_DATA } from './NavContent.constants';
+import { NAV_DATA, LANGUAGE_DATA, MOBILE_NAV_DATA } from './NavContent.constants';
 import Link from 'next/link';
 import { NavData } from './NavContent.types';
 import {
@@ -121,7 +121,11 @@ export const NavContent = () => {
                      </SelectRoot>
                   </Flex>
 
-                  <Drawer.Root open={isMenuOpen} onOpenChange={(e) => setIsMenuOpen(e.open)}>
+                  <Drawer.Root
+                     modal={false}
+                     open={isMenuOpen}
+                     onOpenChange={(e) => setIsMenuOpen(e.open)}
+                  >
                      <Drawer.Trigger asChild>
                         <IconButton
                            display={{ base: 'flex', lg: 'none' }}
@@ -145,14 +149,19 @@ export const NavContent = () => {
                                  </Drawer.Title>
                               </Drawer.Header>
                               <Drawer.Body>
-                                 <Flex direction="column" gap="4">
-                                    {NAV_DATA.map((headerItem) => (
+                                 <Flex direction="column" gap="7">
+                                    {MOBILE_NAV_DATA.map((headerItem) => (
                                        <Box
                                           key={headerItem.id}
                                           onClick={closeMenu}
                                           color={theme === 'dark' ? '' : 'black'}
                                        >
-                                          {renderHeaderElements(headerItem)}
+                                          <Flex gap="3" align="center">
+                                             {headerItem.icon && <headerItem.icon size={20} />}
+                                             <Link href={headerItem.link ?? '#'}>
+                                                {headerItem.title}
+                                             </Link>
+                                          </Flex>
                                        </Box>
                                     ))}
                                     <Button
