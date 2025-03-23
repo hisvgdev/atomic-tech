@@ -9,8 +9,8 @@ import atomicChatBotsWithMiniApp from '@/public/assets/images/chat-bots/atomicCh
 
 export const ChatBotsPreview = () => {
    return (
-      <Flex direction="column" align="end" gap={16}>
-         <Flex gap={10}>
+      <Flex direction="column" align={{ base: 'center', lg: 'end' }} gap="16">
+         <Flex direction={{ base: 'column', lg: 'row' }} gap="10">
             <ChatBotItem title="Кнопочные" imageSrc={atomicChatBotsWithButton} />
             <ChatBotItem title="Автоматизированные" imageSrc={atomicChatBotsAutomatic} />
             <ChatBotItem title="Приложения в Телеграм" imageSrc={atomicChatBotsWithMiniApp} />

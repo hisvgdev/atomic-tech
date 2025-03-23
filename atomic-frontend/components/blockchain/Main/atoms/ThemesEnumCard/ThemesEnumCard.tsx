@@ -6,9 +6,16 @@ import { ThemesEnumCardProps } from './ThemesEnumCard.types';
 export const ThemesEnumCard: FC<ThemesEnumCardProps> = (props) => {
    const { image, title, desc } = props;
    return (
-      <Box w="xl" h="sm" bg="{colors.black}" rounded="3xl" p="6" overflow="hidden">
-         <Flex direction="column" gap="12">
-            <Flex direction="column" gap="6">
+      <Box
+         w={{ base: 'fit', lg: 'xl' }}
+         h="sm"
+         bg="{colors.black}"
+         rounded="3xl"
+         p="6"
+         overflow="hidden"
+      >
+         <Flex direction="column" gap={{ base: '4', lg: '12' }}>
+            <Flex direction="column" gap={{ base: '3', lg: '6' }}>
                <Text fontWeight="semibold" fontSize="1.4rem">
                   {title}
                </Text>

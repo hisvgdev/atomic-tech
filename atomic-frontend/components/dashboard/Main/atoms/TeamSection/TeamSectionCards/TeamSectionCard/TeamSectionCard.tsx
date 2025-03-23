@@ -8,42 +8,29 @@ import { TeamSectionCardProps } from './TeamSectionCard.types';
 import { inter } from '@/constants/fonts/inter/inter.constants';
 
 export const TeamSectionCard: FC<TeamSectionCardProps> = (props) => {
-   const { emblaRef } = props;
+   const {} = props;
    return (
-      <Box overflow="hidden" ref={emblaRef}>
-         <Flex justify="center" align="center" gap={6} p="5">
-            {Array.from({ length: 4 }).map((_, idx) => (
-               <Box
-                  key={idx}
-                  bg="#92C8FF"
-                  rounded="3.125rem"
-                  flex="0 0 15%"
-                  minW="0"
-                  overflow="hidden"
+      <Box
+         bg="#92C8FF"
+         rounded={{ base: '2xl', lg: '3.125rem' }}
+         flex={{ base: '0 0 100%', lg: '0 0 15%' }}
+         overflow="hidden"
+      >
+         <Flex flexDirection="column" justify="center" align="center" gap={4} pt={4}>
+            <Flex flexDirection="column" align="center" justify="center">
+               <Heading
+                  color="black"
+                  fontWeight="semibold"
+                  fontSize="md"
+                  className={`${inter.className}`}
                >
-                  <Flex flexDirection="column" justify="center" align="center" gap={4} pt={4}>
-                     <Flex flexDirection="column" align="center" justify="center">
-                        <Heading
-                           color="black"
-                           fontWeight="semibold"
-                           fontSize="md"
-                           className={`${inter.className}`}
-                        >
-                           Василий Пупочек
-                        </Heading>
-                        <Text
-                           color="black"
-                           fontSize="4"
-                           fontWeight="light"
-                           className={`${inter.className}`}
-                        >
-                           Таргетолог
-                        </Text>
-                     </Flex>
-                     <Image src={ourTeamsAvatar} width={260} height={260} alt="avatar-founder" />
-                  </Flex>
-               </Box>
-            ))}
+                  Василий Пупочек
+               </Heading>
+               <Text color="black" fontSize="4" fontWeight="light" className={`${inter.className}`}>
+                  Таргетолог
+               </Text>
+            </Flex>
+            <Image src={ourTeamsAvatar} width={260} height={260} alt="avatar-founder" />
          </Flex>
       </Box>
    );

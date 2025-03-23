@@ -6,7 +6,12 @@ export const DevWorkHeading: FC<DevWorkHeadingProps> = (props) => {
    const {} = props;
    return (
       <Box>
-         <Heading fontSize="3xl" fontWeight="lighter" lineHeight="3rem" textAlign="center">
+         <Heading
+            fontSize={{ base: 'lg', lg: '3xl' }}
+            fontWeight="lighter"
+            lineHeight={{ base: '2rem', lg: '3rem' }}
+            textAlign="center"
+         >
             Работа строится <br />
             <Text as="span" fontWeight="bold">
                в несколько этапов

@@ -30,8 +30,8 @@ export const CustomButton: FC<CustomButtonProps> = (props) => {
          w={width || 'full'}
          fontWeight="semibold"
          rounded="full"
-         py="6"
-         px="10"
+         py={{ base: '3', lg: '6' }}
+         px={{ base: '5', lg: '10' }}
          {...buttonStyles}
          className={`${isUppercase ? 'uppercase' : ''}`}
       >

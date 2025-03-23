@@ -16,24 +16,28 @@ export const PreviewContent: FC<PreviewContentProps> = (props) => {
    const { title, imgSrc, width, height } = props;
    return (
       <Box>
-         <Flex direction="row" gap="14" align="center">
+         <Flex direction="row" gap={{ base: '5', lg: '14' }} align="center">
             <Flex direction="column" gap="7" maxW="41.25rem" w="full">
                <Flex direction="column" gap="2.5">
                   <Heading className={`${inter.className}`} fontSize="2.5" fontWeight="light">
                      ATOMIC CODE
                   </Heading>
-                  <Box lineHeight="3.5rem">
-                     <Text fontSize="3.18rem" fontWeight="semibold">
+                  <Box lineHeight={{ base: '2.2rem', lg: '3.5rem' }}>
+                     <Text fontSize={{ base: '2rem', lg: '3.18rem' }} fontWeight="semibold">
                         {title}
                      </Text>
-                     <Text fontSize="3.18rem" fontWeight="light">
+                     <Text fontSize={{ base: '2rem', lg: '3.18rem' }} fontWeight="light">
                         любой сложности
                      </Text>
                   </Box>
                </Flex>
                <Flex direction="column" gap="14">
                   <Box maxW="xs">
-                     <Text fontSize="5" fontWeight="light" className={`${inter.className}`}>
+                     <Text
+                        fontSize={{ base: 'sm', lg: '5' }}
+                        fontWeight="light"
+                        className={`${inter.className}`}
+                     >
                         Которые окупаются и приносят прибыль{' '}
                         <Text
                            as="span"
@@ -54,7 +58,7 @@ export const PreviewContent: FC<PreviewContentProps> = (props) => {
                   </Box>
                </Flex>
             </Flex>
-            <Box className="flex-1">
+            <Box className="flex-1" display={{ base: 'none', lg: 'block' }}>
                <Image
                   src={imgSrc}
                   alt="atomic-preview-phone-image"

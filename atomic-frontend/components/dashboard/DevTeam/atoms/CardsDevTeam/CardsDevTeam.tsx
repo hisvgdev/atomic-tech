@@ -13,93 +13,93 @@ export const CardsDevTeam = () => {
    const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
    const worldRef = useRef<planck.World | null>(null);
    const objectsRef = useRef<planck.Body[]>([]);
-   const containerRef = useRef<HTMLDivElement | null>(null);
+   // const containerRef = useRef<HTMLDivElement | null>(null);
 
-   useEffect(() => {
-      const updateSize = () => {
-         if (containerRef.current) {
-            setContainerSize({
-               width: containerRef.current.offsetWidth,
-               height: containerRef.current.offsetHeight,
-            });
-         }
-      };
-      updateSize();
-      window.addEventListener('resize', updateSize);
-      return () => window.removeEventListener('resize', updateSize);
-   }, []);
+   // useEffect(() => {
+   //    const updateSize = () => {
+   //       if (containerRef.current) {
+   //          setContainerSize({
+   //             width: containerRef.current.offsetWidth,
+   //             height: containerRef.current.offsetHeight,
+   //          });
+   //       }
+   //    };
+   //    updateSize();
+   //    window.addEventListener('resize', updateSize);
+   //    return () => window.removeEventListener('resize', updateSize);
+   // }, []);
 
-   useEffect(() => {
-      if (!containerSize.width || !containerSize.height) return;
+   // useEffect(() => {
+   //    if (!containerSize.width || !containerSize.height) return;
 
-      const world = new planck.World(planck.Vec2(0, 10));
-      worldRef.current = world;
-      const scale = 30;
+   //    const world = new planck.World(planck.Vec2(0, 10));
+   //    worldRef.current = world;
+   //    const scale = 30;
 
-      const createWall = (x: number, y: number, width: number, height: number) => {
-         const wall = world.createBody({
-            type: 'static',
-            position: planck.Vec2(x / scale, y / scale),
-         });
-         wall.createFixture(planck.Box(width / scale, height / scale));
-      };
+   //    const createWall = (x: number, y: number, width: number, height: number) => {
+   //       const wall = world.createBody({
+   //          type: 'static',
+   //          position: planck.Vec2(x / scale, y / scale),
+   //       });
+   //       wall.createFixture(planck.Box(width / scale, height / scale));
+   //    };
 
-      createWall(containerSize.width / 2, containerSize.height - 10, containerSize.width / 2, 10);
-      createWall(10, containerSize.height / 2, 10, containerSize.height / 2);
-      createWall(containerSize.width - 10, containerSize.height / 2, 10, containerSize.height / 2);
+   //    createWall(containerSize.width / 2, containerSize.height - 10, containerSize.width / 2, 10);
+   //    createWall(10, containerSize.height / 2, 10, containerSize.height / 2);
+   //    createWall(containerSize.width - 10, containerSize.height / 2, 10, containerSize.height / 2);
 
-      const newItems = Array.from({ length: 10 }, (_, i) => ({
-         id: i + 1,
-         x: Math.random() * containerSize.width,
-         y: (Math.random() * containerSize.height) / 2,
-         angle: 0,
-      }));
+   //    const newItems = Array.from({ length: 10 }, (_, i) => ({
+   //       id: i + 1,
+   //       x: Math.random() * containerSize.width,
+   //       y: (Math.random() * containerSize.height) / 2,
+   //       angle: 0,
+   //    }));
 
-      setItems(newItems);
-      objectsRef.current = newItems.map(({ x, y }) => {
-         const body = world.createBody({
-            type: 'dynamic',
-            position: planck.Vec2(x / scale, y / scale),
-            angle: Math.random() * Math.PI,
-         });
-         body.createFixture(planck.Box(40 / scale, 20 / scale), {
-            density: 1,
-            friction: 0.3,
-            restitution: 0.8,
-         });
+   //    setItems(newItems);
+   //    objectsRef.current = newItems.map(({ x, y }) => {
+   //       const body = world.createBody({
+   //          type: 'dynamic',
+   //          position: planck.Vec2(x / scale, y / scale),
+   //          angle: Math.random() * Math.PI,
+   //       });
+   //       body.createFixture(planck.Box(40 / scale, 20 / scale), {
+   //          density: 1,
+   //          friction: 0.3,
+   //          restitution: 0.8,
+   //       });
 
-         const velocityX = (Math.random() - 0.5) * 5;
-         const velocityY = Math.random() * -5;
-         body.setLinearVelocity(planck.Vec2(velocityX, velocityY));
-         body.setAngularVelocity((Math.random() - 0.5) * 4);
+   //       const velocityX = (Math.random() - 0.5) * 5;
+   //       const velocityY = Math.random() * -5;
+   //       body.setLinearVelocity(planck.Vec2(velocityX, velocityY));
+   //       body.setAngularVelocity((Math.random() - 0.5) * 4);
 
-         body.applyForceToCenter(planck.Vec2((Math.random() - 0.5) * 2, (Math.random() - 0.5) * 2));
+   //       body.applyForceToCenter(planck.Vec2((Math.random() - 0.5) * 2, (Math.random() - 0.5) * 2));
 
-         return body;
-      });
+   //       return body;
+   //    });
 
-      const update = () => {
-         world.step(1 / 40);
-         setItems((prevItems) =>
-            prevItems.map((item, index) => {
-               const body = objectsRef.current[index];
-               const pos = body.getPosition();
-               return {
-                  ...item,
-                  x: pos.x * scale,
-                  y: Math.min(pos.y * scale, 250),
-                  angle: body.getAngle(),
-               };
-            }),
-         );
+   //    const update = () => {
+   //       world.step(1 / 40);
+   //       setItems((prevItems) =>
+   //          prevItems.map((item, index) => {
+   //             const body = objectsRef.current[index];
+   //             const pos = body.getPosition();
+   //             return {
+   //                ...item,
+   //                x: pos.x * scale,
+   //                y: Math.min(pos.y * scale, 250),
+   //                angle: body.getAngle(),
+   //             };
+   //          }),
+   //       );
 
-         requestAnimationFrame(update);
-      };
-      requestAnimationFrame(update);
-   }, [containerSize]);
+   //       requestAnimationFrame(update);
+   //    };
+   //    requestAnimationFrame(update);
+   // }, [containerSize]);
 
    return (
-      <Flex gap={10} pb={20} direction="row">
+      <Flex gap={10} pb={{ base: '0', lg: '20' }} direction={{ base: 'column', lg: 'row' }}>
          <Flex direction="column" gap={9}>
             <MotionBox
                initial={{ opacity: 0, y: 20 }}
@@ -242,7 +242,7 @@ export const CardsDevTeam = () => {
             overflow="hidden"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            ref={containerRef}
+            // ref={containerRef}
          >
             <Flex direction="column" align="center" pt={9}>
                <Text

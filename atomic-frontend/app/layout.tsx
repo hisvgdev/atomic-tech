@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
    return (
       <html lang="en" suppressHydrationWarning className={montserrat.variable}>
-         <body>
+         <body className="overflow-auto">
             <Provider>
                <SwitchThemeContext>{children}</SwitchThemeContext>
                <ArticleLayout />

@@ -15,9 +15,14 @@ export const PortfolioCard = () => {
       <Flex overflow="hidden" ref={emblaRef} direction="column" gap="8">
          <Flex>
             {PORTFOLIO_CARDS_DATA.map((ptCards) => (
-               <Box key={ptCards.id} flex="0 0 33.333%" minW="0" p="2">
+               <Box
+                  key={ptCards.id}
+                  flex={{ base: '0 0 100%', smToLg: '0 0 100%', lg: '0 0 33.333%' }}
+                  minW="0"
+                  p="2"
+               >
                   <Stack spaceY={9} align="start">
-                     <Image src={ptCards.img} width={360} height={411} alt="" />
+                     <Image src={ptCards.img} width={360} height={410} alt="" />
                      <Stack spaceY={5}>
                         <Heading
                            fontSize="xl"

@@ -16,10 +16,15 @@ export const ProjectsOurDeveloping: FC<ProjectsOurDevelopingProps> = (props) => 
          ? 'Создаем продукты, которые приносят прибыль вашему бизнесу'
          : 'Создаем мобильные приложения, которые приносят прибыль';
    return (
-      <Flex direction="column" gap="36">
+      <Flex direction="column" gap={{ base: '14', lg: '36' }}>
          <OurDevelopingHeading title="Принципы нашей работы" desc={descHeading} />
 
-         <Flex align="center" justify="center" gap="24">
+         <Flex
+            align="center"
+            justify="center"
+            direction={{ base: 'column', lg: 'row' }}
+            gap={{ base: '8', lg: '24' }}
+         >
             <ProjectsOurDevelopingWithHeading
                title="Соединяем маркетинг и дизайн"
                description="Что сделает сайт функциональным и отличающимся от конкурентов."

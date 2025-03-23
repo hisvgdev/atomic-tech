@@ -11,7 +11,12 @@ export const DevelopingPreviewCards: FC<DevelopingPreviewCardsProps> = (props) =
    const {} = props;
    return (
       <VStack spaceY={20}>
-         <Flex gap={24} w="100%" justify="space-between">
+         <Flex
+            gap={24}
+            w="100%"
+            direction={{ base: 'column', lg: 'row' }}
+            justify={{ base: 'center', lg: 'space-between' }}
+         >
             <DevelopingPreviewCard
                icon={gearIcon}
                text="Честно говорим об ожидаемом результате работы и обо всех подводных камнях разработки"

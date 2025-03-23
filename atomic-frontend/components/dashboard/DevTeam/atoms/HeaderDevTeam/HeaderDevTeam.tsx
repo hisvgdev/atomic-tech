@@ -14,9 +14,18 @@ export const HeaderDevTeam: FC<HeaderDevTeamProps> = (props) => {
                ATOMIC CODE
             </Text>
          </MotionBox>
-         <Flex align="end" justify="space-between">
+         <Flex
+            align={{ base: 'start', lg: 'end' }}
+            justify={{ base: 'start', lg: 'space-between' }}
+            direction={{ base: 'column', lg: 'row' }}
+            gap={{ base: '6', lg: '0' }}
+         >
             <MotionBox initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-               <Text fontWeight="bold" fontSize="5xl" className="leading-[6rem]">
+               <Text
+                  fontWeight="bold"
+                  fontSize={{ base: 'xl', lg: '5xl' }}
+                  lineHeight={{ base: '2rem', lg: '6rem' }}
+               >
                   Креативная команда разработчиков
                </Text>
             </MotionBox>

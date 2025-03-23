@@ -12,13 +12,14 @@ export const StepCircle: FC<StepCircleProps> = (props) => {
          justifyContent="center"
          bgColor="#A3AFFD"
          rounded="full"
-         w="24"
-         h="24"
          textAlign="center"
+         w={{ base: 'auto', lg: '24' }}
+         h={{ base: 'auto', lg: '24' }}
+         p={{ base: '4', lg: '0' }}
          boxShadow="0 0 25px 8px rgba(74, 65, 255, 0.5)"
       >
          <Text
-            fontSize="3.75rem"
+            fontSize={{ base: 'md', lg: '3.75rem' }}
             fontWeight="bold"
             bgGradient="linear(to-b, #4A41FF, #598EFF)"
             bgClip="text"

@@ -34,8 +34,8 @@ export const Feedbacks: FC<FeedbacksProps> = (props) => {
                      </Heading>
                   </Flex>
                )}
-               <Box overflow="hidden" ref={emblaRef}>
-                  <Flex gap={6} p="5">
+               <Box maxW={{ base: '96', lg: '100%' }} overflow="hidden" ref={emblaRef}>
+                  <Flex gap={6} p={{ base: '0', lg: '5' }}>
                      {MORE_CLIENTS_ARTICLES_DATA.map((itemArticles, _) => {
                         return (
                            <Feedback

@@ -11,7 +11,13 @@ import { SendApplicationWrapperProps } from './SendApplicationWrapper.types';
 export const SendApplicationWrapper: FC<SendApplicationWrapperProps> = (props) => {
    const {} = props;
    return (
-      <Flex direction="column" gap="24" align="center" justify="center" position="relative">
+      <Flex
+         direction="column"
+         gap={{ base: '12', lg: '24' }}
+         align="center"
+         justify="center"
+         position="relative"
+      >
          <SendApplicationHeading />
          <Box w="full" h="full">
             <Flex justify="center" align="center">
@@ -21,7 +27,7 @@ export const SendApplicationWrapper: FC<SendApplicationWrapperProps> = (props) =
                   width="18rem"
                />
             </Flex>
-            <Box position="absolute" right="10%" top="10%">
+            <Box position="absolute" right="10%" top="10%" display={{ base: 'none', lg: 'block' }}>
                <Image src={atomicRevertArrowIcon} alt="" />
             </Box>
          </Box>

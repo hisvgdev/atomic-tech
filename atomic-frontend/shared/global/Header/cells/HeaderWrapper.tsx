@@ -20,17 +20,18 @@ import clsx from 'clsx';
 export const HeaderWrapper = () => {
    const { theme, handleChangeTheme } = useTheme();
    const pathname = usePathname();
+
    return (
       <Box
          className={clsx(
             'overflow-hidden h-screen',
             theme === 'light' ? 'bg-white text-gray-800' : 'bg-black text-white',
          )}
-         borderBottomRadius="15rem"
+         borderBottomRadius={{ base: '3rem', lg: '15rem' }}
       >
-         <Flex direction="column" gap="8">
+         <Flex direction="column" gap={{ base: '4', lg: '8' }}>
             <NavContent />
-            <Container maxW={Sizes[SizeValues.primaryContainerSize].primary}>
+            <Container maxW={{ base: '100%', lg: Sizes[SizeValues.primaryContainerSize].primary }}>
                <MotionBox
                   className="py-9"
                   initial={{ opacity: 0, y: 20 }}
@@ -59,9 +60,11 @@ export const HeaderWrapper = () => {
                </MotionBox>
             </Container>
 
-            <Flex justify="center" align="center" pb="48">
-               {pathname.includes('/dashboard') && (
-                  <Container maxW={Sizes[SizeValues.primaryContainerSize].primary}>
+            <Flex justify="center" align="center" pb={{ base: '20', lg: '48' }}>
+               {pathname.endsWith('/') && (
+                  <Container
+                     maxW={{ base: '100%', lg: Sizes[SizeValues.primaryContainerSize].primary }}
+                  >
                      <DevTeamWrapper />
                   </Container>
                )}
@@ -90,7 +93,9 @@ export const HeaderWrapper = () => {
                   />
                )}
                {pathname.includes('/blockchain') && (
-                  <Container maxW={Sizes[SizeValues.primaryContainerSize].primary}>
+                  <Container
+                     maxW={{ base: '100%', lg: Sizes[SizeValues.primaryContainerSize].primary }}
+                  >
                      <PreviewWrapper
                         imgSrc={atomicBlockchainImage}
                         title="Создание блокчейн проектов"

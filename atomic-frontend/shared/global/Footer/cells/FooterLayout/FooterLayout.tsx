@@ -7,21 +7,32 @@ import FooterNav from '../../atoms/atoms/FooterNav';
 import FooterContacts from '../../atoms/atoms/FooterContacts';
 import { useInView } from 'react-intersection-observer';
 import { MotionBox } from '@/shared/ui/animation';
+import { useIsMobile } from '@/hooks/useMediaQuery';
 
 export const FooterLayout = () => {
    const { ref, inView } = useInView({
       triggerOnce: true,
       threshold: 0.2,
    });
+   const isMobile = useIsMobile();
    return (
       <Box ref={ref}>
          <MotionBox initial={{ opacity: 0, y: 50 }} animate={inView ? { opacity: 1, y: 0 } : {}}>
-            <Box bg="#232323" py={20} borderTopRadius="15rem">
+            <Box bg="#232323" py={20} borderTopRadius={{ base: '3rem', lg: '15rem' }}>
                <Box maxW="6xl" mx="auto" px={4}>
                   <Flex justify="space-between" align="center" flexWrap="wrap">
                      <FooterBranding />
-                     <FooterNav />
-                     <FooterContacts />
+                     {!isMobile ? (
+                        <>
+                           <FooterNav />
+                           <FooterContacts />
+                        </>
+                     ) : (
+                        <Flex direction="column" gap="10">
+                           <FooterNav />
+                           <FooterContacts />
+                        </Flex>
+                     )}
                   </Flex>
                </Box>
             </Box>

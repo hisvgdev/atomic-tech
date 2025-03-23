@@ -11,7 +11,12 @@ export const OurBenefitsWrapper: FC<OurBenefitsWrapperProps> = (props) => {
    const {} = props;
    return (
       <MotionBox py="28" initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }}>
-         <Flex direction="column" maxW="68rem" mx="auto" gap="28">
+         <Flex
+            direction="column"
+            maxW={{ base: '100%', lg: '68rem' }}
+            mx="auto"
+            gap={{ base: '14', lg: '28' }}
+         >
             <OurBenefitsHeading />
             <OurBenefitsCards />
          </Flex>

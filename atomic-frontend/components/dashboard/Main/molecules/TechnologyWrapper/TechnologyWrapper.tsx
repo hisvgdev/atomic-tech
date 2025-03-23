@@ -13,6 +13,7 @@ import atomicWeb3Icon from '@/public/assets/images/main/tech/atomicWeb3Icon.svg'
 import CustomButton, { VariantButton } from '@/shared/ui/custom/atom/CustomButton';
 import TechnologyIcon from '../../atoms/TechnologyIcon';
 import { inter } from '@/constants/fonts/inter/inter.constants';
+import { useIsMobile } from '@/hooks/useMediaQuery';
 
 const technologies = [
    { title: 'Vue.js', icon: atomicVueJsIcon, width: 120, height: 120, top: '45%', left: '15%' },
@@ -25,6 +26,7 @@ const technologies = [
 ];
 
 export const TechnologyWrapper = () => {
+   const isMobile = useIsMobile();
    return (
       <Flex
          direction="column"
@@ -37,8 +39,9 @@ export const TechnologyWrapper = () => {
       >
          <Flex justify="center" align="center">
             <HeaderSection
-               titleWidth="4xl"
+               titleWidth={isMobile ? '' : '4xl'}
                title="Используем десятки инструментов и сервисов под любые задачи и бюджет"
+               fontSizeMobile="1.75rem"
                isCenter
             >
                <Text
@@ -71,6 +74,7 @@ export const TechnologyWrapper = () => {
                align="center"
                position="relative"
                overflow="hidden"
+               display={{ base: 'none', lg: 'block' }}
             >
                {technologies.map((tech, index) => (
                   <TechnologyIcon {...tech} key={index} />

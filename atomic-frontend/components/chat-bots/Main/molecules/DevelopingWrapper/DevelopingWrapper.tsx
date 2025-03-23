@@ -7,7 +7,12 @@ import CustomButton, { VariantButton } from '@/shared/ui/custom/atom/CustomButto
 export const DevelopingWrapper: FC<DevelopingWrapperProps> = (props) => {
    const {} = props;
    return (
-      <Flex direction="column" justifyContent="center" align="center" gap={32}>
+      <Flex
+         direction="column"
+         justifyContent="center"
+         align="center"
+         gap={{ base: '16', lg: '32' }}
+      >
          <DevelopingPreview />
          <CustomButton variant={VariantButton.gradient} text="Обсудить разработку" width="20rem" />
       </Flex>

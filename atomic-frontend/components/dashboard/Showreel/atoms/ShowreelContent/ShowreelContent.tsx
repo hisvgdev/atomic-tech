@@ -9,9 +9,11 @@ import atomicCodePreviewVideo from '@/public/assets/images/atomicCodePreviewVide
 import atomicCodeStartVideo from '@/public/assets/images/atomicCodeStartVideo.svg';
 import { ShowreelContentProps } from './ShowreelContent.types';
 import { inter } from '@/constants/fonts/inter/inter.constants';
+import { useIsMobile } from '@/hooks/useMediaQuery';
 
 export const ShowreelContent: FC<ShowreelContentProps> = (props) => {
    const {} = props;
+   const isMobile = useIsMobile();
    const [isPlaying, setIsPlaying] = useState(false);
 
    const videoOptions = {
@@ -24,10 +26,16 @@ export const ShowreelContent: FC<ShowreelContentProps> = (props) => {
    return (
       <Flex direction="column" gap={12} align="center">
          <Flex direction="column" justify="center" align="center" gap="7">
-            <CustomTitle size="3rem" title="Посмотрите шоурил" weight="semibold" italic />
+            <CustomTitle
+               size="3rem"
+               title="Посмотрите шоурил"
+               weight="semibold"
+               isCenter={isMobile ? true : false}
+               italic
+            />
             <Text
                fontWeight="light"
-               maxW="65%"
+               maxW={{ base: '100%', lg: '65%' }}
                textAlign="center"
                overflow="hidden"
                className={`${inter.className} text-md`}
@@ -53,7 +61,12 @@ export const ShowreelContent: FC<ShowreelContentProps> = (props) => {
                   className="object-cover"
                />
                <Button position="absolute">
-                  <Image src={atomicCodeStartVideo} width={97} height={97} alt="" />
+                  <Image
+                     src={atomicCodeStartVideo}
+                     width={isMobile ? 50 : 100}
+                     height={isMobile ? 50 : 100}
+                     alt=""
+                  />
                </Button>
             </Flex>
          ) : (

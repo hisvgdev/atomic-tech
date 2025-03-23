@@ -4,4 +4,5 @@ export interface CustomSplittedTextProps {
   weight?: string;
   size?: string;
   lineHeight?: string;
+  isCenter?: boolean;
 }

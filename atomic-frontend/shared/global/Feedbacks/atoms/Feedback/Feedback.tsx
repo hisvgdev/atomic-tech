@@ -12,8 +12,8 @@ export const Feedback: FC<FeedbackProps> = (props) => {
    return (
       <Box
          bg={isBgWhite ? 'white' : '#FFFFFF1A'}
-         rounded="3.125rem"
-         flex="0 0 30%"
+         rounded={{ base: '2xl', lg: '3.125rem' }}
+         flex={{ base: '0 0 100%', lg: '0 0 30%' }}
          minW="0"
          overflow="hidden"
          pt="24"

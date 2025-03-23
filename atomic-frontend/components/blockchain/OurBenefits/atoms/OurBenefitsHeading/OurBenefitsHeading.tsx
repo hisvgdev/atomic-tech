@@ -6,7 +6,12 @@ export const OurBenefitsHeading: FC<OurBenefitsHeadingProps> = (props) => {
    const {} = props;
    return (
       <Box>
-         <Heading fontWeight="light" fontSize="2.8rem" className="leading-10">
+         <Heading
+            fontWeight="light"
+            fontSize={{ base: 'xl', lg: '2.8rem' }}
+            lineHeight={{ base: '2rem', lg: '2.5rem' }}
+            textAlign={{ base: 'center', lg: 'start' }}
+         >
             Наши компетенции, <br />{' '}
             <Text as="span" fontWeight="bold">
                рассказываем о том, что умеем

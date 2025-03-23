@@ -10,7 +10,7 @@ export const CustomTitle: FC<CustomTitleProps> = (props) => {
          fontWeight={weight}
          fontStyle={italic ? 'italic' : ''}
          fontSize={size}
-         lineHeight={lineHeight}
+         lineHeight={{ base: '3rem', md: lineHeight }}
          textAlign={isCenter ? 'center' : ''}
          color="white"
          className={`${inter.className}`}

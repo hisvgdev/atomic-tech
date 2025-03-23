@@ -1,9 +1,20 @@
-'use client';
+import React, { Suspense } from 'react';
+import Loading from './loading';
 
-import { redirect } from 'next/navigation';
+const HeaderWrapper = React.lazy(() => import('@/shared/global/Header/cells'));
+const PortfolioLayout = React.lazy(() => import('@/shared/global/Portfolio/cells/PortfolioLayout'));
+const ShowreelLayout = React.lazy(
+   () => import('@/components/dashboard/Showreel/cells/ShowreelLayout'),
+);
+const MainLayout = React.lazy(() => import('@/components/dashboard/Main/cells/MainLayout'));
 
-const Root = () => {
-   redirect('/dashboard');
-};
-
-export default Root;
+export default function Home() {
+   return (
+      <Suspense fallback={<Loading />}>
+         <HeaderWrapper />
+         <PortfolioLayout />
+         <ShowreelLayout />
+         <MainLayout />
+      </Suspense>
+   );
+}

@@ -20,7 +20,7 @@ export const DevTeamWrapper = () => {
                zIndex: -1,
             }}
          />
-         <Flex direction="column" gap="24">
+         <Flex direction="column" gap={{ base: '10', lg: '24' }}>
             <HeaderDevTeam />
             <CardsDevTeam />
          </Flex>

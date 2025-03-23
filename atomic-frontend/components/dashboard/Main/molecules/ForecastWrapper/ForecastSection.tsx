@@ -6,11 +6,17 @@ import FeatureCard from '../../atoms/FeatureCard';
 import ShareForecast from '../../atoms/ShareForecast';
 import HeaderSection from '../../atoms/HeaderSection';
 import { inter } from '@/constants/fonts/inter/inter.constants';
+import { useIsMobile } from '@/hooks/useMediaQuery';
 
 export const ForecastSection: FC<ForecastSectionProps> = () => {
+   const isMobile = useIsMobile();
    return (
-      <Flex direction="column" gap="24">
-         <HeaderSection title="Узнайте прогноз окупаемости разработки">
+      <Flex direction="column" gap={{ base: '10', lg: '24' }}>
+         <HeaderSection
+            title="Узнайте прогноз окупаемости разработки"
+            isCenter={isMobile ? true : false}
+            fontSizeMobile="1.75rem"
+         >
             <Text fontSize="1rem" fontWeight="light" color="white" className={`${inter.className}`}>
                Изучим ваш запрос, предложим разные варианты и{' '}
                <Text as="span" fontStyle="italic" fontWeight="medium">
@@ -18,7 +24,7 @@ export const ForecastSection: FC<ForecastSectionProps> = () => {
                </Text>
             </Text>
          </HeaderSection>
-         <Flex gap={10} maxW="5xl">
+         <Flex direction={{ base: 'column', lg: 'row' }} gap={10} maxW="5xl">
             <FeatureCard
                title="3 варианта стоимости"
                description="Предложим три варианта разработки и расскажем о преимуществах каждого из них."

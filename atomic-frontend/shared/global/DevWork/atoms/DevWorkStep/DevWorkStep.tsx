@@ -5,20 +5,45 @@ import CustomSplittedText from '@/shared/ui/custom/atom/CustomSplittedText';
 import { Copy, Zap } from 'lucide-react';
 import Image from 'next/image';
 import { inter } from '@/constants/fonts/inter/inter.constants';
+import { useIsMobile } from '@/hooks/useMediaQuery';
 
 export const DevWorkStep: FC<DevWorkStepProps> = (props) => {
    const { number, title, description, icon, splitLines = 1, highlight } = props;
+   const isMobile = useIsMobile();
    return (
-      <Flex w="full" align="center" gap="15rem" justify="center">
-         <Flex direction="column" gap={7} align="start">
-            <Flex direction="column" gap={10} align="start">
-               <Heading as="h2" fontSize="4rem" fontWeight="bold">
+      <Flex
+         w="full"
+         align="center"
+         justify="center"
+         gap={{ base: '10', lg: '15rem' }}
+         direction={{ base: 'column', lg: 'row' }}
+      >
+         <Flex
+            direction="column"
+            justify={{ base: 'center', lg: 'center' }}
+            align={{ base: 'center', lg: 'start' }}
+            gap={{ base: '3', lg: '7' }}
+         >
+            <Flex
+               direction={{ base: 'row', lg: 'column' }}
+               gap={{ base: '2', lg: '10' }}
+               align={{ base: 'start', lg: 'start' }}
+            >
+               <Heading as="h2" fontSize={{ base: 'xl', lg: '4rem' }} fontWeight="bold">
                   {number}.
                </Heading>
                <Box position="relative">
-                  <CustomSplittedText text={title} lines={splitLines} lineHeight="3rem" />
-                  {highlight && (
-                     <Box position="absolute" bottom="0" right={number === 1 ? '20%' : '0%'}>
+                  <CustomSplittedText
+                     text={title}
+                     lines={isMobile ? 1 : splitLines}
+                     lineHeight={isMobile ? '2rem' : '3rem'}
+                  />
+                  {!isMobile && highlight && (
+                     <Box
+                        position="absolute"
+                        bottom="0"
+                        right={number === 1 ? (isMobile ? '10%' : '20%') : '0%'}
+                     >
                         {number === 1 ? (
                            <Copy color="#5547FF" />
                         ) : (
@@ -28,7 +53,13 @@ export const DevWorkStep: FC<DevWorkStepProps> = (props) => {
                   )}
                </Box>
             </Flex>
-            <Text maxW="3/4" className={`${inter.className} leading-6`}>
+            <Text
+               maxW={{ base: '100%', lg: '3/4' }}
+               fontSize={{ base: 'sm' }}
+               lineHeight={{ base: '1.2rem' }}
+               className={`${inter.className}`}
+               textAlign={{ base: 'center', lg: 'start' }}
+            >
                {description}
             </Text>
          </Flex>

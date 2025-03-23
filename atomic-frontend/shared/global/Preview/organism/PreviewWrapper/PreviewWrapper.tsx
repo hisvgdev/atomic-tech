@@ -20,7 +20,7 @@ export const PreviewWrapper: FC<PreviewWrapperProps> = (props) => {
                zIndex: -1,
             }}
          />
-         <Flex direction="row" gap="10">
+         <Flex direction="row" gap="10" p={{ base: '10', lg: '0' }}>
             <PreviewContent title={title} imgSrc={imgSrc} width={width} height={height} />
          </Flex>
       </Box>

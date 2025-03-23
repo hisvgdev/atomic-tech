@@ -12,12 +12,20 @@ export const TeamSectionHeader: FC<TeamSectionHeaderProps> = (props) => {
    return (
       <Flex w="full" justify="space-between" align="center">
          <Box maxW="lg">
-            <Heading fontWeight="normal" fontSize="xl" className={`${inter.className}`}>
+            <Heading
+               fontWeight="normal"
+               fontSize="xl"
+               lineHeight="2rem"
+               textAlign={{ base: 'center', lg: 'start' }}
+               className={`${inter.className}`}
+            >
                Знакомьтесь с нашей{' '}
                <b style={{ fontWeight: 'bold' }}>креативной командой разработчиков</b>
             </Heading>
          </Box>
-         <CustomBtnSlider slideNext={scrollNext} slidePrev={scrollPrev} />
+         <Box display={{ base: 'none', lg: 'block' }}>
+            <CustomBtnSlider slideNext={scrollNext} slidePrev={scrollPrev} />
+         </Box>
       </Flex>
    );
 };

@@ -18,10 +18,14 @@ export const MainWrapper = () => {
          color={`${theme === 'light' ? 'gray.800' : 'white'}`}
          position="relative"
          zIndex="10"
-         rounded="15rem"
+         borderRadius={{ base: '5rem', lg: '15rem' }}
          overflow="hidden"
       >
-         <Container as="main" maxW={Sizes[SizeValues.primaryContainerSize].primary} mx="auto">
+         <Container
+            as="main"
+            maxW={{ base: '100%', lg: Sizes[SizeValues.primaryContainerSize].primary }}
+            mx="auto"
+         >
             <Flex direction="column" gap="28" p="7">
                <ProcessDeveloping />
                <ThemesEnum />

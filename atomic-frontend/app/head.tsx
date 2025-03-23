@@ -1,4 +1,4 @@
-const RootHead = () => (
+const Head = () => (
    <>
       <title>Atomic Code</title>
       <meta name="description" content="Atomic Code" />
@@ -7,4 +7,4 @@ const RootHead = () => (
    </>
 );
 
-export default RootHead;
+export default Head;

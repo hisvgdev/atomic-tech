@@ -17,11 +17,12 @@ export const MainWrapper = () => {
    return (
       <Box
          className={clsx(
-            'overflow-hidden rounded-[15rem]',
+            'overflow-hidden',
             theme === 'light'
                ? 'bg-white text-gray-800 shadow-md'
                : 'bg-[#232323] text-white shadow-lg',
          )}
+         rounded={{ base: '3rem', lg: '15rem' }}
       >
          <Box
             position="absolute"
@@ -33,6 +34,7 @@ export const MainWrapper = () => {
             bgGradient="linear(180deg, #AA00FF 0%, rgba(103, 65, 255, 0.797994) 16.5%, rgba(0, 166, 255, 0.485803) 42%, rgba(0, 255, 255, 0) 100%)"
             filter="blur(200px)"
             zIndex="-1"
+            display={{ base: 'none', lg: 'block' }}
          />
          <Box
             position="absolute"
@@ -42,13 +44,20 @@ export const MainWrapper = () => {
             bgGradient="linear(180deg, rgba(0, 117, 255, 0) 0%, rgba(0, 117, 255, 0.75) 100%)"
             filter="blur(100px)"
             zIndex="-1"
+            display={{ base: 'none', lg: 'block' }}
          />
          <Flex as="main" direction="column" gap="20">
-            <Container maxW={Sizes[SizeValues.primaryContainerSize].primary} mx="auto">
+            <Container
+               maxW={{ base: '100%', lg: Sizes[SizeValues.primaryContainerSize].primary }}
+               mx="auto"
+            >
                <AboutMain />
             </Container>
             <TeamSection />
-            <Container maxW={Sizes[SizeValues.primaryContainerSize].primary} mx="auto">
+            <Container
+               maxW={{ base: '100%', lg: Sizes[SizeValues.primaryContainerSize].primary }}
+               mx="auto"
+            >
                <ForecastSection />
                <TechnologyWrapper />
                <ServiceWrapper />

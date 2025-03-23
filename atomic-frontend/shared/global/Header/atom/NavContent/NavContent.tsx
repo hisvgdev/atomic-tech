@@ -1,8 +1,18 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useTheme } from '@/context/SwitchTheme';
-import { Box, Button, Container, Flex, Icon, ListCollection, Select } from '@chakra-ui/react';
+import {
+   Box,
+   Button,
+   CloseButton,
+   Container,
+   Drawer,
+   Flex,
+   IconButton,
+   ListCollection,
+   Portal,
+} from '@chakra-ui/react';
 import { NAV_DATA, LANGUAGE_DATA } from './NavContent.constants';
 import Link from 'next/link';
 import { NavData } from './NavContent.types';
@@ -14,9 +24,14 @@ import {
    SelectValueText,
 } from '@/shared/ui/chakra/select';
 import { MotionBox } from '@/shared/ui/animation';
+import { Menu } from 'lucide-react';
 
 export const NavContent = () => {
    const { theme } = useTheme();
+   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+   const closeMenu = () => setIsMenuOpen(false);
 
    const renderHeaderElements = (headerItem: NavData): JSX.Element | null => {
       const safetyHeaderLink = typeof headerItem.link === 'string' ? headerItem.link : '/';
@@ -50,13 +65,13 @@ export const NavContent = () => {
       <header>
          <MotionBox
             className="w-full"
-            py="12"
+            py="4"
             shadow="sm"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
          >
             <Container maxW="max-w-6xl">
-               <Flex justifyContent="space-between" alignItems="center">
+               <Flex justifyContent="space-between" alignItems="center" py={{ base: '2', lg: '4' }}>
                   <Box>
                      <Link href="/">
                         <Button
@@ -71,42 +86,116 @@ export const NavContent = () => {
                         </Button>
                      </Link>
                   </Box>
-                  <Flex placeItems="center" gap="16">
-                     {NAV_DATA.map((headerItem) => {
-                        return <Box key={headerItem.id}>{renderHeaderElements(headerItem)}</Box>;
-                     })}
+
+                  <Flex display={{ base: 'none', lg: 'flex' }} alignItems="center" gap="16">
+                     {NAV_DATA.map((headerItem) => (
+                        <Box key={headerItem.id}>{renderHeaderElements(headerItem)}</Box>
+                     ))}
                   </Flex>
-                  <Flex gap="8" placeItems="center">
-                     <Box>
-                        <Button
-                           w="10rem"
-                           borderWidth="1px"
-                           rounded="full"
-                           py="4"
-                           px="8"
-                           borderColor={theme === 'light' ? 'black' : 'white'}
+
+                  <Flex display={{ base: 'none', lg: 'flex' }} gap="8" alignItems="center">
+                     <Button
+                        w="10rem"
+                        borderWidth="1px"
+                        rounded="full"
+                        py="4"
+                        px="8"
+                        borderColor={theme === 'light' ? 'black' : 'white'}
+                     >
+                        Обсудить проект
+                     </Button>
+                     <SelectRoot collection={LANGUAGE_DATA} size="sm" width="4rem">
+                        <SelectTrigger>
+                           <SelectValueText
+                              placeholder={LANGUAGE_DATA.items[0].label}
+                              fontWeight="bold"
+                           />
+                        </SelectTrigger>
+                        <SelectContent>
+                           {LANGUAGE_DATA.items.map((language) => (
+                              <SelectItem item={language} key={language.value}>
+                                 {language.label}
+                              </SelectItem>
+                           ))}
+                        </SelectContent>
+                     </SelectRoot>
+                  </Flex>
+
+                  <Drawer.Root open={isMenuOpen} onOpenChange={(e) => setIsMenuOpen(e.open)}>
+                     <Drawer.Trigger asChild>
+                        <IconButton
+                           display={{ base: 'flex', lg: 'none' }}
+                           onClick={toggleMenu}
+                           variant="ghost"
+                           aria-label="Open menu"
                         >
-                           Обсудить проект
-                        </Button>
-                     </Box>
-                     <Box>
-                        <SelectRoot collection={LANGUAGE_DATA} size="sm" width="4rem">
-                           <SelectTrigger>
-                              <SelectValueText
-                                 placeholder={LANGUAGE_DATA.items[0].label}
-                                 fontWeight="bold"
-                              />
-                           </SelectTrigger>
-                           <SelectContent>
-                              {LANGUAGE_DATA.items.map((language) => (
-                                 <SelectItem item={language} key={language.value}>
-                                    {language.label}
-                                 </SelectItem>
-                              ))}
-                           </SelectContent>
-                        </SelectRoot>
-                     </Box>
-                  </Flex>
+                           <Menu />
+                        </IconButton>
+                     </Drawer.Trigger>
+                     <Portal>
+                        <Drawer.Backdrop />
+                        <Drawer.Positioner>
+                           <Drawer.Content background={theme === 'dark' ? '' : 'gray.100'}>
+                              <Drawer.Header>
+                                 <Drawer.Title
+                                    fontSize="md"
+                                    color={theme === 'dark' ? '' : 'black'}
+                                 >
+                                    Меню навигации
+                                 </Drawer.Title>
+                              </Drawer.Header>
+                              <Drawer.Body>
+                                 <Flex direction="column" gap="4">
+                                    {NAV_DATA.map((headerItem) => (
+                                       <Box
+                                          key={headerItem.id}
+                                          onClick={closeMenu}
+                                          color={theme === 'dark' ? '' : 'black'}
+                                       >
+                                          {renderHeaderElements(headerItem)}
+                                       </Box>
+                                    ))}
+                                    <Button
+                                       w="100%"
+                                       borderWidth="1px"
+                                       rounded="full"
+                                       py="4"
+                                       px="8"
+                                       borderColor={theme === 'light' ? 'black' : 'white'}
+                                       onClick={closeMenu}
+                                       color={theme === 'dark' ? '' : 'black'}
+                                    >
+                                       Обсудить проект
+                                    </Button>
+                                    <SelectRoot collection={LANGUAGE_DATA} size="sm" width="100%">
+                                       <SelectTrigger>
+                                          <SelectValueText
+                                             color={theme === 'dark' ? '' : 'black'}
+                                             placeholder={LANGUAGE_DATA.items[0].label}
+                                             fontWeight="bold"
+                                          />
+                                       </SelectTrigger>
+                                       <SelectContent>
+                                          {LANGUAGE_DATA.items.map((language) => (
+                                             <SelectItem
+                                                item={language}
+                                                key={language.value}
+                                                color={theme === 'dark' ? '' : 'black'}
+                                             >
+                                                {language.label}
+                                             </SelectItem>
+                                          ))}
+                                       </SelectContent>
+                                    </SelectRoot>
+                                 </Flex>
+                              </Drawer.Body>
+                              <Drawer.CloseTrigger position="absolute" top="5" right="3" asChild>
+                                 <CloseButton size="md" color={theme === 'dark' ? '' : 'black'} />
+                              </Drawer.CloseTrigger>
+                           </Drawer.Content>
+                        </Drawer.Positioner>
+                     </Portal>
+                  </Drawer.Root>
                </Flex>
             </Container>
          </MotionBox>

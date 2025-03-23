@@ -11,7 +11,13 @@ export const PortfolioBtnActions: FC<PortfolioBtnActionsProps> = () => {
    };
 
    return (
-      <Flex align="center" mx="auto" gap={8}>
+      <Flex
+         align="center"
+         justify={{ base: 'center', lg: undefined }}
+         mx="auto"
+         gap={{ base: '4', lg: '8' }}
+         flexWrap={{ base: 'wrap', smToLg: 'wrap' }}
+      >
          {['Сайты', 'Телеграм-боты', 'WebApp', 'Мобильные приложения', 'Блокчейн'].map(
             (btnItem, idx) => {
                const isActive = activeIndex === idx;
@@ -19,7 +25,7 @@ export const PortfolioBtnActions: FC<PortfolioBtnActionsProps> = () => {
                   <Box key={idx}>
                      <Button
                         h="2.8rem"
-                        px="1.25rem"
+                        px={{ base: '1rem', lg: '1.25rem' }}
                         border="1px solid"
                         rounded="full"
                         transition="all 0.3s ease"
@@ -32,7 +38,11 @@ export const PortfolioBtnActions: FC<PortfolioBtnActionsProps> = () => {
                         }}
                         onClick={() => handleFindActiveIndex(idx)}
                      >
-                        <Text fontWeight="light" fontSize="md" className={`${inter.className}`}>
+                        <Text
+                           fontWeight="light"
+                           fontSize={{ base: 'sm', lg: 'md' }}
+                           className={`${inter.className}`}
+                        >
                            {btnItem}
                         </Text>
                      </Button>

@@ -9,8 +9,12 @@ export const ProcessStep: FC<ProcessStepProps> = (props) => {
    return (
       <Flex align="center" justify={align} gap="5">
          <StepCircle number={number} />
-         <Box maxW="80">
-            <Text className={`${inter.className}`} fontSize="md" fontWeight="light">
+         <Box maxW={{ base: 'full', lg: '80' }}>
+            <Text
+               className={`${inter.className}`}
+               fontSize={{ base: 'sm', lg: 'md' }}
+               fontWeight="light"
+            >
                {text}{' '}
                <Text as="span" fontStyle="italic" fontWeight="semibold">
                   {highlight}

@@ -7,7 +7,12 @@ import { Flex } from '@chakra-ui/react';
 export const OurBenefitsCards: FC<OurBenefitsCardsProps> = (props) => {
    const {} = props;
    return (
-      <Flex justify="space-between" align="center">
+      <Flex
+         direction={{ base: 'column', lg: 'row' }}
+         justify={{ base: 'center', lg: 'space-between' }}
+         align="center"
+         gap={{ base: '8', lg: '0' }}
+      >
          {BENEFITS_CARDS_DATA.map((itemData, idx) => {
             return <OurBenefitsCard key={itemData.id + idx} {...itemData} />;
          })}

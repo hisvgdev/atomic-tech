@@ -22,13 +22,13 @@ import InfoCard from '../../atoms/InfoCard';
 export const ThemesEnum = () => {
    return (
       <Flex direction="column" gap="28">
-         <Box maxW="6xl">
-            <Flex direction="column" gap="20">
+         <Box maxW={{ base: 'full', lg: '6xl' }}>
+            <Flex direction="column" gap={{ base: '10', lg: '20' }}>
                <ThemesEnumHeading
                   title="1. Игровые и виртуальные миры"
                   desc="Блокчейны для интерактивного развлечения, создания виртуальных миров и социальных экосистем."
                />
-               <Flex align="center" gap="10">
+               <Flex direction={{ base: 'column', lg: 'row' }} align="center" gap="10">
                   <ThemesEnumCard
                      title="Игры"
                      desc="Блокчейны для игр представляют собой использование технологии распределённого
@@ -50,14 +50,30 @@ export const ThemesEnum = () => {
                      title="2. Электронная коммерция и децентрализованные рынки"
                      desc="Платформы, использующие блокчейн для децентрализованной торговли и обмена между участниками."
                   />
-                  <Flex align="center" gap="10">
-                     <Box w="xl" h="sm" bg="{colors.black}" rounded="3xl" p="6" overflow="hidden">
+                  <Flex
+                     direction={{ base: 'column', lg: 'row' }}
+                     align="center"
+                     gap={{ base: '6', lg: '10' }}
+                  >
+                     <Box
+                        w={{ base: 'fit', lg: 'xl' }}
+                        h="sm"
+                        bg="{colors.black}"
+                        rounded="3xl"
+                        p="6"
+                        overflow="hidden"
+                     >
                         <Flex direction="column" gap="6">
                            <Flex direction="column" gap="6">
                               <Text fontWeight="semibold" fontSize="2.5rem">
                                  Р2Р площадки
                               </Text>
-                              <Flex flexWrap="wrap" w="full" gap="2.5">
+                              <Flex
+                                 flexWrap="wrap"
+                                 w="full"
+                                 gap="2.5"
+                                 display={{ base: 'none', lg: 'flex' }}
+                              >
                                  {[
                                     'Управление идентификацией',
                                     'Децентрализация',
@@ -100,7 +116,7 @@ export const ThemesEnum = () => {
                         </Flex>
                      </Box>
                      <Box
-                        w="xl"
+                        w={{ base: 'fit', lg: 'xl' }}
                         h="sm"
                         bg="{colors.black}"
                         rounded="3xl"
@@ -150,12 +166,12 @@ export const ThemesEnum = () => {
                      </Box>
                   </Flex>
                </Flex>
-               <Flex direction="column" gap="20">
+               <Flex direction="column" gap={{ base: '10', lg: '20' }}>
                   <ThemesEnumHeading
                      title="3. Децентрализованные финансы (DeFi)"
                      desc="Решения для управления финансами, обмена криптовалютами и упрощения транзакций без посредников."
                   />
-                  <Flex align="center" gap="10">
+                  <Flex direction={{ base: 'column', lg: 'row' }} align="center" gap="10">
                      <ThemesEnumCard
                         title="Децентрализованные обменники (DEX)"
                         desc="обеспечивают работу платформ, где пользователи могут напрямую обмениваться криптовалютами без участия посредников. Технология блокчейна лежит в основе таких платформ, предоставляя прозрачность, безопасность и децентрализацию."
@@ -168,18 +184,25 @@ export const ThemesEnum = () => {
                      />
                   </Flex>
                </Flex>
-               <Flex direction="column" gap="20">
+               <Flex direction="column" gap={{ base: '10', lg: '20' }}>
                   <ThemesEnumHeading
                      title="4. Токенизация и цифровизация активов"
                      desc="Платформы для преобразования физических активов в цифровую форму и создания криптовалют."
                   />
-                  <Flex align="center" gap="10">
+                  <Flex direction={{ base: 'column', lg: 'row' }} align="center" gap="10">
                      <ThemesEnumCard
                         title="Токенизация реальных активов (RWA)"
                         desc="это процесс перевода физических или финансовых активов в цифровую форму (токены), используя технологию блокчейна. Это делает управление, передачу и разделение собственности на активы проще, безопаснее и доступнее."
                         image={rwaCardImage.src}
                      />
-                     <Box w="xl" h="sm" bg="{colors.black}" rounded="3xl" p="6" position="relative">
+                     <Box
+                        w={{ base: 'fit', lg: 'xl' }}
+                        h="sm"
+                        bg="{colors.black}"
+                        rounded="3xl"
+                        p="6"
+                        position="relative"
+                     >
                         <Flex direction="column" gap="6">
                            <Flex direction="column" gap="6">
                               <Text fontWeight="semibold" fontSize="md">
@@ -226,14 +249,15 @@ export const ThemesEnum = () => {
                      title="5. Управление цепочками поставок и учет"
                      desc="Инфраструктурные решения для управления логистикой и хранения данных в распределённом реестре."
                   />
-                  <Flex align="center" gap="10">
+                  <Flex direction={{ base: 'column', lg: 'row' }} align="center" gap="10">
                      <Box
-                        w="md"
+                        w={{ base: 'fit', lg: 'md' }}
                         h="sm"
                         bg="{colors.ctGray}"
                         rounded="3xl"
                         p="6"
                         position="relative"
+                        overflow="auto"
                      >
                         <Flex direction="column" gap="8">
                            <Flex
@@ -277,7 +301,7 @@ export const ThemesEnum = () => {
                         </Flex>
                      </Box>
                      <Box
-                        w="md"
+                        w={{ base: 'fit', lg: 'md' }}
                         h="sm"
                         bg="{colors.ctGray}"
                         rounded="3xl"
@@ -312,7 +336,7 @@ export const ThemesEnum = () => {
                      </Box>
                   </Flex>
                </Flex>
-               <Flex direction="column" gap="20">
+               <Flex direction="column" gap={{ base: '10', lg: '20' }}>
                   <ThemesEnumHeading
                      title="6. Интеллектуальная собственность и авторские права"
                      desc="Решения для защиты и управления правами на интеллектуальную собственность с использованием блокчейна."

@@ -8,18 +8,28 @@ export const ProjectsOurDevelopingWithHeading: FC<ProjectsOurDevelopingWithHeadi
 ) => {
    const { title, description } = props;
    return (
-      <Box maxW="xs">
-         <Flex direction="column" gap="7" align="start">
+      <Box maxW={{ base: '100%', lg: 'xs' }}>
+         <Flex
+            direction="column"
+            gap={{ base: '3', lg: '7' }}
+            align={{ base: 'center', lg: 'start' }}
+         >
             <Heading
                as="h3"
                fontWeight="semibold"
-               fontSize="xl"
+               fontSize={{ base: 'md', lg: 'xl' }}
                lineHeight="2rem"
                className={`${inter.className}`}
+               textAlign={{ base: 'center', lg: 'start' }}
             >
                {title}
             </Heading>
-            <Text fontWeight="light" fontSize="sm" className={`${inter.className}`}>
+            <Text
+               fontWeight="light"
+               fontSize="sm"
+               className={`${inter.className}`}
+               textAlign={{ base: 'center', lg: 'start' }}
+            >
                {description}
             </Text>
          </Flex>

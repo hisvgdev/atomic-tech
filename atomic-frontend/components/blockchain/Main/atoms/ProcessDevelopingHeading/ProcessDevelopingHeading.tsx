@@ -6,9 +6,15 @@ import { ProcessDevelopingHeadingProps } from './ProcessDevelopingHeading.types'
 export const ProcessDevelopingHeading: FC<ProcessDevelopingHeadingProps> = (props) => {
    const {} = props;
    return (
-      <VStack align="start" gap="4">
-         <Box maxW="3xl">
-            <Heading fontSize="4xl" fontWeight="light" className={`${inter.className} leading-10`}>
+      <VStack align={{ base: 'center', lg: 'start' }} gap="4">
+         <Box maxW={{ base: '100%', lg: '3xl' }}>
+            <Heading
+               fontSize={{ base: 'xl', lg: '4xl' }}
+               className={`${inter.className}`}
+               lineHeight={{ base: '2rem', lg: '2.5rem' }}
+               textAlign={{ base: 'center', lg: 'start' }}
+               fontWeight="light"
+            >
                Процесс разработки и{' '}
                <Text as="span" fontWeight="bold">
                   внедрения блокчейн-проекта
@@ -16,7 +22,12 @@ export const ProcessDevelopingHeading: FC<ProcessDevelopingHeadingProps> = (prop
             </Heading>
          </Box>
          <Box maxW="lg">
-            <Text fontSize="sm" fontWeight="light" className={`${inter.className}`}>
+            <Text
+               fontSize="sm"
+               fontWeight="light"
+               textAlign={{ base: 'center', lg: 'start' }}
+               className={`${inter.className}`}
+            >
                Мы разрабатываем{' '}
                <Text as="span" fontWeight="bold">
                   блокчейн-проекты «под ключ»

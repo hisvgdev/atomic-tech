@@ -7,7 +7,13 @@ import ServiceFourColumn from '../../atoms/ServiceFourColumn';
 
 export const ServiceWrapper = () => {
    return (
-      <Flex justify="center" align="center" direction="column" gap="12">
+      <Flex
+         justify="center"
+         align="center"
+         direction="column"
+         gap="12"
+         display={{ base: 'none', lg: 'flex' }}
+      >
          <CustomTitle title="Услуги" italic size="3rem" weight="semibold" />
 
          <Flex direction="column" gap="5">

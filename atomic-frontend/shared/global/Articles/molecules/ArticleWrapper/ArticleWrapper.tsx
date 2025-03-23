@@ -19,12 +19,12 @@ export const ArticleWrapper: FC<ArticleWrapperProps> = (props) => {
    return (
       <Container
          as="section"
-         maxW={Sizes[SizeValues.primaryContainerSize].primary}
+         maxW={{ base: '100%', lg: Sizes[SizeValues.primaryContainerSize].primary }}
          py="28"
          ref={ref}
       >
          <MotionBox initial={{ opacity: 0, y: 50 }} animate={inView ? { opacity: 1, y: 0 } : {}}>
-            <VStack align="start" spaceY={14}>
+            <VStack align={{ base: 'center', lg: 'start' }} spaceY={{ base: '8', lg: '14' }}>
                <CustomTitle title="Статьи" weight="600" size="3rem" italic />
                <Grid templateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }} gap={10} w="full">
                   <ArticleContent />

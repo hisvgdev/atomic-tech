@@ -6,18 +6,26 @@ import revertArrowIcon from '@/public/assets/images/main/revertArrowIcon.svg';
 
 export const ShareForecast = () => {
    return (
-      <Flex direction="column" position="relative">
+      <Flex
+         direction="column"
+         justify={{ base: 'center', lg: 'normal' }}
+         align={{ base: 'center', lg: 'normal' }}
+         position="relative"
+      >
          <Flex direction="column" gap="7">
             <Box maxW="72">
                <Text fontWeight="bold" fontSize="sm" className="uppercase" lineHeight="1.31rem">
                   Расскажем о возможностях для конкретно вашего случая
                </Text>
             </Box>
-            <Flex justify="end" maxW="sm">
+            <Flex justify="end" maxW="sm" display={{ base: 'none', lg: 'flex' }}>
                <Image src={revertArrowIcon} width={167} height={80} alt="revert-arrow-icon" />
             </Flex>
+            <Flex justify="center" align="center" display={{ base: 'block', lg: 'none' }}>
+               <CustomButton text="УЗНАТЬ ПРОГНОЗ" variant={VariantButton.gradient} width="18rem" />
+            </Flex>
          </Flex>
-         <Flex justify="center" align="center">
+         <Flex justify="center" align="center" display={{ base: 'none', lg: 'flex' }}>
             <CustomButton text="УЗНАТЬ ПРОГНОЗ" variant={VariantButton.gradient} width="18rem" />
          </Flex>
       </Flex>

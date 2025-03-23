@@ -4,7 +4,7 @@ import { CustomSplittedTextProps } from './CustomSplittedText.types';
 import { inter } from '@/constants/fonts/inter/inter.constants';
 
 export const CustomSplittedText: FC<CustomSplittedTextProps> = (props) => {
-   const { text, lines, weight = 'bold', size = '2xl', lineHeight = '2.5rem' } = props;
+   const { text, lines, weight = 'bold', size = '2xl', lineHeight = '2.5rem', isCenter } = props;
    const words = text.split(' ');
    const chunkSize = Math.ceil(words.length / lines);
    const chunks = Array.from({ length: lines }, (_, i) =>
@@ -16,10 +16,11 @@ export const CustomSplittedText: FC<CustomSplittedTextProps> = (props) => {
          {chunks.map((chunk, index) => (
             <Text
                key={index}
-               fontSize={size}
+               fontSize={{ base: 'md', lg: size }}
                fontWeight={weight}
                lineHeight={lineHeight}
                className={`${inter.className}`}
+               textAlign={isCenter ? 'center' : ''}
             >
                {chunk}
             </Text>
