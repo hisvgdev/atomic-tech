@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Flex, VStack } from '@chakra-ui/react';
+import { Box, Flex, VStack } from '@chakra-ui/react';
 import { DevelopingPreviewCardsProps } from './DevelopingPreviewCards.types';
 import DevelopingPreviewCard from '../atoms/DevelopingPreviewCard';
 
@@ -27,12 +27,21 @@ export const DevelopingPreviewCards: FC<DevelopingPreviewCardsProps> = (props) =
                text="Ведем еженедельную отчетность в мессенджерах и отвечаем на все вопросы"
                maxWidth="14rem"
             />
+            <Box display={{ base: 'block', lg: 'none' }}>
+               <DevelopingPreviewCard
+                  icon={msgIcon}
+                  text="Слышим клиентов и учитываем ваши пожелания, позволяя принимать участие в разработке"
+                  maxWidth="17rem"
+               />
+            </Box>
          </Flex>
-         <DevelopingPreviewCard
-            icon={msgIcon}
-            text="Слышим клиентов и учитываем ваши пожелания, позволяя принимать участие в разработке"
-            maxWidth="17rem"
-         />
+         <Box display={{ base: 'none', lg: 'block' }}>
+            <DevelopingPreviewCard
+               icon={msgIcon}
+               text="Слышим клиентов и учитываем ваши пожелания, позволяя принимать участие в разработке"
+               maxWidth="17rem"
+            />
+         </Box>
       </VStack>
    );
 };

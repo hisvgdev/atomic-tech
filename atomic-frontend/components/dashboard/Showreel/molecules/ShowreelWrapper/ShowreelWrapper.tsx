@@ -5,8 +5,11 @@ import { Container } from '@chakra-ui/react';
 import { useInView } from 'react-intersection-observer';
 import { MotionBox } from '@/shared/ui/animation';
 import ShowreelContent from '../../atoms/ShowreelContent';
+import { FC } from 'react';
+import { ShowreelWrapperProps } from './ShowreelWrapper.types';
 
-export const ShowreelWrapper = () => {
+export const ShowreelWrapper: FC<ShowreelWrapperProps> = (props) => {
+   const { videoData } = props;
    const { ref, inView } = useInView({
       triggerOnce: true,
       threshold: 0.2,

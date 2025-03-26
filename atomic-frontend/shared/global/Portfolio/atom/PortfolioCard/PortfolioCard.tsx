@@ -3,7 +3,6 @@
 import React from 'react';
 import { Box, Flex, Heading, Stack, Text } from '@chakra-ui/react';
 import { PORTFOLIO_CARDS_DATA } from '../../molecules/PortfolioCards/PortfolioCards.constants';
-import CustomTitle from '@/shared/ui/custom/atom/CustomTitle';
 import Image from 'next/image';
 import CustomBtnSlider from '@/shared/ui/custom/atom/CustomBtnSlider';
 import { useEmblaSlider } from '@/hooks/useEmblaSlider';

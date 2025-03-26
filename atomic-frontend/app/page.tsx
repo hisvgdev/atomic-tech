@@ -1,20 +1,20 @@
-import React, { Suspense } from 'react';
-import Loading from './loading';
-
-const HeaderWrapper = React.lazy(() => import('@/shared/global/Header/cells'));
-const PortfolioLayout = React.lazy(() => import('@/shared/global/Portfolio/cells/PortfolioLayout'));
-const ShowreelLayout = React.lazy(
-   () => import('@/components/dashboard/Showreel/cells/ShowreelLayout'),
-);
-const MainLayout = React.lazy(() => import('@/components/dashboard/Main/cells/MainLayout'));
+import MainLayout from '@/components/dashboard/Main/molecules/MainLayout';
+import ShowreelLayout from '@/components/dashboard/Showreel/cells/ShowreelLayout';
+import ArticleLayout from '@/shared/global/Articles/cells/ArticleLayout';
+import FooterLayout from '@/shared/global/Footer/cells/FooterLayout';
+import HeaderWrapper from '@/shared/global/Header/cells';
+import PortfolioLayout from '@/shared/global/Portfolio/cells/PortfolioLayout';
+import React from 'react';
 
 export default function Home() {
    return (
-      <Suspense fallback={<Loading />}>
+      <>
          <HeaderWrapper />
          <PortfolioLayout />
          <ShowreelLayout />
          <MainLayout />
-      </Suspense>
+         <ArticleLayout />
+         <FooterLayout />
+      </>
    );
 }

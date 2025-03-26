@@ -1,0 +1,1 @@
+export type { MainSectionProps } from './MainSection.types';

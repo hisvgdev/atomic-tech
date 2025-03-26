@@ -25,6 +25,8 @@ import {
 } from '@/shared/ui/chakra/select';
 import { MotionBox } from '@/shared/ui/animation';
 import { Menu } from 'lucide-react';
+import Image from 'next/image';
+import logoIcon from '@/public/assets/images/atomicLogo.svg';
 
 export const NavContent = () => {
    const { theme } = useTheme();
@@ -74,16 +76,9 @@ export const NavContent = () => {
                <Flex justifyContent="space-between" alignItems="center" py={{ base: '2', lg: '4' }}>
                   <Box>
                      <Link href="/">
-                        <Button
-                           borderWidth="1px"
-                           rounded="full"
-                           w="10rem"
-                           py="4"
-                           px="8"
-                           borderColor={theme === 'light' ? 'black' : 'white'}
-                        >
-                           Logo
-                        </Button>
+                        <IconButton variant="ghost">
+                           <Image src={logoIcon} width={120} height={120} alt="" />
+                        </IconButton>
                      </Link>
                   </Box>
 

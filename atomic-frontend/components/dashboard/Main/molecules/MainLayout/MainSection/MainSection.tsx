@@ -4,20 +4,20 @@ import { useTheme } from '@/context/SwitchTheme';
 import { Sizes, SizeValues } from '@/types/frontend/size.types';
 import { Box, Container, Flex } from '@chakra-ui/react';
 import React from 'react';
-import AboutMain from '../../atoms/AboutMain';
-import MoreClientsWrapper from '../MoreClients/cells';
-import TeamSection from '../../atoms/TeamSection';
-import ForecastSection from '../ForecastWrapper';
-import TechnologyWrapper from '../TechnologyWrapper';
-import ServiceWrapper from '../ServiceWrapper';
 import clsx from 'clsx';
+import AboutMain from '../../../atoms/AboutMain';
+import TeamSection from '../../../atoms/TeamWrapper/TeamSection';
+import ForecastSection from '../../ForecastWrapper';
+import TechnologyWrapper from '../../TechnologyWrapper';
+import ServiceWrapper from '../../ServiceWrapper';
+import MoreClientsWrapper from '../../MoreClients/cells';
 
-export const MainWrapper = () => {
+export const MainSection = () => {
    const { theme } = useTheme();
    return (
       <Box
          className={clsx(
-            'overflow-hidden',
+            'overflow-hidden h-full',
             theme === 'light'
                ? 'bg-white text-gray-800 shadow-md'
                : 'bg-[#232323] text-white shadow-lg',

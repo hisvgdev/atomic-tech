@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import { Provider } from '@/shared/ui/chakra/provider';
-import FooterLayout from '@/shared/global/Footer/cells/FooterLayout';
-import ArticleLayout from '@/shared/global/Articles/cells/ArticleLayout';
 import { SwitchThemeContext } from '@/context/SwitchTheme';
 import './globals.css';
 
@@ -29,8 +27,6 @@ export default function RootLayout({
          <body className="overflow-auto">
             <Provider>
                <SwitchThemeContext>{children}</SwitchThemeContext>
-               <ArticleLayout />
-               <FooterLayout />
             </Provider>
          </body>
       </html>

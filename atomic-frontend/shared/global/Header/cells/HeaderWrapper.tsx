@@ -24,7 +24,7 @@ export const HeaderWrapper = () => {
    return (
       <Box
          className={clsx(
-            'overflow-hidden h-screen',
+            'h-auto',
             theme === 'light' ? 'bg-white text-gray-800' : 'bg-black text-white',
          )}
          borderBottomRadius={{ base: '3rem', lg: '15rem' }}

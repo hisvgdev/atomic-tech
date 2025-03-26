@@ -1,19 +1,14 @@
-'use client';
-
 import CustomTitle from '@/shared/ui/custom/atom/CustomTitle';
 import { Button, Flex, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import React, { FC, useState } from 'react';
 import YouTube from 'react-youtube';
 import atomicCodePreviewVideo from '@/public/assets/images/atomicCodePreviewVideo.png';
-import atomicCodeStartVideo from '@/public/assets/images/atomicCodeStartVideo.svg';
+import atomicCodePlayVideo from '@/public/assets/images/atomicCodeStartVideo.svg';
 import { ShowreelContentProps } from './ShowreelContent.types';
 import { inter } from '@/constants/fonts/inter/inter.constants';
-import { useIsMobile } from '@/hooks/useMediaQuery';
 
 export const ShowreelContent: FC<ShowreelContentProps> = (props) => {
-   const {} = props;
-   const isMobile = useIsMobile();
    const [isPlaying, setIsPlaying] = useState(false);
 
    const videoOptions = {
@@ -23,16 +18,11 @@ export const ShowreelContent: FC<ShowreelContentProps> = (props) => {
          autoplay: 1,
       },
    };
+
    return (
       <Flex direction="column" gap={12} align="center">
          <Flex direction="column" justify="center" align="center" gap="7">
-            <CustomTitle
-               size="3rem"
-               title="Посмотрите шоурил"
-               weight="semibold"
-               isCenter={isMobile ? true : false}
-               italic
-            />
+            <CustomTitle size="3rem" title="Посмотрите шоурил" weight="semibold" italic />
             <Text
                fontWeight="light"
                maxW={{ base: '100%', lg: '65%' }}
@@ -44,7 +34,6 @@ export const ShowreelContent: FC<ShowreelContentProps> = (props) => {
                <b className="font-bold italic">наших проектов</b>
             </Text>
          </Flex>
-
          {!isPlaying ? (
             <Flex
                position="relative"
@@ -61,12 +50,7 @@ export const ShowreelContent: FC<ShowreelContentProps> = (props) => {
                   className="object-cover"
                />
                <Button position="absolute">
-                  <Image
-                     src={atomicCodeStartVideo}
-                     width={isMobile ? 50 : 100}
-                     height={isMobile ? 50 : 100}
-                     alt=""
-                  />
+                  <Image src={atomicCodePlayVideo} alt="play-button" />
                </Button>
             </Flex>
          ) : (
