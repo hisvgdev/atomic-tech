@@ -8,8 +8,10 @@ import PortfolioBtnActions from '../../atom/PortfolioBtnActions';
 import { PortfolioCards } from '../PortfolioCards';
 import { useInView } from 'react-intersection-observer';
 import { MotionBox } from '@/shared/ui/animation';
+import { usePathname } from 'next/navigation';
 
 export const PortfolioWrapper = () => {
+   const pathname = usePathname();
    const { ref, inView } = useInView({
       triggerOnce: true,
       threshold: 0.2,
@@ -20,7 +22,7 @@ export const PortfolioWrapper = () => {
          as="section"
          mx="auto"
          maxW={Sizes[SizeValues.primaryContainerSize].primary}
-         py="28"
+         py={pathname.includes('/blockchain') ? '' : '28'}
          ref={ref}
       >
          <MotionBox initial={{ opacity: 0, y: 50 }} animate={inView ? { opacity: 1, y: 0 } : {}}>

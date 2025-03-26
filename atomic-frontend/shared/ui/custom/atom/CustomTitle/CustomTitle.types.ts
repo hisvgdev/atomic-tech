@@ -4,4 +4,5 @@ export interface CustomTitleProps {
   title: string
   weight: string;
   lineHeight?: string;
+  isCenter?: boolean;
 }

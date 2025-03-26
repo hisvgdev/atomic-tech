@@ -12,9 +12,11 @@ export const MoreClientsHeading = () => {
          <Flex direction="column" gap="1" align="center" justifyContent="center">
             <Box maxW="4xl">
                <CustomTitle
+                  lineHeight={isMobile ? '2.2rem' : '4rem'}
                   title="Более 235 благодарных клиентов"
                   weight="bold"
-                  lineHeight={isMobile ? '' : '4rem'}
+                  size={isMobile ? '2rem' : '4rem'}
+                  isCenter
                />
             </Box>
             <Box>
