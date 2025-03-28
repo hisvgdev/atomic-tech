@@ -1,13 +1,10 @@
+import MainLayout from '@/components/blockchain/Main/organism/MainLayout';
+import OurBenefitsLayout from '@/components/blockchain/OurBenefits/organism/OurBenefitsLayout';
+import ArticleLayout from '@/shared/global/Articles/cells/ArticleLayout';
+import Feedbacks from '@/shared/global/Feedbacks/molecules/Feedbacks';
+import FooterLayout from '@/shared/global/Footer/cells/FooterLayout';
+import HeaderWrapper from '@/shared/global/Header/cells';
 import React from 'react';
-
-const HeaderWrapper = React.lazy(() => import('@/shared/global/Header/cells'));
-const OurBenefitsLayout = React.lazy(
-   () => import('@/components/blockchain/OurBenefits/organism/OurBenefitsLayout'),
-);
-const FeedbacksWrapper = React.lazy(() => import('@/shared/global/Feedbacks/molecules/Feedbacks'));
-const MainLayout = React.lazy(() => import('@/components/blockchain/Main/organism/MainLayout'));
-const ArticleLayout = React.lazy(() => import('@/shared/global/Articles/cells/ArticleLayout'));
-const FooterLayout = React.lazy(() => import('@/shared/global/Footer/cells/FooterLayout'));
 
 export const metadata = {
    title: 'Blockchain',
@@ -20,7 +17,7 @@ export default function Blockchain() {
          <HeaderWrapper />
          <OurBenefitsLayout />
          <MainLayout />
-         <FeedbacksWrapper isBgWhite withSpacing withTitle />
+         <Feedbacks isBgWhite withSpacing withTitle />
          <ArticleLayout />
          <FooterLayout />
       </>

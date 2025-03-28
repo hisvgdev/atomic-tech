@@ -1,13 +1,10 @@
+import MainWrapper from '@/components/chat-bots/Main/molecules/MainWrapper';
+import ArticleLayout from '@/shared/global/Articles/cells/ArticleLayout';
+import Feedbacks from '@/shared/global/Feedbacks/molecules/Feedbacks';
+import FooterLayout from '@/shared/global/Footer/cells/FooterLayout';
+import HeaderWrapper from '@/shared/global/Header/cells';
+import PortfolioWrapper from '@/shared/global/Portfolio/molecules/PortfolioWrapper';
 import React from 'react';
-
-const HeaderWrapper = React.lazy(() => import('@/shared/global/Header/cells'));
-const PortfolioWrapper = React.lazy(
-   () => import('@/shared/global/Portfolio/molecules/PortfolioWrapper'),
-);
-const MainWrapper = React.lazy(() => import('@/components/chat-bots/Main/organism/MainLayout'));
-const Feedbacks = React.lazy(() => import('@/shared/global/Feedbacks/molecules/Feedbacks'));
-const ArticleLayout = React.lazy(() => import('@/shared/global/Articles/cells/ArticleLayout'));
-const FooterLayout = React.lazy(() => import('@/shared/global/Footer/cells/FooterLayout'));
 
 export const metadata = {
    title: 'Chatbots',
