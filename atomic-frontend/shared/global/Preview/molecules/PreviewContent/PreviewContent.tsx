@@ -1,9 +1,12 @@
+'use client';
+
 import CustomButton, { VariantButton } from '@/shared/ui/custom/atom/CustomButton';
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import { Inter } from 'next/font/google';
 import Image from 'next/image';
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { PreviewContentProps } from './PreviewContent.types';
+import ContactRequestLayout from '@/shared/global/ContactRequest/organism';
 
 const inter = Inter({
    weight: ['300', '700'],
@@ -14,6 +17,10 @@ const inter = Inter({
 
 export const PreviewContent: FC<PreviewContentProps> = (props) => {
    const { title, imgSrc, width, height } = props;
+   const [isOpen, setIsOpen] = useState(false);
+
+   const handleOpen = () => setIsOpen(true);
+   const handleClose = () => setIsOpen(false);
    return (
       <Box>
          <Flex direction="row" gap={{ base: '5', lg: '14' }} align="center">
@@ -54,6 +61,7 @@ export const PreviewContent: FC<PreviewContentProps> = (props) => {
                         variant={VariantButton.default}
                         text="Обсудить проект"
                         width="17rem"
+                        onClick={handleOpen}
                      />
                   </Box>
                </Flex>
@@ -68,6 +76,7 @@ export const PreviewContent: FC<PreviewContentProps> = (props) => {
                />
             </Box>
          </Flex>
+         <ContactRequestLayout handleClose={handleClose} handleOpen={handleOpen} isOpen={isOpen} />
       </Box>
    );
 };

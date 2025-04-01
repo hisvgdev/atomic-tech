@@ -1,0 +1,1 @@
+export { CustomBackPage as default } from './CustomBackPage';

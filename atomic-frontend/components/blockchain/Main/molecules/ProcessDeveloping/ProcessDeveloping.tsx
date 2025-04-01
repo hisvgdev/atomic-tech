@@ -1,12 +1,18 @@
+'use client';
+
 import CustomButton, { VariantButton } from '@/shared/ui/custom/atom/CustomButton';
 import { Box, Flex } from '@chakra-ui/react';
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { ProcessDevelopingProps } from './ProcessDeveloping.types';
 import ProcessDevelopingHeading from '../../atoms/ProcessDevelopingHeading';
 import ProcessStep from '../../atoms/ProcessStep';
+import ContactRequestLayout from '@/shared/global/ContactRequest/organism';
 
 export const ProcessDeveloping: FC<ProcessDevelopingProps> = (props) => {
    const {} = props;
+   const [isOpen, setIsOpen] = useState(false);
+   const handleOpen = () => setIsOpen(true);
+   const handleClose = () => setIsOpen(false);
    return (
       <Box>
          <Flex direction="column" gap="20">
@@ -49,11 +55,13 @@ export const ProcessDeveloping: FC<ProcessDevelopingProps> = (props) => {
                         variant={VariantButton.gradient}
                         width="22.5rem"
                         isUppercase
+                        onClick={handleOpen}
                      />
                   </Flex>
                </Flex>
             </Box>
          </Flex>
+         <ContactRequestLayout handleOpen={handleOpen} handleClose={handleClose} isOpen={isOpen} />
       </Box>
    );
 };

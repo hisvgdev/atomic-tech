@@ -20,7 +20,6 @@ import clsx from 'clsx';
 export const HeaderWrapper = () => {
    const { theme, handleChangeTheme } = useTheme();
    const pathname = usePathname();
-
    return (
       <Box
          className={clsx(

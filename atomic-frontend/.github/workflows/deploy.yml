@@ -1,4 +1,4 @@
-name: Deploy to Server
+name: Deploy
 
 on:
    push:
@@ -8,3 +8,7 @@ on:
 jobs:
    deploy:
       runs-on: ubuntu-latest
+   steps:
+      - env:
+           SRV_TOKEN: ${{ secrets.SERVER_TOKEN }}
+        run:

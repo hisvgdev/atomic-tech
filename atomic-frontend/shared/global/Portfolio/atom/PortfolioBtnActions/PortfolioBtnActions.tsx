@@ -2,19 +2,21 @@ import { Box, Button, Flex, Text } from '@chakra-ui/react';
 import React, { FC, useState } from 'react';
 import { PortfolioBtnActionsProps } from './PortfolioBtnActions.types';
 import { inter } from '@/constants/fonts/inter/inter.constants';
+import { usePathname } from 'next/navigation';
 
 export const PortfolioBtnActions: FC<PortfolioBtnActionsProps> = () => {
    const [activeIndex, setActiveIndex] = useState<number>(0);
-
+   const pathname = usePathname();
    const handleFindActiveIndex = (idx: number) => {
       setActiveIndex(idx);
    };
-
+   const specificRoute = ['/articles', '/portfolio'].includes(pathname);
    return (
       <Flex
          align="center"
-         justify={{ base: 'center', lg: undefined }}
          mx="auto"
+         width={{ base: undefined, lg: specificRoute ? 'full' : undefined }}
+         justify={{ base: 'center', lg: specificRoute ? 'space-between' : undefined }}
          gap={{ base: '4', lg: '8' }}
          flexWrap={{ base: 'wrap', smToLg: 'wrap' }}
       >

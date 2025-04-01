@@ -1,8 +1,14 @@
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+import { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
    return {
-      title: `Portfolio - ${params.slug}`,
+      title: `${params.slug}`,
       description: '',
    };
+}
+
+export async function generateStaticParams() {
+  return []
 }
 
 export default function Portfolioes({ params }: { params: { slug: string } }) {

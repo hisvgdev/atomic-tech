@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import { CustomButtonProps } from './CustomButton.types';
 
 export const CustomButton: FC<CustomButtonProps> = (props) => {
-   const { text, width, variant, isUppercase } = props;
+   const { text, width, variant, isUppercase, onClick } = props;
 
    const buttonStyles =
       variant === 'gradient'
@@ -32,8 +32,9 @@ export const CustomButton: FC<CustomButtonProps> = (props) => {
          rounded="full"
          py={{ base: '3', lg: '6' }}
          px={{ base: '5', lg: '10' }}
-         {...buttonStyles}
          className={`${isUppercase ? 'uppercase' : ''}`}
+         onClick={onClick ? onClick : undefined}
+         {...buttonStyles}
       >
          {text}
       </Button>

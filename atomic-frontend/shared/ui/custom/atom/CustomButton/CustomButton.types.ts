@@ -3,6 +3,7 @@ export interface CustomButtonProps {
   width: string;
   variant: VariantButton
   isUppercase?: boolean;
+  onClick?: () => void;
 }
 
 export enum VariantButton {

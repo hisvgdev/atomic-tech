@@ -1,5 +1,5 @@
 export const metadata = {
-   title: 'Portfolio',
+   title: "Портфолио",
    description: "This is a portfolio page who's developing in our atomic teams",
 };
 

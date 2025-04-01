@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next'
 
 export default async function sitemap(props: any): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://atomic-code.ru/'
+
   return [
     {
       url: baseUrl,
@@ -10,23 +11,27 @@ export default async function sitemap(props: any): Promise<MetadataRoute.Sitemap
       priority: 1,
     },
     {
-      url: 'https://atomic-code.ru/dashboard',
+      url: `${baseUrl}/chat-bots`,
       lastModified: new Date(),
     },
     {
-      url: 'https://atomic-code.ru/chat-bots',
+      url: `${baseUrl}/websites`,
       lastModified: new Date(),
     },
     {
-      url: 'https://atomic-code.ru/websites',
+      url: `${baseUrl}/mobile-apps`,
       lastModified: new Date(),
     },
     {
-      url: 'https://atomic-code.ru/mobile-apps',
+      url: `${baseUrl}/blockchain`,
       lastModified: new Date(),
     },
     {
-      url: 'https://atomic-code.ru/blockchain-projects',
+      url: `${baseUrl}/portfolio`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/articles`,
       lastModified: new Date(),
     },
   ]

@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
-    const baseUrl = 'https://atomic-code.ru/'
+    const baseUrl = 'https://atomic-tech.ru/'
     return {
         rules: {
             userAgent: '*',
