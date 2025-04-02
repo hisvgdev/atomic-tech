@@ -1,6 +1,5 @@
 'use client';
 
-import { useTheme } from '@/context/SwitchTheme';
 import { Sizes, SizeValues } from '@/types/frontend/size.types';
 import { Box, Container, Flex } from '@chakra-ui/react';
 import clsx from 'clsx';
@@ -8,6 +7,7 @@ import React from 'react';
 import InfinitySloganLine from '../../../../../shared/global/InfinitySloganLine';
 import DevWorkLayout from '@/shared/global/DevWork/organism';
 import { ProjectsOurDeveloping } from '@/shared/global/ProjectsOurDeveloping/molecules/ProjectsOurDeveloping';
+import { useTheme } from 'next-themes';
 
 export const MainWrapper = () => {
    const { theme } = useTheme();
