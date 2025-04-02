@@ -7,4 +7,5 @@ export interface HeaderSectionProps {
   titleWidth?: string;
   children: React.ReactNode
   isCenter?: boolean
+  isInsideToMain?: boolean;
 }

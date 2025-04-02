@@ -14,7 +14,7 @@ export const TechnologyIcon: FC<TechnologyIconProps> = (props) => {
          textAlign="center"
       >
          <Image src={icon} alt={`${title}-icon`} width={width} height={height} />
-         <Text fontSize="0.875rem" fontWeight="light" color="white">
+         <Text fontSize="0.875rem" fontWeight="light">
             {title}
          </Text>
       </Box>

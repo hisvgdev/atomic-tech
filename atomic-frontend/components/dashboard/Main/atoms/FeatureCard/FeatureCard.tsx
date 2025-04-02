@@ -9,7 +9,7 @@ export const FeatureCard: FC<FeatureCardProps> = (props) => {
       <Box
          w="full"
          h="17rem"
-         bg="#FFFFFF1A"
+         bg={{ base: '#F4F4F4', _dark: '#FFFFFF1A' }}
          borderRadius="2xl"
          p={6}
          display="flex"
@@ -19,20 +19,10 @@ export const FeatureCard: FC<FeatureCardProps> = (props) => {
       >
          {reverse ? (
             <VStack align="start" spaceY={4}>
-               <Heading
-                  size="md"
-                  color="white"
-                  fontWeight="semibold"
-                  className={`${inter.className}`}
-               >
+               <Heading size="md" fontWeight="semibold" className={`${inter.className}`}>
                   {title}
                </Heading>
-               <Text
-                  fontSize="sm"
-                  color="white"
-                  fontWeight="normal"
-                  className={`${inter.className}`}
-               >
+               <Text fontSize="sm" fontWeight="normal" className={`${inter.className}`}>
                   {description}
                </Text>
             </VStack>
@@ -57,21 +47,11 @@ export const FeatureCard: FC<FeatureCardProps> = (props) => {
          )}
 
          {!reverse ? (
-            <VStack align="start" spaceY={4}>
-               <Heading
-                  size="md"
-                  fontWeight="semibold"
-                  color="white"
-                  className={`${inter.className}`}
-               >
+            <VStack align="start" spaceY="4">
+               <Heading size="md" fontWeight="semibold" className={`${inter.className}`}>
                   {title}
                </Heading>
-               <Text
-                  fontSize="sm"
-                  color="white"
-                  fontWeight="normal"
-                  className={`${inter.className}`}
-               >
+               <Text fontSize="sm" fontWeight="normal" className={`${inter.className}`}>
                   {description}
                </Text>
             </VStack>

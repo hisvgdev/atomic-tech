@@ -4,7 +4,7 @@ import { Heading } from '@chakra-ui/react';
 import { inter } from '@/constants/fonts/inter/inter.constants';
 
 export const CustomTitle: FC<CustomTitleProps> = (props) => {
-   const { size, title, italic, weight, isCenter, lineHeight } = props;
+   const { size, title, italic, weight, isCenter, isInsideInCenter, lineHeight } = props;
    return (
       <Heading
          fontWeight={weight}
@@ -13,7 +13,7 @@ export const CustomTitle: FC<CustomTitleProps> = (props) => {
          lineHeight={{ base: lineHeight ? lineHeight : '3rem', md: lineHeight }}
          textAlign={{ base: 'center', lg: 'start' }}
          className={`${inter.className}`}
-         color="white"
+         color={{ base: isInsideInCenter ? 'black' : 'white', _dark: 'white' }}
          style={{
             textAlign: isCenter ? 'center' : 'start',
          }}

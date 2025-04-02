@@ -17,7 +17,7 @@ export const ServiceFourColumn = () => {
             rounded="1.25rem"
             textAlign="center"
          >
-            <Text fontWeight="bold" fontSize="1.56rem">
+            <Text fontWeight="bold" fontSize="1.56rem" color="white">
                Сайты
             </Text>
          </Box>
@@ -32,7 +32,7 @@ export const ServiceFourColumn = () => {
          >
             <Image src={atomicServiceJoystick} width={735} height={368} alt="joystick" />
             <Box position="absolute" right="10%" bottom="5%">
-               <Text fontWeight="bold" fontSize="1.56rem">
+               <Text fontWeight="bold" fontSize="1.56rem" color="white">
                   Игры
                </Text>
             </Box>

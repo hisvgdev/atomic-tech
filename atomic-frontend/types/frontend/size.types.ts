@@ -1,5 +1,5 @@
 enum ContainerSizes {
-  primary = "72.5rem",
+  primary = "6xl",
 }
 
 export enum SizeValues {

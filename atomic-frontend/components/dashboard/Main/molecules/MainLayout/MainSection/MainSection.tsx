@@ -1,10 +1,8 @@
 'use client';
 
-import { useTheme } from '@/context/SwitchTheme';
 import { Sizes, SizeValues } from '@/types/frontend/size.types';
 import { Box, Container, Flex } from '@chakra-ui/react';
 import React from 'react';
-import clsx from 'clsx';
 import AboutMain from '../../../atoms/AboutMain';
 import TeamSection from '../../../atoms/TeamWrapper/TeamSection';
 import ForecastSection from '../../ForecastWrapper';
@@ -13,15 +11,10 @@ import ServiceWrapper from '../../ServiceWrapper';
 import MoreClientsWrapper from '../../MoreClients/cells';
 
 export const MainSection = () => {
-   const { theme } = useTheme();
    return (
       <Box
-         className={clsx(
-            'overflow-hidden h-full',
-            theme === 'light'
-               ? 'bg-white text-gray-800 shadow-md'
-               : 'bg-[#232323] text-white shadow-lg',
-         )}
+         className="overflow-hidden h-full"
+         bg={{ base: '{colors.light}', _dark: '{colors.secondaryDark}' }}
          rounded={{ base: '3rem', lg: '15rem' }}
       >
          <Box

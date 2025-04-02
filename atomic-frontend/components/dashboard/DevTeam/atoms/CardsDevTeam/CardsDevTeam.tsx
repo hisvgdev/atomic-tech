@@ -187,13 +187,15 @@ export const CardsDevTeam = () => {
                bg="whiteAlpha.200"
                backdropFilter="blur(10px)"
                rounded="3xl"
+               style={{
+                  boxShadow: '0px 4px 15px 0px #FFFFFF26 inset',
+               }}
                p={6}
             >
                <Text
                   fontSize="sm"
                   fontWeight="medium"
                   maxW="52"
-                  color="white"
                   className={`${inter.className} leading-6`}
                >
                   Создаем продукты,{' '}
@@ -202,7 +204,7 @@ export const CardsDevTeam = () => {
                   </Text>
                   вашему бизнесу
                </Text>
-               <Box w="17.8rem" h="8.75rem">
+               <Box w="auto" h="auto">
                   <CustomChart />
                </Box>
             </MotionBox>

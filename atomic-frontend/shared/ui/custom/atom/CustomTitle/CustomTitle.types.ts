@@ -5,4 +5,5 @@ export interface CustomTitleProps {
   weight: string;
   lineHeight?: string;
   isCenter?: boolean;
+  isInsideInCenter?: boolean;
 }

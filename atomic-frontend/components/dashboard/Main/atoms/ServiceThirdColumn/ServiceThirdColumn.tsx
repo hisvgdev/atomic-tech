@@ -5,9 +5,11 @@ import atomicServiceLeftHand from '@/public/assets/images/main/service/atomicSer
 import atomicServiceRightHand from '@/public/assets/images/main/service/atomicServiceRightHand.svg';
 import atomicServiceBot from '@/public/assets/images/main/service/atomicServiceBot.svg';
 import { ServiceThirdColumnProps } from './ServiceThirdColumn.types';
+import { useTheme } from 'next-themes';
 
 export const ServiceThirdColumn: FC<ServiceThirdColumnProps> = (props) => {
    const {} = props;
+   const { theme } = useTheme();
    return (
       <Flex justify="center" align="center" gap="10">
          <Box bg="#97C5FF" w="16rem" rounded="1.25rem" p="16" textAlign="center">
@@ -48,7 +50,7 @@ export const ServiceThirdColumn: FC<ServiceThirdColumnProps> = (props) => {
             align="end"
          >
             <Image src={atomicServiceBot} width={135} height={95} alt="bot" />
-            <Text fontWeight="bold" fontSize="4">
+            <Text fontWeight="bold" fontSize="4" color="white">
                Телеграм бот
             </Text>
          </Flex>

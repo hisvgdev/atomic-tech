@@ -1,24 +1,17 @@
 'use client';
 
-import { useTheme } from '@/context/SwitchTheme';
 import { Sizes, SizeValues } from '@/types/frontend/size.types';
 import { Box, Container, Flex } from '@chakra-ui/react';
-import clsx from 'clsx';
 import React from 'react';
 import InfinitySloganLine from '../../../../../shared/global/InfinitySloganLine';
 import { ProjectsOurDeveloping } from '@/shared/global/ProjectsOurDeveloping/molecules/ProjectsOurDeveloping';
 import SendApplication from '@/shared/global/SendApplication/organism';
 
 export const MainWrapper = () => {
-   const { theme } = useTheme();
    return (
       <Box
-         className={clsx(
-            'overflow-hidden rounded-[15rem] py-28',
-            theme === 'light'
-               ? 'bg-white text-gray-800 shadow-md'
-               : 'bg-[#232323] text-white shadow-lg',
-         )}
+         className="overflow-hidden rounded-[15rem] py-28"
+         bg={{ base: '{colors.light}', _dark: '{colors.secondaryDark}' }}
          py={{ base: '14', lg: '28' }}
          borderRadius={{ base: '5rem', lg: '15rem' }}
       >

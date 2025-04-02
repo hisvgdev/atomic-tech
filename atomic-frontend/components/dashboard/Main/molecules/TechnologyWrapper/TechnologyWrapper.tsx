@@ -43,13 +43,9 @@ export const TechnologyWrapper = () => {
                title="Используем десятки инструментов и сервисов под любые задачи и бюджет"
                fontSizeMobile="1.75rem"
                isCenter
+               isInsideToMain
             >
-               <Text
-                  fontSize="1rem"
-                  fontWeight="light"
-                  color="white"
-                  className={`${inter.className}`}
-               >
+               <Text fontSize="1rem" fontWeight="light" className={`${inter.className}`}>
                   Предлагаем{' '}
                   <Text as="span" fontStyle="italic" fontWeight="semibold">
                      несколько решений

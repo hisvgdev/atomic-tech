@@ -14,7 +14,7 @@ export const ProcessDeveloping: FC<ProcessDevelopingProps> = (props) => {
    const handleOpen = () => setIsOpen(true);
    const handleClose = () => setIsOpen(false);
    return (
-      <Box>
+      <>
          <Flex direction="column" gap="20">
             <ProcessDevelopingHeading />
             <Box w="full" h="full">
@@ -62,6 +62,6 @@ export const ProcessDeveloping: FC<ProcessDevelopingProps> = (props) => {
             </Box>
          </Flex>
          <ContactRequestLayout handleOpen={handleOpen} handleClose={handleClose} isOpen={isOpen} />
-      </Box>
+      </>
    );
 };

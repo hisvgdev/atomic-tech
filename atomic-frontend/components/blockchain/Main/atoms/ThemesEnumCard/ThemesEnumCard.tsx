@@ -8,19 +8,24 @@ export const ThemesEnumCard: FC<ThemesEnumCardProps> = (props) => {
    return (
       <Box
          w={{ base: 'fit', lg: 'xl' }}
+         bg="{colors.thirtaryDark}"
          h="sm"
-         bg="{colors.black}"
-         rounded="3xl"
          p="6"
-         overflow="hidden"
+         rounded="3xl"
+         overflow="auto"
       >
          <Flex direction="column" gap={{ base: '4', lg: '12' }}>
             <Flex direction="column" gap={{ base: '3', lg: '6' }}>
-               <Text fontWeight="semibold" fontSize="1.4rem">
+               <Text fontWeight="semibold" fontSize="1.4rem" color="white">
                   {title}
                </Text>
                <Box w="full" overflow="hidden">
-                  <Text fontSize="sm" className={`${inter.className}`} fontWeight="light">
+                  <Text
+                     color="white"
+                     fontSize="sm"
+                     className={`${inter.className}`}
+                     fontWeight="light"
+                  >
                      {desc}
                   </Text>
                </Box>

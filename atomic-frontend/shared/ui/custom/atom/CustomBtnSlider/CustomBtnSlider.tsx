@@ -1,10 +1,14 @@
+'use client';
+
 import { Flex, Box, Button } from '@chakra-ui/react';
 import React, { FC } from 'react';
 import { CustomBtnSliderProps } from './CustomBtnSlider.types';
 import { MoveLeft, MoveRight } from 'lucide-react';
+import { useTheme } from 'next-themes';
 
 export const CustomBtnSlider: FC<CustomBtnSliderProps> = (props) => {
    const { slideNext, slidePrev } = props;
+   const { theme } = useTheme();
    return (
       <Box>
          <Flex w="full" justify="center" align="center" gap="10">
@@ -12,19 +16,20 @@ export const CustomBtnSlider: FC<CustomBtnSliderProps> = (props) => {
                rounded="full"
                w={{ base: '10', lg: '14' }}
                h={{ base: '10', lg: '14' }}
-               border="1px solid white"
+               borderWidth="1px"
+               borderColor={{ base: 'black', _dark: 'white' }}
                onClick={slidePrev ? slidePrev : undefined}
             >
-               <MoveLeft color="white" />
+               <MoveLeft color={theme === 'light' ? 'black' : 'white'} />
             </Button>
             <Button
                rounded="full"
                w={{ base: '10', lg: '14' }}
                h={{ base: '10', lg: '14' }}
-               bg="white"
+               bg={{ base: 'black', _dark: 'white' }}
                onClick={slideNext ? slideNext : undefined}
             >
-               <MoveRight color="black" />
+               <MoveRight color={theme === 'light' ? 'white' : 'black'} />
             </Button>
          </Flex>
       </Box>

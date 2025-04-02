@@ -18,7 +18,7 @@ export const PortfolioCard = () => {
                   key={ptCards.id}
                   flex={{ base: '0 0 100%', smToLg: '0 0 100%', lg: '0 0 33.333%' }}
                   minW="0"
-                  p="2"
+                  p={{ base: '6', lg: '2' }}
                >
                   <Stack spaceY={9} align="start">
                      <Image src={ptCards.img} width={360} height={410} alt="" />
@@ -27,6 +27,7 @@ export const PortfolioCard = () => {
                            fontSize="xl"
                            fontWeight="extrabold"
                            fontStyle="italic"
+                           color="white"
                            className={`${inter.className}`}
                         >
                            {ptCards.title}

@@ -22,6 +22,7 @@ export const MoreClientsHeading = () => {
                      weight="bold"
                      size={isMobile ? '2rem' : '4rem'}
                      isCenter
+                     isInsideInCenter
                   />
                </Box>
                <Box>

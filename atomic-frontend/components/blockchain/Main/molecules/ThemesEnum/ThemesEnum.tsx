@@ -18,8 +18,10 @@ import ethIcon from '@/public/assets/images/blockchain/ethIcon.svg';
 import solanaIcon from '@/public/assets/images/blockchain/solanaIcon.svg';
 import { Briefcase, Medal, Music2, RussianRuble, ShieldHalf } from 'lucide-react';
 import InfoCard from '../../atoms/InfoCard';
+import { useTheme } from 'next-themes';
 
 export const ThemesEnum = () => {
+   const { theme } = useTheme();
    return (
       <Flex direction="column" gap="28">
          <Box maxW={{ base: 'full', lg: '6xl' }}>
@@ -58,14 +60,14 @@ export const ThemesEnum = () => {
                      <Box
                         w={{ base: 'fit', lg: 'xl' }}
                         h="sm"
-                        bg="{colors.black}"
+                        bg="{colors.thirtaryDark}"
                         rounded="3xl"
                         p="6"
-                        overflow="hidden"
+                        overflow="auto"
                      >
                         <Flex direction="column" gap="6">
-                           <Flex direction="column" gap="6">
-                              <Text fontWeight="semibold" fontSize="2.5rem">
+                           <Flex direction="column" gap="3">
+                              <Text fontWeight="semibold" fontSize="2.5rem" color="white">
                                  Р2Р площадки
                               </Text>
                               <Flex
@@ -85,13 +87,14 @@ export const ThemesEnum = () => {
                                        <Box
                                           bgColor="#A0CDFD"
                                           rounded="3.75rem"
-                                          p="2"
+                                          p="1"
                                           key={`${item}-${idx}`}
                                        >
                                           <Text
                                              fontSize="sm"
                                              fontWeight="normal"
                                              className={`${inter.className}`}
+                                             color="white"
                                           >
                                              {item}
                                           </Text>
@@ -105,6 +108,7 @@ export const ThemesEnum = () => {
                                  fontSize="sm"
                                  className={`${inter.className}`}
                                  fontWeight="light"
+                                 color="white"
                               >
                                  Представляют собой использование технологии распределённого реестра
                                  для создания децентрализованных платформ, где пользователи могут
@@ -118,7 +122,7 @@ export const ThemesEnum = () => {
                      <Box
                         w={{ base: 'fit', lg: 'xl' }}
                         h="sm"
-                        bg="{colors.black}"
+                        bg="{colors.thirtaryDark}"
                         rounded="3xl"
                         p="6"
                         overflow="hidden"
@@ -126,11 +130,11 @@ export const ThemesEnum = () => {
                      >
                         <Flex direction="column" gap="6">
                            <Flex direction="column" gap="6">
-                              <Text fontWeight="semibold" fontSize="2.5rem">
+                              <Text fontWeight="semibold" fontSize="2.5rem" color="white">
                                  Маркетплейсы
                               </Text>
                               <Box pl="4" maxW="96">
-                                 <List.Root spaceY="2" listStyle="disc">
+                                 <List.Root spaceY="2" listStyle="disc" color="white">
                                     <List.Item className={`${inter.className}`} fontWeight="light">
                                        Технология позволяет автоматизировать процессы
                                     </List.Item>
@@ -198,18 +202,22 @@ export const ThemesEnum = () => {
                      <Box
                         w={{ base: 'fit', lg: 'xl' }}
                         h="sm"
-                        bg="{colors.black}"
+                        bg="{colors.thirtaryDark}"
                         rounded="3xl"
                         p="6"
                         position="relative"
                      >
                         <Flex direction="column" gap="6">
                            <Flex direction="column" gap="6">
-                              <Text fontWeight="semibold" fontSize="md">
+                              <Text fontWeight="semibold" fontSize="md" color="white">
                                  Создание монет (токенов)
                               </Text>
                               <Box maxW="80" overflow="hidden">
-                                 <Text fontWeight="light" className={`${inter.className}`}>
+                                 <Text
+                                    fontWeight="light"
+                                    color="white"
+                                    className={`${inter.className}`}
+                                 >
                                     <Text as="span" fontWeight="bold" fontStyle="italic">
                                        Выпуск цифровых активов
                                     </Text>
@@ -220,7 +228,11 @@ export const ThemesEnum = () => {
                               </Box>
                            </Flex>
                            <Box>
-                              <Box position="absolute" top="20%" right="5%">
+                              <Box
+                                 position="absolute"
+                                 top={{ base: '50%', lg: '20%' }}
+                                 right={{ base: '40%', lg: '5%' }}
+                              >
                                  <Image
                                     src={polygonIcon}
                                     width={140}
@@ -249,11 +261,16 @@ export const ThemesEnum = () => {
                      title="5. Управление цепочками поставок и учет"
                      desc="Инфраструктурные решения для управления логистикой и хранения данных в распределённом реестре."
                   />
-                  <Flex direction={{ base: 'column', lg: 'row' }} align="center" gap="10">
+                  <Flex
+                     direction={{ base: 'column', lg: 'row' }}
+                     align="center"
+                     justify={{ base: 'center', lg: 'space-around' }}
+                     gap={{ base: '10', lg: undefined }}
+                  >
                      <Box
                         w={{ base: 'fit', lg: 'md' }}
                         h="sm"
-                        bg="{colors.ctGray}"
+                        bg="#F4F4F4"
                         rounded="3xl"
                         p="6"
                         position="relative"
@@ -303,7 +320,7 @@ export const ThemesEnum = () => {
                      <Box
                         w={{ base: 'fit', lg: 'md' }}
                         h="sm"
-                        bg="{colors.ctGray}"
+                        bg="#F4F4F4"
                         rounded="3xl"
                         p="6"
                         position="relative"
@@ -341,13 +358,18 @@ export const ThemesEnum = () => {
                      title="6. Интеллектуальная собственность и авторские права"
                      desc="Решения для защиты и управления правами на интеллектуальную собственность с использованием блокчейна."
                   />
-                  <Flex align="center" gap="10" wrap="wrap" justify="center">
+                  <Flex
+                     align="center"
+                     gap="10"
+                     wrap={{ base: 'wrap', lg: 'nowrap' }}
+                     justify="center"
+                  >
                      <InfoCard
                         title="Регистрация прав на ИС"
                         description="Доказательство авторства на произведения искусства, музыку, литературу, программный код и другие цифровые активы."
                         bgColor="#2D2D2D"
                         iconBgColor="#2D2D2D"
-                        icon={<Music2 color="#232323" />}
+                        icon={<Music2 color={theme === 'light' ? 'white' : '#232323'} />}
                      />
                      <InfoCard
                         title="Управление лицензиями"
@@ -355,7 +377,7 @@ export const ThemesEnum = () => {
                         bgColor="#C9C9C9"
                         iconBgColor="#C9C9C9"
                         textColor="black"
-                        icon={<Medal color="black" />}
+                        icon={<Medal color={theme === 'light' ? 'black' : 'white'} />}
                      />
                      <InfoCard
                         title="Монетизация"

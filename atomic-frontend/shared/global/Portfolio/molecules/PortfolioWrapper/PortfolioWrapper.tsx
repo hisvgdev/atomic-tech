@@ -28,7 +28,13 @@ export const PortfolioWrapper = () => {
          <MotionBox initial={{ opacity: 0, y: 50 }} animate={inView ? { opacity: 1, y: 0 } : {}}>
             <Flex direction="column" gap={12}>
                <Flex justify="center" align="center">
-                  <CustomTitle size="3rem" title="Портфолио" weight="semibold" italic />
+                  <CustomTitle
+                     size="3rem"
+                     title="Портфолио"
+                     weight="semibold"
+                     isInsideInCenter
+                     italic
+                  />
                </Flex>
                <PortfolioBtnActions />
                <PortfolioCards />

@@ -6,7 +6,7 @@ import { inter } from '@/constants/fonts/inter/inter.constants';
 export const DevelopingPreviewContentInfo: FC<DevelopingPreviewContentInfoProps> = (props) => {
    const {} = props;
    return (
-      <VStack spaceY={{ base: '2', lg: '7' }} align="start">
+      <VStack spaceY={{ base: '2', lg: '3' }} align="start">
          <Box>
             <Heading
                as="h3"
@@ -21,12 +21,12 @@ export const DevelopingPreviewContentInfo: FC<DevelopingPreviewContentInfoProps>
                </Text>
             </Heading>
          </Box>
-         <Box maxW={{ base: '100%', lg: '30%' }} mx={{ base: '', lg: 'auto' }}>
+         <Box maxW={{ base: '100%', lg: '30%' }}>
             <Text
                as="p"
                fontSize="sm"
                fontWeight="lighter"
-               textAlign={{ base: 'center', lg: 'start' }}
+               textAlign="start"
                className={`${inter.className}`}
             >
                Узнаем ваш запрос и предложим{' '}

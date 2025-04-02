@@ -16,8 +16,9 @@ export const ForecastSection: FC<ForecastSectionProps> = () => {
             title="Узнайте прогноз окупаемости разработки"
             isCenter={isMobile ? true : false}
             fontSizeMobile="1.75rem"
+            isInsideToMain
          >
-            <Text fontSize="1rem" fontWeight="light" color="white" className={`${inter.className}`}>
+            <Text fontSize="1rem" fontWeight="light" className={`${inter.className}`}>
                Изучим ваш запрос, предложим разные варианты и{' '}
                <Text as="span" fontStyle="italic" fontWeight="medium">
                   объясним всё простым языком

@@ -1,9 +1,6 @@
 'use client';
 
-import { useTheme } from '@/context/SwitchTheme';
 import React from 'react';
-import { Switch } from '@/shared/ui/chakra/switch';
-import { FaMoon, FaSun } from 'react-icons/fa';
 import { Box, Container, Flex, Icon } from '@chakra-ui/react';
 import { MotionBox } from '@/shared/ui/animation';
 import NavContent from '../atom/NavContent';
@@ -15,17 +12,14 @@ import PreviewWrapper from '@/shared/global/Preview/organism/PreviewWrapper';
 import atomicPhonePreviewImage from '@/public/assets/images/chat-bots/atomicCodePhone.png';
 import atomicTabletPreviewImage from '@/public/assets/images/websites/atomicCodeTablet.svg';
 import atomicBlockchainImage from '@/public/assets/images/blockchain/blockchainLogo.svg';
-import clsx from 'clsx';
+import { ColorModeButton } from '@/shared/ui/chakra/color-mode';
 
 export const HeaderWrapper = () => {
-   const { theme, handleChangeTheme } = useTheme();
    const pathname = usePathname();
    return (
       <Box
-         className={clsx(
-            'h-auto',
-            theme === 'light' ? 'bg-white text-gray-800' : 'bg-black text-white',
-         )}
+         className="h-auto"
+         bg={{ base: '{colors.light}', _dark: '{colors.dark}' }}
          borderBottomRadius={{ base: '3rem', lg: '15rem' }}
       >
          <Flex direction="column" gap={{ base: '4', lg: '8' }}>
@@ -37,24 +31,7 @@ export const HeaderWrapper = () => {
                   animate={{ opacity: 1, y: 0 }}
                >
                   <Flex justify="end">
-                     <Switch
-                        size="lg"
-                        checked={theme === 'light'}
-                        value={theme}
-                        onChange={handleChangeTheme}
-                        trackLabel={{
-                           on: (
-                              <Icon color="yellow.400">
-                                 <FaSun />
-                              </Icon>
-                           ),
-                           off: (
-                              <Icon color="gray.400">
-                                 <FaMoon />
-                              </Icon>
-                           ),
-                        }}
-                     />
+                     <ColorModeButton />
                   </Flex>
                </MotionBox>
             </Container>

@@ -1,9 +1,13 @@
+'use client';
+
 import { Button } from '@chakra-ui/react';
 import React, { FC } from 'react';
-import { CustomButtonProps } from './CustomButton.types';
+import { CustomButtonProps, VariantButton } from './CustomButton.types';
+import { useTheme } from 'next-themes';
 
 export const CustomButton: FC<CustomButtonProps> = (props) => {
-   const { text, width, variant, isUppercase, onClick } = props;
+   const { text, width, variant = VariantButton.default, isUppercase, onClick } = props;
+   const { theme } = useTheme();
 
    const buttonStyles =
       variant === 'gradient'
@@ -18,18 +22,25 @@ export const CustomButton: FC<CustomButtonProps> = (props) => {
                     'linear-gradient(258.97deg, #3A30FF -3.45%, #5EA2FF 55.6%, #10B8D3 100.54%)',
               },
            }
-         : {
-              bg: 'white',
-              color: 'black',
-              _hover: { bg: 'gray.200' },
-           };
+         : VariantButton.light === theme
+           ? {
+                bg: 'none',
+                border: '1px solid black',
+                rounded: 'full',
+                _hover: { bg: 'white', border: '1px solid white' },
+             }
+           : {
+                bg: 'white',
+                color: 'black',
+                _hover: { bg: 'gray.200' },
+             };
 
    return (
       <Button
          type="button"
-         w={width || 'full'}
          fontWeight="semibold"
          rounded="full"
+         w={width || 'full'}
          py={{ base: '3', lg: '6' }}
          px={{ base: '5', lg: '10' }}
          className={`${isUppercase ? 'uppercase' : ''}`}

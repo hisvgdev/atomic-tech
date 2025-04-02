@@ -1,6 +1,5 @@
 'use client';
 
-import { useTheme } from '@/context/SwitchTheme';
 import { Sizes, SizeValues } from '@/types/frontend/size.types';
 import { Box, Container, Flex } from '@chakra-ui/react';
 import React from 'react';
@@ -11,11 +10,9 @@ import PortfolioLayout from '@/shared/global/Portfolio/cells/PortfolioLayout';
 import SendApplication from '@/shared/global/SendApplication/organism';
 
 export const MainWrapper = () => {
-   const { theme } = useTheme();
    return (
       <Box
-         bg={`${theme === 'light' ? 'white' : '{colors.dark}'}`}
-         color={`${theme === 'light' ? 'gray.800' : 'white'}`}
+         bg={{ base: '{colors.light}', _dark: '{colors.secondaryDark}' }}
          position="relative"
          zIndex="10"
          borderRadius={{ base: '5rem', lg: '15rem' }}
@@ -26,7 +23,7 @@ export const MainWrapper = () => {
             maxW={{ base: '100%', lg: Sizes[SizeValues.primaryContainerSize].primary }}
             mx="auto"
          >
-            <Flex direction="column" gap="28" p="7">
+            <Flex direction="column" gap="28" p="7" pt="20">
                <ProcessDeveloping />
                <ThemesEnum />
                <TechnologyWrapper />

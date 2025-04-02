@@ -12,7 +12,7 @@ import CustomBtnSlider from '@/shared/ui/custom/atom/CustomBtnSlider';
 export const TeamSection: FC<TeamSectionProps> = () => {
    const { emblaRef, scrollNext, scrollPrev } = useEmblaSlider();
    return (
-      <Flex direction="column" gap={12}>
+      <Flex direction="column" gap="10">
          <Container
             as="main"
             maxW={{ base: '100%', lg: Sizes[SizeValues.primaryContainerSize].primary }}

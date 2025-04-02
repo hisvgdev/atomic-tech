@@ -28,6 +28,7 @@ export const ShowreelContent: FC<ShowreelContentProps> = (props) => {
                maxW={{ base: '100%', lg: '65%' }}
                textAlign="center"
                overflow="hidden"
+               color="white"
                className={`${inter.className} text-md`}
             >
                В нем мы показали еще одну часть <br />

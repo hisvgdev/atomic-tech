@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useTheme } from '@/context/SwitchTheme';
 import {
    Box,
    Button,
@@ -27,6 +26,8 @@ import { MotionBox } from '@/shared/ui/animation';
 import { Menu } from 'lucide-react';
 import Image from 'next/image';
 import logoIcon from '@/public/assets/images/atomicLogo.svg';
+import blackLogoIcon from '@/public/assets/images/atomicLogoBlack.svg';
+import { useTheme } from 'next-themes';
 
 export const NavContent = () => {
    const { theme } = useTheme();
@@ -77,7 +78,12 @@ export const NavContent = () => {
                   <Box>
                      <Link href="/">
                         <IconButton variant="ghost">
-                           <Image src={logoIcon} width={120} height={120} alt="" />
+                           <Image
+                              src={theme === 'light' ? blackLogoIcon : logoIcon}
+                              width={120}
+                              height={120}
+                              alt=""
+                           />
                         </IconButton>
                      </Link>
                   </Box>

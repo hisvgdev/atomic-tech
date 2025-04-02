@@ -1,9 +1,7 @@
 'use client';
 
-import { useTheme } from '@/context/SwitchTheme';
 import { Sizes, SizeValues } from '@/types/frontend/size.types';
 import { Box, Container, Flex } from '@chakra-ui/react';
-import clsx from 'clsx';
 import React from 'react';
 import ChatBotsWrapper from '../ChatBotsWrapper';
 import DevelopingWrapper from '../DevelopingWrapper';
@@ -11,15 +9,10 @@ import DevWorkLayout from '@/shared/global/DevWork/organism';
 import SendApplication from '@/shared/global/SendApplication/organism';
 
 export const MainWrapper = () => {
-   const { theme } = useTheme();
    return (
       <Box
-         className={clsx(
-            'relative z-10  overflow-hidden',
-            theme === 'light'
-               ? 'bg-white text-gray-800 shadow-md'
-               : 'bg-black text-white shadow-lg',
-         )}
+         className="relative z-10 overflow-hidden"
+         bg={{ base: '{colors.light}', _dark: '{colors.secondaryDark}' }}
          borderRadius={{ base: '5rem', lg: '15rem' }}
       >
          <Box

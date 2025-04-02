@@ -30,17 +30,20 @@ const customConfig = defineConfig({
         medium: { value: "500" },
         bold: { value: "800" }
       },
-      // primary line heights for text
-      lineHeights: {},
-      // primary margins , padding
-      spacing: {},
       // colors
       colors: {
-        dark: { value: "#232323" },
-        black: { value: "#383838" },
-        softPink: { value: "#C6C1FF" },
-        ctGray: { value: "#F4F4F4" }
+        light: { value: "#FFFFFF" },
+        dark: { value: "#000000" },
+        secondaryDark: { value: "#232323" },
+        thirtaryDark: { value: '#383838' },
       }
+    },
+    semanticTokens: {
+      colors: {
+        colorMode: {
+          value: { base: '{colors.light}', _dark: '{colors.dark}' },
+        },
+      },
     },
   },
 })

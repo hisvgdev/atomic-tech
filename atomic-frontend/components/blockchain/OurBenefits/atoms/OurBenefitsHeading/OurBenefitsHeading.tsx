@@ -11,6 +11,7 @@ export const OurBenefitsHeading: FC<OurBenefitsHeadingProps> = (props) => {
             fontSize={{ base: 'xl', lg: '2.8rem' }}
             lineHeight={{ base: '2rem', lg: '2.5rem' }}
             textAlign={{ base: 'center', lg: 'start' }}
+            color="white"
          >
             Наши компетенции, <br />{' '}
             <Text as="span" fontWeight="bold">
