@@ -187,6 +187,8 @@ export const CardsDevTeam = () => {
                bg="whiteAlpha.200"
                backdropFilter="blur(10px)"
                rounded="3xl"
+               w="96"
+               h={{ base: '14.68rem', lg: '1/2' }}
                style={{
                   boxShadow: '0px 4px 15px 0px #FFFFFF26 inset',
                }}
@@ -204,11 +206,11 @@ export const CardsDevTeam = () => {
                   </Text>
                   вашему бизнесу
                </Text>
-               <Box w="auto" h="auto">
+               <Box w="full" h="full" mb="8">
                   <CustomChart />
                </Box>
             </MotionBox>
-            <Flex gap={9}>
+            <Flex justify={{ base: 'start', lg: 'center' }} gap={9}>
                {[25, 40, 235].map((value, index) => (
                   <MotionBox
                      initial={{ opacity: 0, y: 20 }}
@@ -238,7 +240,7 @@ export const CardsDevTeam = () => {
          <MotionBox
             position="relative"
             w="full"
-            h="400px"
+            h="96"
             bg="white"
             rounded="1.875rem"
             overflow="hidden"

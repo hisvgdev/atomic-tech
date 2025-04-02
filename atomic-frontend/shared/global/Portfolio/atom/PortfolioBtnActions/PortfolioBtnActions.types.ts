@@ -1,1 +1,3 @@
-export interface PortfolioBtnActionsProps { }
+export interface PortfolioBtnActionsProps {
+  isInsideInCenter?: boolean;
+}

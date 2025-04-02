@@ -17,7 +17,7 @@ export const SendApplicationWrapper: FC<SendApplicationWrapperProps> = (props) =
    const handleOpen = () => setIsOpen(true);
    const handleClose = () => setIsOpen(false);
    return (
-      <>
+      <Box position="relative" width="full">
          <Flex
             direction="column"
             gap={{ base: '12', lg: '24' }}
@@ -54,6 +54,6 @@ export const SendApplicationWrapper: FC<SendApplicationWrapperProps> = (props) =
             </Box>
          </Flex>
          <ContactRequestLayout handleClose={handleClose} handleOpen={handleOpen} isOpen={isOpen} />
-      </>
+      </Box>
    );
 };

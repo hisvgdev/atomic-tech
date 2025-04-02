@@ -12,7 +12,7 @@ import {
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const data = {
-   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+   labels: ['Янв', 'Фев', 'Март', 'Апр', 'Май', 'Июнь'],
    datasets: [
       {
          label: 'Прибыль',

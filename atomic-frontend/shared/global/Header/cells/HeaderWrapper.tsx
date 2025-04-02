@@ -38,9 +38,7 @@ export const HeaderWrapper = () => {
 
             <Flex justify="center" align="center" pb={{ base: '20', lg: '48' }}>
                {pathname.endsWith('/') && (
-                  <Container
-                     maxW={{ base: '100%', lg: Sizes[SizeValues.primaryContainerSize].primary }}
-                  >
+                  <Container maxW={{ base: '100%', lg: '8xl' }}>
                      <DevTeamWrapper />
                   </Container>
                )}

@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { inter } from '@/constants/fonts/inter/inter.constants';
 
 export const Feedback: FC<FeedbackProps> = (props) => {
-   const { author, desc, logoCompany, id, blackLogoCompany, isBgWhite } = props;
+   const { author, desc, logoCompany, id, blackLogoCompany, isBgWhite, isDragging } = props;
 
    return (
       <Box
@@ -19,6 +19,7 @@ export const Feedback: FC<FeedbackProps> = (props) => {
          pt="24"
          pb="4.68rem"
          px="9"
+         cursor={isDragging ? 'grabbing' : 'grab'}
       >
          <Flex direction="column" align="center" justify="center" gap="6" h="100%">
             <Box maxW="sm">

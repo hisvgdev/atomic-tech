@@ -7,8 +7,11 @@ import ChatBotsWrapper from '../ChatBotsWrapper';
 import DevelopingWrapper from '../DevelopingWrapper';
 import DevWorkLayout from '@/shared/global/DevWork/organism';
 import SendApplication from '@/shared/global/SendApplication/organism';
+import { useTheme } from 'next-themes';
+import BottomGradient from '@/shared/global/BottomGradient';
 
 export const MainWrapper = () => {
+   const { theme } = useTheme();
    return (
       <Box
          className="relative z-10 overflow-hidden"
@@ -42,13 +45,19 @@ export const MainWrapper = () => {
             maxW={{ base: '100%', lg: Sizes[SizeValues.primaryContainerSize].primary }}
             mx="auto"
          >
-            <Flex direction="column" gap={{ base: '14', lg: '28' }}>
+            <Flex
+               direction="column"
+               gap={{ base: '14', lg: '28' }}
+               position="relative"
+               zIndex="max"
+            >
                <ChatBotsWrapper />
                <DevelopingWrapper />
                <DevWorkLayout />
                <SendApplication />
             </Flex>
          </Container>
+         <BottomGradient />
       </Box>
    );
 };

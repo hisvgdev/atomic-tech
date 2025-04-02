@@ -2,6 +2,8 @@ import { Box, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import React from 'react';
 import atomicServicePhone from '@/public/assets/images/main/service/atomicServicePhone.svg';
+import { MotionEntity } from '@/shared/ui/animation';
+import { motion } from 'framer-motion';
 
 export const ServiceFirstColumn = () => {
    return (
@@ -19,9 +21,13 @@ export const ServiceFirstColumn = () => {
                Мобильные приложения
             </Text>
          </Box>
-         <Box position="absolute" right="0" top="0">
+         <motion.div
+            animate={{ y: [0, -15, 0] }}
+            transition={{ duration: 2, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' }}
+            style={{ position: 'absolute', right: 0, top: 0 }}
+         >
             <Image src={atomicServicePhone} alt="mobile-apps" width={435} height={393} />
-         </Box>
+         </motion.div>
       </Box>
    );
 };

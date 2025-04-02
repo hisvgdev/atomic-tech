@@ -1,4 +1,4 @@
-import MainLayout from '@/components/dashboard/Main/molecules/MainLayout';
+import MainLayout from '@/components/dashboard/Main/organism/MainLayout';
 import ShowreelLayout from '@/components/dashboard/Showreel/cells/ShowreelLayout';
 import ArticleLayout from '@/shared/global/Articles/cells/ArticleLayout';
 import ContactRequestLayout from '@/shared/global/ContactRequest/organism';

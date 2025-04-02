@@ -3,14 +3,16 @@
 import { Sizes, SizeValues } from '@/types/frontend/size.types';
 import CustomTitle from '@/shared/ui/custom/atom/CustomTitle';
 import { Container, Flex } from '@chakra-ui/react';
-import React from 'react';
+import React, { FC } from 'react';
 import PortfolioBtnActions from '../../atom/PortfolioBtnActions';
 import { PortfolioCards } from '../PortfolioCards';
 import { useInView } from 'react-intersection-observer';
 import { MotionBox } from '@/shared/ui/animation';
 import { usePathname } from 'next/navigation';
+import { PortfolioWrapperProps } from './PortfolioWrapper.types';
 
-export const PortfolioWrapper = () => {
+export const PortfolioWrapper: FC<PortfolioWrapperProps> = (props) => {
+   const {} = props;
    const pathname = usePathname();
    const { ref, inView } = useInView({
       triggerOnce: true,
@@ -32,11 +34,11 @@ export const PortfolioWrapper = () => {
                      size="3rem"
                      title="Портфолио"
                      weight="semibold"
-                     isInsideInCenter
+                     isInsideInCenter={pathname.includes('/blockchain')}
                      italic
                   />
                </Flex>
-               <PortfolioBtnActions />
+               <PortfolioBtnActions isInsideInCenter={pathname.includes('/blockchain')} />
                <PortfolioCards />
             </Flex>
          </MotionBox>

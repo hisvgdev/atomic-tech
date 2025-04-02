@@ -8,6 +8,7 @@ import ThemesEnum from '../ThemesEnum';
 import TechnologyWrapper from '@/components/dashboard/Main/molecules/TechnologyWrapper';
 import PortfolioLayout from '@/shared/global/Portfolio/cells/PortfolioLayout';
 import SendApplication from '@/shared/global/SendApplication/organism';
+import BottomGradient from '@/shared/global/BottomGradient';
 
 export const MainWrapper = () => {
    return (
@@ -23,7 +24,7 @@ export const MainWrapper = () => {
             maxW={{ base: '100%', lg: Sizes[SizeValues.primaryContainerSize].primary }}
             mx="auto"
          >
-            <Flex direction="column" gap="28" p="7" pt="20">
+            <Flex direction="column" gap="28" p="7" pt="20" position="relative" zIndex="max">
                <ProcessDeveloping />
                <ThemesEnum />
                <TechnologyWrapper />
@@ -31,6 +32,7 @@ export const MainWrapper = () => {
                <SendApplication />
             </Flex>
          </Container>
+         <BottomGradient />
       </Box>
    );
 };

@@ -3,17 +3,18 @@
 import { Sizes, SizeValues } from '@/types/frontend/size.types';
 import { Box, Container, Flex } from '@chakra-ui/react';
 import React from 'react';
-import AboutMain from '../../../atoms/AboutMain';
-import TeamSection from '../../../atoms/TeamWrapper/TeamSection';
-import ForecastSection from '../../ForecastWrapper';
-import TechnologyWrapper from '../../TechnologyWrapper';
-import ServiceWrapper from '../../ServiceWrapper';
-import MoreClientsWrapper from '../../MoreClients/cells';
+import AboutMain from '../../atoms/AboutMain';
+import TeamSection from '../../atoms/TeamWrapper/TeamSection';
+import ForecastSection from '../ForecastWrapper';
+import TechnologyWrapper from '../TechnologyWrapper';
+import ServiceWrapper from '../ServiceWrapper';
+import MoreClientsWrapper from '../MoreClients/cells';
+import BottomGradient from '@/shared/global/BottomGradient';
 
 export const MainSection = () => {
    return (
       <Box
-         className="overflow-hidden h-full"
+         className="overflow-hidden relative h-full"
          bg={{ base: '{colors.light}', _dark: '{colors.secondaryDark}' }}
          rounded={{ base: '3rem', lg: '15rem' }}
       >
@@ -39,7 +40,7 @@ export const MainSection = () => {
             zIndex="-1"
             display={{ base: 'none', lg: 'block' }}
          />
-         <Flex as="main" direction="column" gap="20">
+         <Flex as="main" direction="column" gap="20" position="relative" zIndex="max">
             <Container
                maxW={{ base: '100%', lg: Sizes[SizeValues.primaryContainerSize].primary }}
                mx="auto"
@@ -57,6 +58,7 @@ export const MainSection = () => {
             </Container>
             <MoreClientsWrapper />
          </Flex>
+         <BottomGradient />
       </Box>
    );
 };

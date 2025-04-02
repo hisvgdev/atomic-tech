@@ -1,0 +1,1 @@
+export { BottomGradient as default } from './BottomGradient';

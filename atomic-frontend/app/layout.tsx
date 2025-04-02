@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import { Provider } from '@/shared/ui/chakra/provider';
-import { SwitchThemeContext } from '@/context/SwitchTheme';
 import './globals.css';
 
 const montserrat = Montserrat({
@@ -28,9 +27,7 @@ export default function RootLayout({
    return (
       <html lang="en" suppressHydrationWarning className={montserrat.variable}>
          <body className="overflow-auto">
-            <Provider>
-               <SwitchThemeContext>{children}</SwitchThemeContext>
-            </Provider>
+            <Provider>{children}</Provider>
          </body>
       </html>
    );

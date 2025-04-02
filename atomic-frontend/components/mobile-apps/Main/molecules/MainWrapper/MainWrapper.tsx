@@ -6,11 +6,12 @@ import React from 'react';
 import InfinitySloganLine from '../../../../../shared/global/InfinitySloganLine';
 import { ProjectsOurDeveloping } from '@/shared/global/ProjectsOurDeveloping/molecules/ProjectsOurDeveloping';
 import SendApplication from '@/shared/global/SendApplication/organism';
+import BottomGradient from '@/shared/global/BottomGradient';
 
 export const MainWrapper = () => {
    return (
       <Box
-         className="overflow-hidden rounded-[15rem] py-28"
+         className="overflow-hidden relative rounded-[15rem] py-28"
          bg={{ base: '{colors.light}', _dark: '{colors.secondaryDark}' }}
          py={{ base: '14', lg: '28' }}
          borderRadius={{ base: '5rem', lg: '15rem' }}
@@ -37,7 +38,7 @@ export const MainWrapper = () => {
             zIndex="-1"
             display={{ base: 'none', lg: 'block' }}
          />
-         <Flex direction="column" gap={{ base: '10', lg: '20' }}>
+         <Flex direction="column" gap={{ base: '10', lg: '20' }} position="relative" zIndex="max">
             <InfinitySloganLine />
             <Container as="main" maxW={Sizes[SizeValues.primaryContainerSize].primary} mx="auto">
                <Flex direction="column" gap="28">
@@ -46,6 +47,7 @@ export const MainWrapper = () => {
                </Flex>
             </Container>
          </Flex>
+         <BottomGradient />
       </Box>
    );
 };

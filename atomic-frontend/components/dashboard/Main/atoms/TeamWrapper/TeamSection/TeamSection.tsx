@@ -10,7 +10,7 @@ import { Sizes, SizeValues } from '@/types/frontend/size.types';
 import CustomBtnSlider from '@/shared/ui/custom/atom/CustomBtnSlider';
 
 export const TeamSection: FC<TeamSectionProps> = () => {
-   const { emblaRef, scrollNext, scrollPrev } = useEmblaSlider();
+   const { emblaRef, scrollNext, scrollPrev, isDragging } = useEmblaSlider();
    return (
       <Flex direction="column" gap="10">
          <Container
@@ -20,7 +20,7 @@ export const TeamSection: FC<TeamSectionProps> = () => {
          >
             <TeamSectionHeader scrollNext={scrollNext} scrollPrev={scrollPrev} />
          </Container>
-         <TeamSectionCards emblaRef={emblaRef} />
+         <TeamSectionCards isDragging={isDragging} emblaRef={emblaRef} />
          <Box display={{ base: 'block', lg: 'none' }}>
             <CustomBtnSlider slideNext={scrollNext} slidePrev={scrollPrev} />
          </Box>

@@ -1,5 +1,5 @@
 import React from 'react';
-import MainWrapper from '../../molecules/MainLayout';
+import MainWrapper from '../../organism/MainLayout';
 
 export const MainLayout = () => {
    return <MainWrapper />;

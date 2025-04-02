@@ -11,7 +11,7 @@ import { MotionBox } from '@/shared/ui/animation';
 import { useInView } from 'react-intersection-observer';
 
 export const Feedbacks: FC<FeedbacksProps> = (props) => {
-   const { emblaRef, scrollNext, scrollPrev } = useEmblaSlider();
+   const { emblaRef, scrollNext, scrollPrev, isDragging } = useEmblaSlider();
    const { isBgWhite, withSpacing, withTitle } = props;
    const { ref, inView } = useInView({
       triggerOnce: true,
@@ -40,8 +40,9 @@ export const Feedbacks: FC<FeedbacksProps> = (props) => {
                         return (
                            <Feedback
                               key={itemArticles.id}
-                              {...itemArticles}
                               isBgWhite={isBgWhite}
+                              isDragging={isDragging}
+                              {...itemArticles}
                            />
                         );
                      })}

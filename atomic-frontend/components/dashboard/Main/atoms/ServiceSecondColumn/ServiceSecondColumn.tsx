@@ -5,6 +5,7 @@ import atomicServiceBag from '@/public/assets/images/main/service/atomicServiceB
 import atomicServiceSoft from '@/public/assets/images/main/service/atomicServiceSoft.png';
 import atomicServiceBlockchain from '@/public/assets/images/main/service/atomicServiceBlockchain.png';
 import { ServiceSecondColumnProps } from './ServiceSecondColumn.types';
+import { motion } from 'framer-motion';
 
 export const ServiceSecondColumn: FC<ServiceSecondColumnProps> = (props) => {
    const {} = props;
@@ -19,13 +20,23 @@ export const ServiceSecondColumn: FC<ServiceSecondColumnProps> = (props) => {
                position="relative"
                height="16rem"
                textAlign="center"
+               overflow="hidden"
             >
                <Text color="white" fontWeight="bold" fontSize="sm">
                   Интернет - магазины
                </Text>
-               <Box position="absolute" bottom="0" left="0" right="0">
+               <motion.div
+                  animate={{ y: [0, -15, 0] }}
+                  transition={{
+                     duration: 2,
+                     repeat: Infinity,
+                     repeatType: 'mirror',
+                     ease: 'easeInOut',
+                  }}
+                  style={{ position: 'absolute', right: 0, left: 0, bottom: '-20px' }}
+               >
                   <Image src={atomicServiceBag} alt="e-commerce" width={240} height={240} />
-               </Box>
+               </motion.div>
             </Box>
             <Box
                flex="1"

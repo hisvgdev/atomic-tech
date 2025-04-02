@@ -5,4 +5,5 @@ export interface FeedbackProps {
   id: string;
   blackLogoCompany: string;
   isBgWhite?: boolean;
+  isDragging?: boolean;
 }

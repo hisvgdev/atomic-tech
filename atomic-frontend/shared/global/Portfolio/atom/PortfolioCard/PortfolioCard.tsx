@@ -7,12 +7,16 @@ import Image from 'next/image';
 import CustomBtnSlider from '@/shared/ui/custom/atom/CustomBtnSlider';
 import { useEmblaSlider } from '@/hooks/useEmblaSlider';
 import { inter } from '@/constants/fonts/inter/inter.constants';
+import { useTheme } from 'next-themes';
+import { usePathname } from 'next/navigation';
 
 export const PortfolioCard = () => {
-   const { emblaRef, scrollNext, scrollPrev } = useEmblaSlider();
+   const { emblaRef, scrollNext, scrollPrev, isDragging } = useEmblaSlider();
+   const { theme } = useTheme();
+   const pathname = usePathname();
    return (
       <Flex overflow="hidden" ref={emblaRef} direction="column" gap="8">
-         <Flex>
+         <Flex cursor={isDragging ? 'grabbing' : 'grab'}>
             {PORTFOLIO_CARDS_DATA.map((ptCards) => (
                <Box
                   key={ptCards.id}
@@ -27,7 +31,12 @@ export const PortfolioCard = () => {
                            fontSize="xl"
                            fontWeight="extrabold"
                            fontStyle="italic"
-                           color="white"
+                           color={{
+                              base:
+                                 pathname === '/blockchain' && theme === 'light'
+                                    ? 'black'
+                                    : 'white',
+                           }}
                            className={`${inter.className}`}
                         >
                            {ptCards.title}
@@ -36,7 +45,12 @@ export const PortfolioCard = () => {
                            <Text
                               fontSize="1.125rem"
                               fontWeight="light"
-                              color="white"
+                              color={{
+                                 base:
+                                    pathname === '/blockchain' && theme === 'light'
+                                       ? 'black'
+                                       : 'white',
+                              }}
                               className={`${inter.className}`}
                            >
                               <b className="font-bold">
@@ -49,7 +63,12 @@ export const PortfolioCard = () => {
                            <Text
                               fontSize="1.125rem"
                               fontWeight="light"
-                              color="white"
+                              color={{
+                                 base:
+                                    pathname === '/blockchain' && theme === 'light'
+                                       ? 'black'
+                                       : 'white',
+                              }}
                               className={`${inter.className}`}
                            >
                               <b className="font-bold">
