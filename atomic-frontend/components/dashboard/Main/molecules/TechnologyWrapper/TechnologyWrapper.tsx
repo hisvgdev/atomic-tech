@@ -16,13 +16,13 @@ import { inter } from '@/constants/fonts/inter/inter.constants';
 import { useIsMobile } from '@/hooks/useMediaQuery';
 
 const technologies = [
-   { title: 'Vue.js', icon: atomicVueJsIcon, width: 120, height: 120, top: '10%', left: '15%' },
-   { title: 'GraphQL', icon: atomicGraphQlIcon, width: 80, height: 80, top: '30%', left: '25%' },
-   { title: 'React', icon: atomicReactIcon, width: 160, height: 194, top: '0%', left: '45%' },
-   { title: 'JavaScript', icon: atomicJsIcon, width: 160, height: 160, top: '20%', left: '65%' },
-   { title: 'TypeScript', icon: atomicTSIcon, width: 100, height: 100, top: '55%', left: '75%' },
-   { title: 'IPFS', icon: atomicIPFSIcon, width: 100, height: 100, top: '0%', left: '85%' },
-   { title: 'Web3', icon: atomicWeb3Icon, width: 160, height: 160, top: '30%', left: '35%' },
+   { title: 'Vue.js', icon: atomicVueJsIcon, width: 120, height: 120, top: '15%', left: '10%' },
+   { title: 'GraphQL', icon: atomicGraphQlIcon, width: 80, height: 80, top: '10%', left: '25%' },
+   { title: 'React', icon: atomicReactIcon, width: 160, height: 160, top: '5%', left: '40%' },
+   { title: 'JavaScript', icon: atomicJsIcon, width: 160, height: 160, top: '20%', left: '60%' },
+   { title: 'TypeScript', icon: atomicTSIcon, width: 100, height: 100, top: '45%', left: '75%' },
+   { title: 'IPFS', icon: atomicIPFSIcon, width: 120, height: 120, top: '15%', left: '80%' },
+   { title: 'Web3', icon: atomicWeb3Icon, width: 200, height: 200, top: '45%', left: '25%' },
 ];
 
 export const TechnologyWrapper = () => {
