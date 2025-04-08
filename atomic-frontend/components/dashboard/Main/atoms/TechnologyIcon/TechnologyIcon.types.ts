@@ -5,4 +5,5 @@ export interface TechnologyIconProps {
   height: number;
   top: string;
   left: string;
+  animationDelay?: number;
 }
