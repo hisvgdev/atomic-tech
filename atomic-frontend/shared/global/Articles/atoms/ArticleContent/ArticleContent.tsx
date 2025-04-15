@@ -20,8 +20,8 @@ export async function ArticleContent() {
                        >
                           <Box w="full" h="9.375rem" borderRadius="1.25rem">
                              <Image
-                                src={articleItem.mainImages[0].url}
-                                alt={articleItem.mainImages[0].objectName}
+                                src={articleItem.mainImages?.[0].url}
+                                alt={articleItem.mainImages?.[0].objectName}
                              />
                           </Box>
                           <VStack align="start">
