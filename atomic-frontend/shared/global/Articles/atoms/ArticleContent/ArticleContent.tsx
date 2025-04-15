@@ -20,8 +20,8 @@ export async function ArticleContent() {
                        >
                           <Box w="full" h="9.375rem" borderRadius="1.25rem">
                              <Image
-                                src={articleItem.mainImages?.[0].url}
-                                alt={articleItem.mainImages?.[0].objectName}
+                                src={articleItem.mainImages?.[0].URL}
+                                alt={articleItem.mainImages?.[0].ObjectName}
                              />
                           </Box>
                           <VStack align="start">
@@ -31,7 +31,7 @@ export async function ArticleContent() {
                                 color="black"
                                 className={`${inter.className}`}
                              >
-                                {articleItem.title}
+                                {articleItem.Title}
                              </Heading>
                              <Text
                                 fontSize="sm"
@@ -39,7 +39,7 @@ export async function ArticleContent() {
                                 maxW="xs"
                                 className={`${inter.className}`}
                              >
-                                {articleItem.description}
+                                {articleItem.Description}
                              </Text>
                              <Text
                                 fontSize="sm"
@@ -49,7 +49,7 @@ export async function ArticleContent() {
                                 alignSelf="end"
                                 className={`${inter.className}`}
                              >
-                                {articleItem.createdAt}
+                                {new Date(articleItem.CreatedAt).toLocaleDateString()}
                              </Text>
                           </VStack>
                           <Flex justify="end">
