@@ -14,7 +14,7 @@ export async function fetchData(endpoint: string, type: "object" | "array" = 'ar
     const response = await fetch(`${apiUrl}/${endpoint}`, {
       method: "GET",
       next: {
-        revalidate: 10 // ISR - обновление каждые 30 минут
+        revalidate: 1800 // ISR - обновление каждые 30 минут
       },
       headers: {
         'Content-Type': 'application/json'

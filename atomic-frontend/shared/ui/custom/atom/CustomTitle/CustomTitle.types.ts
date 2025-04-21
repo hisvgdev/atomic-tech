@@ -6,4 +6,5 @@ export interface CustomTitleProps {
   lineHeight?: string;
   isCenter?: boolean;
   isInsideInCenter?: boolean;
+  isInAnotherPage?: boolean
 }

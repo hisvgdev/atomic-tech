@@ -14,7 +14,7 @@ export const ServiceWrapper = () => {
          gap="12"
          display={{ base: 'none', lg: 'flex' }}
       >
-         <CustomTitle title="Услуги" italic size="3rem" weight="semibold" isInsideInCenter />
+         <CustomTitle title="Услуги" italic size="3rem" weight="semibold" />
 
          <Flex direction="column" gap="5">
             <Flex align="center" gap="10">

@@ -44,21 +44,9 @@ export const NAV_DATA: NavData[] = [
   },
   {
     id: uuidv4(),
-    title: "Контакты",
-    type: "link",
-    link: "/contacts"
-  },
-  {
-    id: uuidv4(),
     title: "Статьи",
     type: "link",
     link: "/articles"
-  },
-  {
-    id: uuidv4(),
-    title: "О нас",
-    type: "link",
-    link: "/about-us"
   },
 ]
 

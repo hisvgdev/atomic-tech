@@ -45,7 +45,7 @@ export const NavContent = ({ isDarkLogo }: { isDarkLogo?: boolean }) => {
                <Link
                   href={safetyHeaderLink}
                   style={{
-                     color: isDarkLogo ? 'black' : 'white',
+                     color: isDarkLogo ? 'black' : '',
                   }}
                >
                   {headerItem.title}
@@ -57,7 +57,7 @@ export const NavContent = ({ isDarkLogo }: { isDarkLogo?: boolean }) => {
                   <SelectTrigger>
                      <SelectValueText
                         placeholder={headerItem.title}
-                        color={isDarkLogo ? 'black' : 'white'}
+                        color={isDarkLogo ? 'black' : ''}
                      />
                   </SelectTrigger>
                   <SelectContent>
@@ -114,7 +114,7 @@ export const NavContent = ({ isDarkLogo }: { isDarkLogo?: boolean }) => {
                         py="4"
                         px="8"
                         borderColor={theme === 'light' ? 'black' : 'white'}
-                        color={isDarkLogo ? 'black' : 'white'}
+                        color={isDarkLogo ? 'black' : ''}
                      >
                         Обсудить проект
                      </Button>
@@ -123,9 +123,9 @@ export const NavContent = ({ isDarkLogo }: { isDarkLogo?: boolean }) => {
                            <SelectValueText
                               placeholder={LANGUAGE_DATA.items[0].label}
                               fontWeight="bold"
-                              color={isDarkLogo ? 'black' : 'white'}
+                              color={isDarkLogo ? 'black' : ''}
                               style={{
-                                 color: isDarkLogo ? 'black' : 'white',
+                                 color: isDarkLogo ? 'black' : '',
                               }}
                            />
                         </SelectTrigger>
