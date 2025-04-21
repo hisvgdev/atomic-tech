@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import CustomTitle from '@/shared/ui/custom/atom/CustomTitle';

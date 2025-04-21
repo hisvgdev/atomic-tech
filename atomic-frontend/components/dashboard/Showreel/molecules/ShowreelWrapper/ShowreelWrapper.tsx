@@ -24,7 +24,12 @@ export const ShowreelWrapper: FC<ShowreelWrapperProps> = (props) => {
          ref={ref}
       >
          <MotionBox initial={{ opacity: 0, y: 50 }} animate={inView ? { opacity: 1, y: 0 } : {}}>
-            <ShowreelContent />
+            <ShowreelContent
+               Description={videoData?.Description}
+               Title={videoData?.Title}
+               Video={videoData?.Video}
+               VideoId={videoData?.VideoId}
+            />
          </MotionBox>
       </Container>
    );

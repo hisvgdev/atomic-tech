@@ -29,7 +29,7 @@ import logoIcon from '@/public/assets/images/atomicLogo.svg';
 import blackLogoIcon from '@/public/assets/images/atomicLogoBlack.svg';
 import { useTheme } from 'next-themes';
 
-export const NavContent = () => {
+export const NavContent = ({ isDarkLogo }: { isDarkLogo?: boolean }) => {
    const { theme } = useTheme();
    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -41,12 +41,24 @@ export const NavContent = () => {
 
       switch (headerItem.type) {
          case 'link':
-            return <Link href={safetyHeaderLink}>{headerItem.title}</Link>;
+            return (
+               <Link
+                  href={safetyHeaderLink}
+                  style={{
+                     color: isDarkLogo ? 'black' : 'white',
+                  }}
+               >
+                  {headerItem.title}
+               </Link>
+            );
          case 'select':
             return (
                <SelectRoot collection={headerItem.children as ListCollection} size="sm" w="28">
                   <SelectTrigger>
-                     <SelectValueText placeholder={headerItem.title} />
+                     <SelectValueText
+                        placeholder={headerItem.title}
+                        color={isDarkLogo ? 'black' : 'white'}
+                     />
                   </SelectTrigger>
                   <SelectContent>
                      {Array.isArray(headerItem.children?.items) &&
@@ -79,7 +91,7 @@ export const NavContent = () => {
                      <Link href="/">
                         <IconButton variant="ghost">
                            <Image
-                              src={theme === 'light' ? blackLogoIcon : logoIcon}
+                              src={theme === 'light' || isDarkLogo ? blackLogoIcon : logoIcon}
                               width={120}
                               height={120}
                               alt=""
@@ -102,6 +114,7 @@ export const NavContent = () => {
                         py="4"
                         px="8"
                         borderColor={theme === 'light' ? 'black' : 'white'}
+                        color={isDarkLogo ? 'black' : 'white'}
                      >
                         Обсудить проект
                      </Button>
@@ -110,6 +123,10 @@ export const NavContent = () => {
                            <SelectValueText
                               placeholder={LANGUAGE_DATA.items[0].label}
                               fontWeight="bold"
+                              color={isDarkLogo ? 'black' : 'white'}
+                              style={{
+                                 color: isDarkLogo ? 'black' : 'white',
+                              }}
                            />
                         </SelectTrigger>
                         <SelectContent>
@@ -173,7 +190,6 @@ export const NavContent = () => {
                                        px="8"
                                        borderColor={theme === 'light' ? 'black' : 'white'}
                                        onClick={closeMenu}
-                                       color={theme === 'dark' ? '' : 'black'}
                                     >
                                        Обсудить проект
                                     </Button>
@@ -190,7 +206,9 @@ export const NavContent = () => {
                                              <SelectItem
                                                 item={language}
                                                 key={language.value}
-                                                color={theme === 'dark' ? '' : 'black'}
+                                                style={{
+                                                   color: isDarkLogo ? 'black' : 'white',
+                                                }}
                                              >
                                                 {language.label}
                                              </SelectItem>

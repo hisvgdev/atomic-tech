@@ -8,7 +8,7 @@ import { TeamSectionCardProps } from './TeamSectionCard.types';
 import { inter } from '@/constants/fonts/inter/inter.constants';
 
 export const TeamSectionCard: FC<TeamSectionCardProps> = (props) => {
-   const {} = props;
+   const { teamInfo } = props;
    return (
       <Box
          bg="#92C8FF"
@@ -24,13 +24,18 @@ export const TeamSectionCard: FC<TeamSectionCardProps> = (props) => {
                   fontSize="md"
                   className={`${inter.className}`}
                >
-                  Василий Пупочек
+                  {teamInfo?.name || 'Василий Пупочек'}
                </Heading>
                <Text color="black" fontSize="4" fontWeight="light" className={`${inter.className}`}>
-                  Таргетолог
+                  {teamInfo?.description || 'Таргетолог'}
                </Text>
             </Flex>
-            <Image src={ourTeamsAvatar} width={260} height={260} alt="avatar-founder" />
+            <Image
+               src={teamInfo?.avatar || ourTeamsAvatar}
+               width={260}
+               height={260}
+               alt="avatar-founder"
+            />
          </Flex>
       </Box>
    );

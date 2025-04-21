@@ -2,7 +2,6 @@ import { Box, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import React from 'react';
 import atomicServicePhone from '@/public/assets/images/main/service/atomicServicePhone.svg';
-import { MotionEntity } from '@/shared/ui/animation';
 import { motion } from 'framer-motion';
 
 export const ServiceFirstColumn = () => {

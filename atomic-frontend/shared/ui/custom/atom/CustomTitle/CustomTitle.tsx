@@ -8,15 +8,12 @@ export const CustomTitle: FC<CustomTitleProps> = (props) => {
    return (
       <Heading
          fontWeight={weight}
-         fontStyle={italic ? 'italic' : ''}
+         fontStyle={italic ? 'italic' : 'normal'}
          fontSize={size}
-         lineHeight={{ base: lineHeight ? lineHeight : '3rem', md: lineHeight }}
-         textAlign={{ base: 'center', lg: 'start' }}
+         lineHeight={lineHeight ?? '3rem'}
+         textAlign={isCenter ? 'center' : 'start'}
          className={`${inter.className}`}
-         color={{ base: isInsideInCenter ? 'black' : 'white', _dark: 'white' }}
-         style={{
-            textAlign: isCenter ? 'center' : 'start',
-         }}
+         color={isInsideInCenter ? 'black' : 'white'}
       >
          {title}
       </Heading>

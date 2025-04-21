@@ -4,14 +4,14 @@ import { Sizes, SizeValues } from '@/types/frontend/size.types';
 import { Box, Container, Flex } from '@chakra-ui/react';
 import React from 'react';
 import AboutMain from '../../atoms/AboutMain';
-import TeamSection from '../../atoms/TeamWrapper/TeamSection';
 import ForecastSection from '../ForecastWrapper';
 import TechnologyWrapper from '../TechnologyWrapper';
 import ServiceWrapper from '../ServiceWrapper';
 import MoreClientsWrapper from '../MoreClients/cells';
 import BottomGradient from '@/shared/global/BottomGradient';
+import TeamWrapper from '../../atoms/TeamWrapper/TeamWrapper';
 
-export const MainSection = () => {
+export const MainSection = (props: { team: any; technology: any }) => {
    return (
       <Box
          className="overflow-hidden relative h-full"
@@ -47,13 +47,13 @@ export const MainSection = () => {
             >
                <AboutMain />
             </Container>
-            <TeamSection />
+            <TeamWrapper team={props.team} />
             <Container
                maxW={{ base: '100%', lg: Sizes[SizeValues.primaryContainerSize].primary }}
                mx="auto"
             >
                <ForecastSection />
-               <TechnologyWrapper />
+               <TechnologyWrapper technologies={props.technology} />
                <ServiceWrapper />
             </Container>
             <MoreClientsWrapper />

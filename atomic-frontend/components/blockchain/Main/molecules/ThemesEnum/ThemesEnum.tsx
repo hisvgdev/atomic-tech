@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Flex, List, Text } from '@chakra-ui/react';
 import React from 'react';
 import solanaProjectImage from '@/public/assets/images/blockchain/gameCardImage.png';

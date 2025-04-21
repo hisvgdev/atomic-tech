@@ -1,7 +1,6 @@
 import { Box, Flex } from '@chakra-ui/react';
 import React from 'react';
 import MoreClientsHeading from '../atoms/MoreClientsHeading';
-import MoreClientsInfinityTape from '../atoms/MoreClientsInfinityTape';
 import Feedbacks from '@/shared/global/Feedbacks/molecules/Feedbacks';
 import { useTheme } from 'next-themes';
 
@@ -14,7 +13,6 @@ export const MoreClientsWrapper = () => {
                <MoreClientsHeading />
                <Feedbacks isBgWhite={theme === 'light'} />
             </Flex>
-            <MoreClientsInfinityTape />
          </Flex>
       </Box>
    );

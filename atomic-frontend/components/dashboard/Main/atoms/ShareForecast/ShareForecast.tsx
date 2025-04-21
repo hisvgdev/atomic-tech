@@ -4,7 +4,7 @@ import Image from 'next/image';
 import CustomButton, { VariantButton } from '@/shared/ui/custom/atom/CustomButton';
 import revertArrowIcon from '@/public/assets/images/main/revertArrowIcon.svg';
 
-export const ShareForecast = () => {
+export const ShareForecast = ({ handleOpen }: { handleOpen: () => void }) => {
    return (
       <Flex
          direction="column"
@@ -22,11 +22,23 @@ export const ShareForecast = () => {
                <Image src={revertArrowIcon} width={167} height={80} alt="revert-arrow-icon" />
             </Flex>
             <Flex justify="center" align="center" display={{ base: 'block', lg: 'none' }}>
-               <CustomButton text="УЗНАТЬ ПРОГНОЗ" variant={VariantButton.gradient} width="18rem" />
+               <CustomButton
+                  text="Узнать прогноз"
+                  isUppercase
+                  variant={VariantButton.gradient}
+                  width="18rem"
+                  onClick={handleOpen}
+               />
             </Flex>
          </Flex>
          <Flex justify="center" align="center" display={{ base: 'none', lg: 'flex' }}>
-            <CustomButton text="УЗНАТЬ ПРОГНОЗ" variant={VariantButton.gradient} width="18rem" />
+            <CustomButton
+               text="Узнать прогноз"
+               isUppercase
+               variant={VariantButton.gradient}
+               width="18rem"
+               onClick={handleOpen}
+            />
          </Flex>
       </Flex>
    );

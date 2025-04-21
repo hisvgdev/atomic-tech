@@ -8,9 +8,11 @@ import { useInView } from 'react-intersection-observer';
 import CustomTitle from '@/shared/ui/custom/atom/CustomTitle';
 import { ArticleWrapperProps } from './ArticleWrapper.types';
 import CustomButton, { VariantButton } from '@/shared/ui/custom/atom/CustomButton';
+import { useRouter } from 'next/navigation';
 
 export const ArticleWrapper: FC<ArticleWrapperProps> = (props) => {
    const { children } = props;
+   const router = useRouter();
    const { ref, inView } = useInView({
       triggerOnce: true,
       threshold: 0.2,
@@ -29,7 +31,12 @@ export const ArticleWrapper: FC<ArticleWrapperProps> = (props) => {
                   {children}
                </Grid>
                <Flex justifyContent="center" align="center" w="full">
-                  <CustomButton text="Все статьи" width="15rem" variant={VariantButton.gradient} />
+                  <CustomButton
+                     text="Все статьи"
+                     width="15rem"
+                     variant={VariantButton.gradient}
+                     onClick={() => router.push('/articles')}
+                  />
                </Flex>
             </VStack>
          </MotionBox>

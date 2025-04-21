@@ -1,8 +1,23 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { ArticlesLayoutProps } from './ArticlesLayout.types';
 import ArticlesWrapper from '../../molecules/ArticlesWrapper';
+import {
+   getAllArticleCategories,
+   getAllArticles,
+   getAllArticleSubCategories,
+} from '@/service/api/handlers.api';
 
-export const ArticlesLayout: FC<ArticlesLayoutProps> = (props) => {
+export default async function ArticlesLayout(props: ArticlesLayoutProps) {
    const {} = props;
-   return <ArticlesWrapper />;
-};
+   const articleSubCategories = await getAllArticleSubCategories();
+   const articleCategories = await getAllArticleCategories();
+   const articles = await getAllArticles();
+
+   return (
+      <ArticlesWrapper
+         articles={articles}
+         articleSubCategories={articleSubCategories}
+         articleCategories={articleCategories}
+      />
+   );
+}

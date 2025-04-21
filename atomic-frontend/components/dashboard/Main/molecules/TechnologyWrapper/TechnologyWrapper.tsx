@@ -1,5 +1,7 @@
+'use client';
+
 import { Box, Flex, Text } from '@chakra-ui/react';
-import Image from 'next/image';
+
 import React from 'react';
 import HeaderSection from '../../atoms/HeaderSection';
 
@@ -14,8 +16,10 @@ import CustomButton, { VariantButton } from '@/shared/ui/custom/atom/CustomButto
 import TechnologyIcon from '../../atoms/TechnologyIcon';
 import { inter } from '@/constants/fonts/inter/inter.constants';
 import { useIsMobile } from '@/hooks/useMediaQuery';
+import { TechnologyWrapperProps } from './TechnologyWrapper.types';
+import { RootTechnology } from '@/types/frontend/technology.types';
 
-const technologies = [
+const technologiesMock = [
    { title: 'Vue.js', icon: atomicVueJsIcon, width: 120, height: 120, top: '15%', left: '10%' },
    { title: 'GraphQL', icon: atomicGraphQlIcon, width: 80, height: 80, top: '10%', left: '25%' },
    { title: 'React', icon: atomicReactIcon, width: 160, height: 160, top: '5%', left: '40%' },
@@ -25,8 +29,30 @@ const technologies = [
    { title: 'Web3', icon: atomicWeb3Icon, width: 200, height: 200, top: '45%', left: '25%' },
 ];
 
-export const TechnologyWrapper = () => {
+export const TechnologyWrapper = (props: TechnologyWrapperProps) => {
+   const { technologies } = props;
    const isMobile = useIsMobile();
+
+   const getTechnologyWithDefaults = (techFromServer: RootTechnology, index: number) => {
+      const fallback = technologiesMock[index] || {};
+
+      return {
+         ID: techFromServer?.ID,
+         ImageID: techFromServer?.ImageID,
+         Images: techFromServer?.Image,
+         Name: techFromServer?.Name || fallback.title || 'Без названия',
+         title: techFromServer?.Name || fallback.title || 'Без названия',
+         icon: fallback.icon,
+         width: fallback.width || 100,
+         height: fallback.height || 100,
+         top: fallback.top || '50%',
+         left: fallback.left || '50%',
+      };
+   };
+   const normalizedTechnologies = Array.isArray(technologies)
+      ? technologies.map(getTechnologyWithDefaults)
+      : technologiesMock;
+
    return (
       <Flex
          direction="column"
@@ -72,8 +98,8 @@ export const TechnologyWrapper = () => {
                overflow="hidden"
                display={{ base: 'none', lg: 'block' }}
             >
-               {technologies.map((tech, index) => (
-                  <TechnologyIcon {...tech} key={index} animationDelay={index * 0.3} />
+               {normalizedTechnologies.map((tech, index) => (
+                  <TechnologyIcon key={index} {...tech} animationDelay={index * 0.3} />
                ))}
             </Flex>
             <Box
@@ -87,6 +113,7 @@ export const TechnologyWrapper = () => {
                   text="Узнать больше о технологиях"
                   variant={VariantButton.gradient}
                   width="20rem"
+                  isUppercase
                />
             </Box>
          </Box>

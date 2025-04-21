@@ -1,15 +1,19 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import { LucideRussianRuble, Mountain, Trophy } from 'lucide-react';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { ForecastSectionProps } from './ForecastSection.types';
 import FeatureCard from '../../atoms/FeatureCard';
 import ShareForecast from '../../atoms/ShareForecast';
 import HeaderSection from '../../atoms/HeaderSection';
 import { inter } from '@/constants/fonts/inter/inter.constants';
 import { useIsMobile } from '@/hooks/useMediaQuery';
+import ContactRequestLayout from '@/shared/global/ContactRequest/organism';
 
 export const ForecastSection: FC<ForecastSectionProps> = () => {
    const isMobile = useIsMobile();
+   const [isOpen, setIsOpen] = useState(false);
+   const handleOpen = () => setIsOpen(true);
+   const handleClose = () => setIsOpen(false);
    return (
       <Flex direction="column" gap={{ base: '10', lg: '24' }}>
          <HeaderSection
@@ -43,7 +47,8 @@ export const ForecastSection: FC<ForecastSectionProps> = () => {
                reverse
             />
          </Flex>
-         <ShareForecast />
+         <ShareForecast handleOpen={handleOpen} />
+         <ContactRequestLayout handleOpen={handleOpen} handleClose={handleClose} isOpen={isOpen} />
       </Flex>
    );
 };

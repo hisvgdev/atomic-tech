@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import { Button, Flex } from '@chakra-ui/react';
 import { CustomPaginationProps } from './CustomPagination.types';

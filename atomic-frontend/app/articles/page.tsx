@@ -1,7 +1,7 @@
 import NavContent from '@/shared/global/Header/atom/NavContent';
 import CustomBackPage from '@/shared/ui/custom/atom/CustomBackPage';
 import FooterLayout from '@/shared/global/Footer/cells/FooterLayout';
-import ArticlesLayout from '@/components/articles/organism/ArticlesLayout';
+import ArticlesLayout from '@/components/articles/organism/ArticlesLayout/ArticlesLayout';
 
 export const metadata = {
    title: 'Статьи',
@@ -10,11 +10,11 @@ export const metadata = {
 
 export default function Articles() {
    return (
-      <>
-         <NavContent />
+      <div className="bg-white text-black">
+         <NavContent isDarkLogo />
          <CustomBackPage />
          <ArticlesLayout />
          <FooterLayout />
-      </>
+      </div>
    );
 }

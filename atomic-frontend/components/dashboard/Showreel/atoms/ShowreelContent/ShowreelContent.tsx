@@ -9,6 +9,7 @@ import { ShowreelContentProps } from './ShowreelContent.types';
 import { inter } from '@/constants/fonts/inter/inter.constants';
 
 export const ShowreelContent: FC<ShowreelContentProps> = (props) => {
+   const { Description, Title, Video, VideoId } = props;
    const [isPlaying, setIsPlaying] = useState(false);
 
    const videoOptions = {
@@ -22,18 +23,36 @@ export const ShowreelContent: FC<ShowreelContentProps> = (props) => {
    return (
       <Flex direction="column" gap={12} align="center">
          <Flex direction="column" justify="center" align="center" gap="7">
-            <CustomTitle size="3rem" title="Посмотрите шоурил" weight="semibold" italic />
-            <Text
-               fontWeight="light"
-               maxW={{ base: '100%', lg: '65%' }}
-               textAlign="center"
-               overflow="hidden"
-               color="white"
-               className={`${inter.className} text-md`}
-            >
-               В нем мы показали еще одну часть <br />
-               <b className="font-bold italic">наших проектов</b>
-            </Text>
+            <CustomTitle
+               size="3rem"
+               title={Title || 'Посмотрите шоурил'}
+               weight="semibold"
+               italic
+            />
+            {Description ? (
+               <Text
+                  fontWeight="light"
+                  maxW={{ base: '100%', lg: '65%' }}
+                  textAlign="center"
+                  overflow="hidden"
+                  color="white"
+                  className={`${inter.className} text-md`}
+               >
+                  {Description}
+               </Text>
+            ) : (
+               <Text
+                  fontWeight="light"
+                  maxW={{ base: '100%', lg: '65%' }}
+                  textAlign="center"
+                  overflow="hidden"
+                  color="white"
+                  className={`${inter.className} text-md`}
+               >
+                  В нем мы показали еще одну часть <br />
+                  <b className="font-bold italic">наших проектов</b>
+               </Text>
+            )}
          </Flex>
          {!isPlaying ? (
             <Flex
@@ -55,7 +74,7 @@ export const ShowreelContent: FC<ShowreelContentProps> = (props) => {
                </Button>
             </Flex>
          ) : (
-            <YouTube videoId="xyqhDOkr4hs" opts={videoOptions} />
+            <YouTube videoId={Video?.URL} opts={videoOptions} />
          )}
       </Flex>
    );

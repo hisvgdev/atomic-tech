@@ -1,4 +1,4 @@
-import MainLayout from '@/components/blockchain/Main/organism/MainLayout';
+import MainLayout from '@/components/blockchain/Main/organism/MainLayout/MainLayout';
 import OurBenefitsLayout from '@/components/blockchain/OurBenefits/organism/OurBenefitsLayout';
 import ArticleLayout from '@/shared/global/Articles/cells/ArticleLayout';
 import Feedbacks from '@/shared/global/Feedbacks/molecules/Feedbacks';

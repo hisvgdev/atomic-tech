@@ -1,11 +1,9 @@
-'use client';
-
 import React, { FC } from 'react';
 import { Box } from '@chakra-ui/react';
 import { createPortal } from 'react-dom';
-import { MotionEntity } from '@/shared/ui/animation';
 import { ContactRequestWrapperProps } from './ContactRequestWrapperProps';
 import ContactRequestForm from '../../atoms/ContactRequestForm';
+import MotionWrapperClient from '@/shared/ui/animation/MotionWrapperClient';
 
 export const ContactRequestWrapper: FC<ContactRequestWrapperProps> = (props) => {
    const { handleOpen, handleClose, isOpen } = props;
@@ -25,16 +23,11 @@ export const ContactRequestWrapper: FC<ContactRequestWrapperProps> = (props) => 
             zIndex="max"
             onClick={handleClose}
          >
-            <MotionEntity
-               initial={{ opacity: 0, scale: 0.9 }}
-               animate={{ opacity: 1, scale: 1 }}
-               exit={{ opacity: 0, scale: 0.9 }}
-               onClick={(e) => e.stopPropagation()}
-            >
+            <MotionWrapperClient>
                <Box p="8" rounded="3xl">
                   <ContactRequestForm handleClose={handleClose as () => void} />
                </Box>
-            </MotionEntity>
+            </MotionWrapperClient>
          </Box>,
          document.body,
       )

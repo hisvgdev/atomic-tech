@@ -1,9 +1,9 @@
 interface VideoData {
-  title: string;
-  description: string;
-  videoId: string;
-  video: {
-    url: string;
+  Title: string;
+  Description: string;
+  VideoId: string;
+  Video: {
+    URL: string;
   };
 }
 

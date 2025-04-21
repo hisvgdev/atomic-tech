@@ -4,7 +4,7 @@ import { TeamSectionCardsProps } from './TeamSectionCards.types';
 import { Box, Flex } from '@chakra-ui/react';
 
 export const TeamSectionCards: FC<TeamSectionCardsProps> = (props) => {
-   const { emblaRef, isDragging } = props;
+   const { emblaRef, isDragging, team } = props;
    return (
       <Box ref={emblaRef} overflow="hidden">
          <Flex
@@ -15,15 +15,27 @@ export const TeamSectionCards: FC<TeamSectionCardsProps> = (props) => {
             align={{ base: '', lg: 'center' }}
             width="fit-content"
          >
-            {Array.from({ length: 4 }).map((_, idx) => (
-               <Box
-                  key={idx}
-                  flex={{ base: '0 0 100%', lg: '0 0 23%' }}
-                  cursor={isDragging ? 'grabbing' : 'grab'}
-               >
-                  <TeamSectionCard />
-               </Box>
-            ))}
+            {team.length > 0
+               ? team.map((t, idx) => {
+                    return (
+                       <Box
+                          key={idx}
+                          flex={{ base: '0 0 100%', lg: '0 0 23%' }}
+                          cursor={isDragging ? 'grabbing' : 'grab'}
+                       >
+                          <TeamSectionCard teamInfo={t} />
+                       </Box>
+                    );
+                 })
+               : Array.from({ length: 4 }).map((_, idx) => (
+                    <Box
+                       key={idx}
+                       flex={{ base: '0 0 100%', lg: '0 0 23%' }}
+                       cursor={isDragging ? 'grabbing' : 'grab'}
+                    >
+                       <TeamSectionCard teamInfo={null} />
+                    </Box>
+                 ))}
          </Flex>
       </Box>
    );
