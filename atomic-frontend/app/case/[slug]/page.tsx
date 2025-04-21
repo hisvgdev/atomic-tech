@@ -3,6 +3,7 @@ import { getWorkCase } from '@/service/api/handlers.api';
 import FooterLayout from '@/shared/global/Footer/cells/FooterLayout';
 import NavContent from '@/shared/global/Header/atom/NavContent';
 import CustomBackPage from '@/shared/ui/custom/atom/CustomBackPage';
+import { CategoriesProps } from '@/types/frontend/categories.types';
 import { Box, Container, Flex, Heading, Text, VStack } from '@chakra-ui/react';
 import { Metadata } from 'next';
 import Image from 'next/image';
@@ -12,9 +13,31 @@ export async function generateMetadata({
 }: {
    params: { slug: string };
 }): Promise<Metadata> {
+   const workCase = await getWorkCase(params.slug);
+   const categoryNames = workCase.categories.map((cat: CategoriesProps) => cat.Name).join(', ');
+   const tags = workCase.tags || '';
+   const keywords = [workCase.title, ...tags.split(','), ...categoryNames.split(',')].join(', ');
+
    return {
-      title: `${params.slug}`,
-      description: '',
+      title: `${workCase.title}`,
+      description: workCase.description?.slice(0, 160) ?? 'Проект от Atomic',
+      keywords,
+      openGraph: {
+         title: workCase.title,
+         description: workCase.description,
+         url: `https://atomic-tech.ru/case/${params.slug}`,
+         type: 'article',
+         images: workCase.preview
+            ? [{ url: workCase.preview, width: 800, height: 600, alt: workCase.title }]
+            : [],
+      },
+      twitter: {
+         card: 'summary_large_image',
+         title: workCase.title,
+         description: workCase.description,
+         images: workCase.preview ? [workCase.preview] : [],
+      },
+      category: categoryNames,
    };
 }
 

@@ -3,6 +3,7 @@ import { getArticle } from '@/service/api/handlers.api';
 import FooterLayout from '@/shared/global/Footer/cells/FooterLayout';
 import NavContent from '@/shared/global/Header/atom/NavContent';
 import CustomBackPage from '@/shared/ui/custom/atom/CustomBackPage';
+import { CategoriesProps } from '@/types/frontend/categories.types';
 import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
 import { Metadata } from 'next';
 import Image from 'next/image';
@@ -12,9 +13,53 @@ export async function generateMetadata({
 }: {
    params: { slug: string };
 }): Promise<Metadata> {
+   const article = await getArticle(params.slug);
+   const categoryNames = article.Categories.map((cat: CategoriesProps) => cat.Name).join(', ');
+   const subCategoryNames = article.SubCategories.map((sub: CategoriesProps) => sub.Name).join(
+      ', ',
+   );
+   const tags = article.Tags || '';
+   const keywords = [
+      article.Title,
+      article.ShortTitle,
+      ...tags.split(','),
+      ...categoryNames.split(','),
+      ...subCategoryNames.split(','),
+   ]
+      .map((k) => k.trim())
+      .filter(Boolean)
+      .join(', ');
+
    return {
-      title: `${params.slug}`,
-      description: '',
+      title: article.Title || params.slug,
+      description:
+         article.ShortDescription?.slice(0, 160) ||
+         article.Description?.slice(0, 160) ||
+         'Статья от Atomic',
+      keywords,
+      openGraph: {
+         title: article.Title,
+         description: article.ShortDescription || article.Description,
+         url: `https://atomic-tech.ru/articles/${params.slug}`,
+         type: 'article',
+         images: article.ShortImage
+            ? [
+                 {
+                    url: article.ShortImage.URL,
+                    width: 800,
+                    height: 600,
+                    alt: article.ShortImage.ObjectName,
+                 },
+              ]
+            : [],
+      },
+      twitter: {
+         card: 'summary_large_image',
+         title: article.Title,
+         description: article.ShortDescription || article.Description,
+         images: article.ShortImage ? [article.ShortImage.URL] : [],
+      },
+      category: categoryNames,
    };
 }
 

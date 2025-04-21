@@ -8,6 +8,7 @@ import PortfolioWrapper from '@/shared/global/Portfolio/molecules/PortfolioWrapp
 
 export default async function Grid() {
    const workCases = await getAllWorkCases();
+   const workCasesCategoriests = await getAllWorkCaseCategories();
    return (
       <>
          <HeaderWrapper />
