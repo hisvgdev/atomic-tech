@@ -3,18 +3,51 @@ import OurBenefitsLayout from '@/components/blockchain/OurBenefits/organism/OurB
 import ArticleLayout from '@/shared/global/Articles/cells/ArticleLayout';
 import Feedbacks from '@/shared/global/Feedbacks/molecules/Feedbacks';
 import FooterLayout from '@/shared/global/Footer/cells/FooterLayout';
-import HeaderWrapper from '@/shared/global/Header/cells';
+import HeaderLayout from '@/shared/global/Header/organism/HeaderLayout/HeaderLayout';
+import { Metadata } from 'next';
 import React from 'react';
 
-export const metadata = {
-   title: 'Blockchain',
-   description: "This is a blockchain page who's developing in our atomic teams",
+export const metadata: Metadata = {
+   title: 'Блокчейн',
+   description:
+      'Страница о блокчейн-разработке, создаваемая командой Atomic, с преимуществами и отзывами.',
+   keywords: 'блокчейн, технологии, Atomic команда, инновации, отзывы, преимущества, разработки',
+   openGraph: {
+      title: 'Блокчейн',
+      description:
+         'Страница о блокчейн-разработке, создаваемая командой Atomic, с преимуществами и отзывами.',
+      url: 'https://atomic-tech.ru/blockchain',
+      type: 'website',
+      images: [
+         {
+            url: 'https://atomic-tech.ru/assets/images/blockchain-image.jpg',
+            width: 1200,
+            height: 630,
+            alt: 'Блокчейн от команды Atomic',
+         },
+      ],
+   },
+   twitter: {
+      card: 'summary_large_image',
+      title: 'Блокчейн',
+      description:
+         'Страница о блокчейн-разработке, создаваемая командой Atomic, с преимуществами и отзывами.',
+      images: [
+         {
+            url: 'https://atomic-tech.ru/assets/images/blockchain-image.jpg',
+            width: 1200,
+            height: 630,
+            alt: 'Блокчейн от команды Atomic',
+         },
+      ],
+   },
+   category: 'Блокчейн',
 };
 
 export default function Blockchain() {
    return (
       <>
-         <HeaderWrapper />
+         <HeaderLayout />
          <OurBenefitsLayout />
          <MainLayout />
          <Feedbacks isBgWhite withSpacing withTitle />

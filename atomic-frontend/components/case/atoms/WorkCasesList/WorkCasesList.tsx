@@ -18,16 +18,23 @@ export const WorkCasesList = ({ paginatedWorkCases }: WorkCasesListProps) => {
    return (
       <Grid templateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }} gap={10} w="full">
          {itemsToRender.map((item, idx) => (
-            <Link key={idx} href={`case/${item.id}`}>
+            <Link key={idx} href={`case/${item.ID}`}>
                <Flex direction="column" gap="2">
                   <Box borderRadius="xl" overflow="hidden">
-                     <Image
-                        src={item.preview}
-                        alt={item.title}
-                        width="100%"
-                        height="20rem"
-                        objectFit="cover"
-                     />
+                     {item.Preview ? (
+                        <Image
+                           src={item.Preview.URL}
+                           width={360}
+                           height={410}
+                           alt={item.Preview.ObjectName}
+                           className="object-contain"
+                           style={{
+                              borderRadius: '1.5rem',
+                           }}
+                        />
+                     ) : (
+                        <Box w="80" h="25rem" bg="skyblue" rounded="2xl" />
+                     )}
                   </Box>
                   <VStack align="center" spaceY="2">
                      <Text
@@ -35,12 +42,12 @@ export const WorkCasesList = ({ paginatedWorkCases }: WorkCasesListProps) => {
                         fontSize="lg"
                         className={`${inter.className} text-2xl`}
                      >
-                        {item.title}
+                        {item.Title}
                      </Text>
                      <Wrap>
-                        {(typeof item.tags === 'string'
-                           ? item.tags.split(',').map((t: string) => t.trim())
-                           : item.tags || []
+                        {(typeof item.Tags === 'string'
+                           ? item.Tags.split(',').map((t: string) => t.trim())
+                           : item.Tags || []
                         ).map((tag: string, i: number) => (
                            <WrapItem key={i}>
                               <Tag.Root
@@ -57,7 +64,7 @@ export const WorkCasesList = ({ paginatedWorkCases }: WorkCasesListProps) => {
                         ))}
                      </Wrap>
                      <Text fontStyle="italic" fontSize="sm">
-                        {new Date(item.created_at).toLocaleDateString()}
+                        {new Date(item.CreatedAt).toLocaleDateString()}
                      </Text>
                   </VStack>
                </Flex>

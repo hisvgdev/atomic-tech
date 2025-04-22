@@ -29,6 +29,7 @@ export const CustomPagination: React.FC<CustomPaginationProps> = (props) => {
                key={idx}
                onClick={() => typeof page === 'number' && onPageChange(page)}
                bg={page === currentPage ? '#5547FF' : undefined}
+               color={page === currentPage ? 'white' : 'black'}
                border={page === currentPage ? undefined : '1px solid black'}
                transition="all"
                fontSize="lg"

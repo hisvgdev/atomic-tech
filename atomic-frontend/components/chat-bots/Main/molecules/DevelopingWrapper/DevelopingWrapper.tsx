@@ -28,7 +28,7 @@ export const DevelopingWrapper: FC<DevelopingWrapperProps> = (props) => {
                onClick={handleOpen}
             />
          </Flex>
-         <ContactRequestLayout isOpen={isOpen} handleClose={handleClose} handleOpen={handleOpen} />
+         <ContactRequestLayout isOpen={isOpen} handleClose={handleClose} />
       </>
    );
 };

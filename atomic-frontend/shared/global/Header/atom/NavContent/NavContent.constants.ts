@@ -102,14 +102,5 @@ export const MOBILE_NAV_DATA: MobileNavData[] = [
 ]
 
 export const LANGUAGE_DATA = createListCollection({
-  items: [
-    {
-      label: "RUS",
-      value: "ru",
-    },
-    {
-      label: "ENG",
-      value: "en",
-    },
-  ],
+  items: [],
 })

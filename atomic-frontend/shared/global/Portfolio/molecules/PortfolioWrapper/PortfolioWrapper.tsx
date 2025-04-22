@@ -28,7 +28,7 @@ export const PortfolioWrapper: FC<PortfolioWrapperProps> = (props) => {
       if (!selectedCategory) return workCases || [];
 
       return (workCases || []).filter((workCase) =>
-         workCase.categories.some((cat) => cat.ID === selectedCategory.ID),
+         workCase?.Categories?.some((cat) => cat.ID === selectedCategory.ID),
       );
    }, [workCases, workCasesCategories, activeCategoryIndex]);
 

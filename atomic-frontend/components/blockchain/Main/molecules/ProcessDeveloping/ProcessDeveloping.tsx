@@ -61,7 +61,7 @@ export const ProcessDeveloping: FC<ProcessDevelopingProps> = (props) => {
                </Flex>
             </Box>
          </Flex>
-         <ContactRequestLayout handleOpen={handleOpen} handleClose={handleClose} isOpen={isOpen} />
+         <ContactRequestLayout handleClose={handleClose} isOpen={isOpen} />
       </>
    );
 };

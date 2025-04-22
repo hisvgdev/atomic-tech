@@ -94,7 +94,7 @@ export default async function Articles({ params }: { params: { slug: string } })
                      <Text
                         fontSize="1.125rem"
                         fontWeight="light"
-                        className={`${inter.className}`}
+                        className={`${inter.className} max-w-md text-start`}
                         color="black"
                      >
                         {article.Description || '-'}

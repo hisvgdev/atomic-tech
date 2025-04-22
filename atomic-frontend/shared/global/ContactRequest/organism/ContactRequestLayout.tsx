@@ -3,8 +3,6 @@ import { ContactRequestLayoutProps } from './ContactRequestLayout.types';
 import ContactRequestWrapper from '../molecules/ContactRequestWrapper';
 
 export const ContactRequestLayout: FC<ContactRequestLayoutProps> = (props) => {
-   const { handleClose, handleOpen, isOpen } = props;
-   return (
-      <ContactRequestWrapper handleClose={handleClose} handleOpen={handleOpen} isOpen={isOpen} />
-   );
+   const { handleClose, isOpen } = props;
+   return <ContactRequestWrapper handleClose={handleClose} isOpen={isOpen} />;
 };

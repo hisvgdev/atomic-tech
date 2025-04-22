@@ -59,7 +59,7 @@ export const MoreClientsHeading = () => {
                </Text>
             </Flex>
          </Flex>
-         <ContactRequestLayout handleOpen={handleOpen} handleClose={handleClose} isOpen={isOpen} />
+         <ContactRequestLayout handleClose={handleClose} isOpen={isOpen} />
       </>
    );
 };

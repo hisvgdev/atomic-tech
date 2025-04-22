@@ -22,13 +22,26 @@ export const PortfolioCards: FC<PortfolioCardsProps> = (props) => {
                ? filteredWorkCases.map((ptCards, idx) => {
                     return (
                        <Box
-                          key={ptCards.id}
+                          key={ptCards.ID}
                           flex={{ base: '0 0 100%', smToLg: '0 0 100%', lg: '0 0 33.333%' }}
                           minW="0"
                           p={{ base: '6', lg: '2' }}
                        >
                           <Stack spaceY={9} align="start">
-                             <Image src={ptCards.preview} width={360} height={410} alt="" />
+                             {ptCards.Preview ? (
+                                <Image
+                                   src={ptCards.Preview.URL}
+                                   width={360}
+                                   height={410}
+                                   alt={ptCards.Preview.ObjectName}
+                                   className="object-contain"
+                                   style={{
+                                      borderRadius: '1.5rem',
+                                   }}
+                                />
+                             ) : (
+                                <Box w="80" h="25rem" bg="white" rounded="2xl" />
+                             )}
                              <Stack spaceY={5}>
                                 <Heading
                                    fontSize="xl"
@@ -42,7 +55,7 @@ export const PortfolioCards: FC<PortfolioCardsProps> = (props) => {
                                    }}
                                    className={`${inter.className}`}
                                 >
-                                   {ptCards.title}
+                                   {ptCards.Title}
                                 </Heading>
                                 <Box>
                                    <Text
@@ -61,7 +74,7 @@ export const PortfolioCards: FC<PortfolioCardsProps> = (props) => {
                                             Ниша:{' '}
                                          </Text>
                                       </b>
-                                      {ptCards.niche}
+                                      {ptCards.Niche}
                                    </Text>
                                    <Text
                                       fontSize="1.125rem"
@@ -79,7 +92,7 @@ export const PortfolioCards: FC<PortfolioCardsProps> = (props) => {
                                             App:{' '}
                                          </Text>
                                       </b>
-                                      {ptCards.app}
+                                      {ptCards.App}
                                    </Text>
                                 </Box>
                              </Stack>

@@ -10,3 +10,28 @@
       @apply bg-white p-0 m-0 box-border;
    }
 }
+
+@utility themed-scrollbar {
+   &::-webkit-scrollbar {
+      width: auto;
+      height: auto;
+   }
+
+   &::-webkit-scrollbar-track {
+      background-color: transparent;
+   }
+
+   &::-webkit-scrollbar-thumb {
+      border-radius: 9999px;
+      /*background-color: hsl(226 12% 28% / 0.04);*/
+      background-color: unset;
+      background-clip: padding-box;
+      border: 0.32rem solid transparent;
+   }
+
+   &:hover {
+      &::-webkit-scrollbar-thumb {
+         background-color: oklch(38% 0 270 / 0.2);
+      }
+   }
+}

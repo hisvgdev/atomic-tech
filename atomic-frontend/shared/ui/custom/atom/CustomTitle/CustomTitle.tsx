@@ -16,7 +16,7 @@ export const CustomTitle: FC<CustomTitleProps> = (props) => {
          lineHeight={lineHeight ?? '3rem'}
          textAlign={isCenter ? 'center' : 'start'}
          className={`${inter.className}`}
-         color={isInAnotherPage ? 'black' : 'white'}
+         color={isInAnotherPage ? 'black' : isInsideInCenter ? 'black' : 'white'}
       >
          {title}
       </Heading>

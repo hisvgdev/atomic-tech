@@ -46,9 +46,11 @@ export const BtnActionsClient: FC<BtnActionsClientProps> = ({
                              ? 'black'
                              : 'white'
                      }
+                     color={isActive ? 'white' : ''}
                      _hover={{
                         bg: '#5547FF',
                         borderColor: '#5547FF',
+                        color: 'white',
                      }}
                      onClick={() => onChangeCategory(idx)}
                   >

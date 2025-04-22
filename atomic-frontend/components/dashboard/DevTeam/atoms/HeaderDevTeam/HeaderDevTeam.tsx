@@ -46,7 +46,7 @@ export const HeaderDevTeam: FC<HeaderDevTeamProps> = (props) => {
                </MotionBox>
             </Flex>
          </Flex>
-         <ContactRequestLayout handleClose={handleClose} handleOpen={handleOpen} isOpen={isOpen} />
+         <ContactRequestLayout handleClose={handleClose} isOpen={isOpen} />
       </>
    );
 };

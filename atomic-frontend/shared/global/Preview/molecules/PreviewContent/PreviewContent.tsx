@@ -76,7 +76,7 @@ export const PreviewContent: FC<PreviewContentProps> = (props) => {
                />
             </Box>
          </Flex>
-         <ContactRequestLayout handleClose={handleClose} handleOpen={handleOpen} isOpen={isOpen} />
+         <ContactRequestLayout handleClose={handleClose} isOpen={isOpen} />
       </Box>
    );
 };

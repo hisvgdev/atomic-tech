@@ -28,13 +28,18 @@ import Image from 'next/image';
 import logoIcon from '@/public/assets/images/atomicLogo.svg';
 import blackLogoIcon from '@/public/assets/images/atomicLogoBlack.svg';
 import { useTheme } from 'next-themes';
+import ContactRequestLayout from '@/shared/global/ContactRequest/organism';
 
 export const NavContent = ({ isDarkLogo }: { isDarkLogo?: boolean }) => {
    const { theme } = useTheme();
    const [isMenuOpen, setIsMenuOpen] = useState(false);
+   const [isOpen, setIsOpen] = useState(false);
 
    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
    const closeMenu = () => setIsMenuOpen(false);
+
+   const handleOpen = () => setIsOpen(true);
+   const handleClose = () => setIsOpen(false);
 
    const renderHeaderElements = (headerItem: NavData): JSX.Element | null => {
       const safetyHeaderLink = typeof headerItem.link === 'string' ? headerItem.link : '/';
@@ -115,10 +120,11 @@ export const NavContent = ({ isDarkLogo }: { isDarkLogo?: boolean }) => {
                         px="8"
                         borderColor={theme === 'light' ? 'black' : 'white'}
                         color={isDarkLogo ? 'black' : ''}
+                        onClick={handleOpen}
                      >
                         Обсудить проект
                      </Button>
-                     <SelectRoot collection={LANGUAGE_DATA} size="sm" width="4rem">
+                     {/* <SelectRoot collection={LANGUAGE_DATA} size="sm" width="4rem">
                         <SelectTrigger>
                            <SelectValueText
                               placeholder={LANGUAGE_DATA.items[0].label}
@@ -136,7 +142,7 @@ export const NavContent = ({ isDarkLogo }: { isDarkLogo?: boolean }) => {
                               </SelectItem>
                            ))}
                         </SelectContent>
-                     </SelectRoot>
+                     </SelectRoot> */}
                   </Flex>
 
                   <Drawer.Root
@@ -189,11 +195,14 @@ export const NavContent = ({ isDarkLogo }: { isDarkLogo?: boolean }) => {
                                        py="4"
                                        px="8"
                                        borderColor={theme === 'light' ? 'black' : 'white'}
-                                       onClick={closeMenu}
+                                       onClick={() => {
+                                          closeMenu();
+                                          handleOpen();
+                                       }}
                                     >
                                        Обсудить проект
                                     </Button>
-                                    <SelectRoot collection={LANGUAGE_DATA} size="sm" width="100%">
+                                    {/* <SelectRoot collection={LANGUAGE_DATA} size="sm" width="100%">
                                        <SelectTrigger>
                                           <SelectValueText
                                              color={theme === 'dark' ? '' : 'black'}
@@ -214,7 +223,7 @@ export const NavContent = ({ isDarkLogo }: { isDarkLogo?: boolean }) => {
                                              </SelectItem>
                                           ))}
                                        </SelectContent>
-                                    </SelectRoot>
+                                    </SelectRoot> */}
                                  </Flex>
                               </Drawer.Body>
                               <Drawer.CloseTrigger position="absolute" top="5" right="3" asChild>
@@ -227,6 +236,7 @@ export const NavContent = ({ isDarkLogo }: { isDarkLogo?: boolean }) => {
                </Flex>
             </Container>
          </MotionBox>
+         <ContactRequestLayout isOpen={isOpen} handleClose={handleClose} />
       </header>
    );
 };

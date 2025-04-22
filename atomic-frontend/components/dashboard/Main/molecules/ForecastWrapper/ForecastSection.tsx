@@ -48,7 +48,7 @@ export const ForecastSection: FC<ForecastSectionProps> = () => {
             />
          </Flex>
          <ShareForecast handleOpen={handleOpen} />
-         <ContactRequestLayout handleOpen={handleOpen} handleClose={handleClose} isOpen={isOpen} />
+         <ContactRequestLayout handleClose={handleClose} isOpen={isOpen} />
       </Flex>
    );
 };

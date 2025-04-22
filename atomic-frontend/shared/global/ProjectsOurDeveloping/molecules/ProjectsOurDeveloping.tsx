@@ -56,7 +56,7 @@ export const ProjectsOurDeveloping: FC<ProjectsOurDevelopingProps> = (props) => 
                </Flex>
             )}
          </Flex>
-         <ContactRequestLayout handleClose={handleClose} handleOpen={handleOpen} isOpen={isOpen} />
+         <ContactRequestLayout handleClose={handleClose} isOpen={isOpen} />
       </>
    );
 };

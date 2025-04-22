@@ -1,17 +1,22 @@
 import { CategoriesProps } from "./categories.types"
 
 export interface WorkCaseProps {
-  categories: CategoriesProps[]
-  created_at: string
-  id: string
+  Categories: CategoriesProps[]
+  CreatedAt: string
+  ID: string
   preview: string
-  sub_categories: CategoriesProps[]
-  tags: string
-  title: string
-  niche: string;
-  develop_type: string;
-  app: string;
-  languages: string;
-  images: string[];
-  description: string;
+  SubCategories: CategoriesProps[]
+  Tags: string
+  Title: string
+  Niche: string;
+  DevelopType: string;
+  App: string;
+  Preview: {
+    ID: string;
+    URL: string;
+    ObjectName: string;
+  }
+  Languages: string;
+  Images: string[] | null;
+  Description: string;
 }

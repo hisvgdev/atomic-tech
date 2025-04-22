@@ -53,7 +53,7 @@ export const SendApplicationWrapper: FC<SendApplicationWrapperProps> = (props) =
                </Box>
             </Box>
          </Flex>
-         <ContactRequestLayout handleClose={handleClose} handleOpen={handleOpen} isOpen={isOpen} />
+         <ContactRequestLayout handleClose={handleClose} isOpen={isOpen} />
       </Box>
    );
 };

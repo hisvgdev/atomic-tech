@@ -6,7 +6,7 @@ import ContactRequestForm from '../../atoms/ContactRequestForm';
 import MotionWrapperClient from '@/shared/ui/animation/MotionWrapperClient';
 
 export const ContactRequestWrapper: FC<ContactRequestWrapperProps> = (props) => {
-   const { handleOpen, handleClose, isOpen } = props;
+   const { handleClose, isOpen } = props;
    return (
       isOpen &&
       createPortal(

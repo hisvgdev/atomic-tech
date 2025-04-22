@@ -22,15 +22,15 @@ export const HeaderWrapper = () => {
          bg={{ base: '{colors.light}', _dark: '{colors.dark}' }}
          borderBottomRadius={{ base: '3rem', lg: '15rem' }}
       >
-         <Flex direction="column" gap={{ base: '4', lg: '8' }}>
+         <Flex className="w-full" direction="column" gap={{ base: '4', lg: '8' }}>
             <NavContent />
-            <Container maxW={{ base: '100%', lg: Sizes[SizeValues.primaryContainerSize].primary }}>
+            <Container maxW={{ base: '100%', lg: '8xl' }}>
                <MotionBox
-                  className="py-9"
+                  className="w-full"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                >
-                  <Flex justify="end">
+                  <Flex className="w-full" justify="end">
                      <ColorModeButton />
                   </Flex>
                </MotionBox>

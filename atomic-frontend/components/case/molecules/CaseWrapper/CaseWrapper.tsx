@@ -21,7 +21,7 @@ export function CaseWrapper(props: CaseWrapperProps) {
       const selectedCategory = workCasesCategories[activeCategoryIndex];
       if (!selectedCategory) return workCases;
       return workCases.filter((workCase) =>
-         workCase.categories.some((cat) => cat.ID === selectedCategory.ID),
+         workCase.Categories.some((cat) => cat.ID === selectedCategory.ID),
       );
    }, [workCases, workCasesCategories, activeCategoryIndex]);
 
