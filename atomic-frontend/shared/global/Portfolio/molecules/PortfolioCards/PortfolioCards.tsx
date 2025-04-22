@@ -54,6 +54,8 @@ export const PortfolioCards: FC<PortfolioCardsProps> = (props) => {
                                             : 'white',
                                    }}
                                    className={`${inter.className}`}
+                                   maxW="80"
+                                   truncate
                                 >
                                    {ptCards.Title}
                                 </Heading>
@@ -61,13 +63,15 @@ export const PortfolioCards: FC<PortfolioCardsProps> = (props) => {
                                    <Text
                                       fontSize="1.125rem"
                                       fontWeight="light"
+                                      className={`${inter.className}`}
+                                      maxW="72"
+                                      truncate
                                       color={{
                                          base:
                                             pathname === '/blockchain' && theme === 'light'
                                                ? 'black'
                                                : 'white',
                                       }}
-                                      className={`${inter.className}`}
                                    >
                                       <b className="font-bold">
                                          <Text as="span" fontStyle="italic">
@@ -79,13 +83,15 @@ export const PortfolioCards: FC<PortfolioCardsProps> = (props) => {
                                    <Text
                                       fontSize="1.125rem"
                                       fontWeight="light"
+                                      className={`${inter.className}`}
+                                      maxW="72"
+                                      truncate
                                       color={{
                                          base:
                                             pathname === '/blockchain' && theme === 'light'
                                                ? 'black'
                                                : 'white',
                                       }}
-                                      className={`${inter.className}`}
                                    >
                                       <b className="font-bold">
                                          <Text as="span" fontStyle="italic">

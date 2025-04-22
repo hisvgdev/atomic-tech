@@ -41,6 +41,8 @@ export function ArticleContent(props: ArticleContentProps) {
                                 fontWeight="semibold"
                                 color="black"
                                 className={`${inter.className}`}
+                                maxW="xs"
+                                truncate
                              >
                                 {articleItem.Title}
                              </Heading>
@@ -50,7 +52,7 @@ export function ArticleContent(props: ArticleContentProps) {
                                 maxW="xs"
                                 className={`${inter.className}`}
                              >
-                                {articleItem.Description}
+                                {articleItem.Description}{' '}
                              </Text>
                              <Text
                                 fontSize="sm"
