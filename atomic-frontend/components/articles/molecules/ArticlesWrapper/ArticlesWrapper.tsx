@@ -43,7 +43,7 @@ export const ArticlesWrapper = ({
       <MotionWrapperClient>
          <Container py="12">
             <VStack align="start" spaceY="12">
-               <CustomTitle title="Статьи" weight="600" size="3rem" isInsideInCenter italic />
+               <CustomTitle title="Статьи" weight="600" size="3rem" isInAnotherPage italic />
                <BtnActionsClient
                   categories={articleCategories}
                   activeIndex={activeCategoryIndex}

@@ -37,7 +37,7 @@ export function CaseWrapper(props: CaseWrapperProps) {
       <MotionWrapperClient>
          <Container py="12">
             <VStack align="start" spaceY="12">
-               <CustomTitle title="Портфолио" weight="600" size="3rem" isInsideInCenter />
+               <CustomTitle title="Портфолио" weight="600" size="3rem" isInAnotherPage />
                <BtnActionsClient
                   categories={workCasesCategories}
                   activeIndex={activeCategoryIndex}

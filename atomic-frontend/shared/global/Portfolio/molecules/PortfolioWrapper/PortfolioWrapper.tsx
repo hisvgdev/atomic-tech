@@ -43,13 +43,7 @@ export const PortfolioWrapper: FC<PortfolioWrapperProps> = (props) => {
          <MotionBox initial={{ opacity: 0, y: 50 }} animate={inView ? { opacity: 1, y: 0 } : {}}>
             <Flex direction="column" gap={12}>
                <Flex justify="center" align="center">
-                  <CustomTitle
-                     size="3rem"
-                     title="Портфолио"
-                     weight="semibold"
-                     isInsideInCenter={pathname.includes('/blockchain')}
-                     italic
-                  />
+                  <CustomTitle size="3rem" title="Портфолио" weight="semibold" italic />
                </Flex>
                <BtnActionsClient
                   activeIndex={activeCategoryIndex}
@@ -57,7 +51,6 @@ export const PortfolioWrapper: FC<PortfolioWrapperProps> = (props) => {
                   onChangeCategory={(index) => {
                      setActiveCategoryIndex(index);
                   }}
-                  isInsideInCenter={pathname.includes('/blockchain')}
                />
                <PortfolioCards filteredWorkCases={filteredWorkCases!} />
             </Flex>

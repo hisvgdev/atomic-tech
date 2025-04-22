@@ -1,9 +1,4 @@
-import MainLayout from '@/components/blockchain/Main/organism/MainLayout/MainLayout';
-import OurBenefitsLayout from '@/components/blockchain/OurBenefits/organism/OurBenefitsLayout';
-import ArticleLayout from '@/shared/global/Articles/cells/ArticleLayout';
-import Feedbacks from '@/shared/global/Feedbacks/molecules/Feedbacks';
-import FooterLayout from '@/shared/global/Footer/cells/FooterLayout';
-import HeaderLayout from '@/shared/global/Header/organism/HeaderLayout/HeaderLayout';
+import { Grid } from '@/components/blockchain/Grid';
 import { Metadata } from 'next';
 import React from 'react';
 
@@ -47,12 +42,7 @@ export const metadata: Metadata = {
 export default function Blockchain() {
    return (
       <>
-         <HeaderLayout />
-         <OurBenefitsLayout />
-         <MainLayout />
-         <Feedbacks isBgWhite withSpacing withTitle />
-         <ArticleLayout />
-         <FooterLayout />
+         <Grid />
       </>
    );
 }

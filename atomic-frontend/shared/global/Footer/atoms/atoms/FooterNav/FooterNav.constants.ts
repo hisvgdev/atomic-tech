@@ -31,9 +31,4 @@ export const FOOTER_NAV_DATA = [
     title: "Статьи",
     link: "/articles"
   },
-  {
-    id: uuidv4(),
-    title: "О нас",
-    link: "/about-us"
-  },
 ]

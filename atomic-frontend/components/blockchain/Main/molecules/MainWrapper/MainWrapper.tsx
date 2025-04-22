@@ -28,7 +28,6 @@ export const MainWrapper = (props: MainWrapperProps) => {
                <ProcessDeveloping />
                <ThemesEnum />
                <TechnologyWrapper technologies={technologies} />
-               <PortfolioLayout />
                <SendApplication />
             </Flex>
          </Container>

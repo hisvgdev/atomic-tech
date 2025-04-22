@@ -15,9 +15,16 @@ export async function generateMetadata({
    params: { slug: string };
 }): Promise<Metadata> {
    const workCase: WorkCaseProps = await getWorkCase(params.slug);
-   const categoryNames = workCase.Categories.map((cat: CategoriesProps) => cat.Name).join(', ');
+
+   const categoryNames =
+      workCase.Categories && Array.isArray(workCase.Categories)
+         ? workCase.Categories.map((cat: CategoriesProps) => cat.Name).join(', ')
+         : '';
    const tags = workCase.Tags || '';
-   const keywords = [workCase.Title, ...tags.split(','), ...categoryNames.split(',')].join(', ');
+   const keywords = [workCase.Title, ...tags.split(','), ...categoryNames.split(',')]
+      .map((k) => k.trim())
+      .filter(Boolean)
+      .join(', ');
 
    return {
       title: `${workCase.Title}`,
@@ -29,7 +36,14 @@ export async function generateMetadata({
          url: `https://atomic-tech.ru/case/${params.slug}`,
          type: 'article',
          images: workCase.Preview
-            ? [{ url: workCase.Preview.URL, width: 800, height: 600, alt: workCase.Title }]
+            ? [
+                 {
+                    url: workCase.Preview.URL || '',
+                    width: 800,
+                    height: 600,
+                    alt: workCase.Title || 'Work Case',
+                 },
+              ]
             : [],
       },
       twitter: {
@@ -37,7 +51,14 @@ export async function generateMetadata({
          title: workCase.Title,
          description: workCase.Description,
          images: workCase.Preview
-            ? [{ url: workCase.Preview.URL, width: 800, height: 600, alt: workCase.Title }]
+            ? [
+                 {
+                    url: workCase.Preview.URL || '',
+                    width: 800,
+                    height: 600,
+                    alt: workCase.Title || 'Work Case',
+                 },
+              ]
             : [],
       },
       category: categoryNames,
@@ -50,6 +71,19 @@ export async function generateStaticParams() {
 
 export default async function Portfolio({ params }: { params: { slug: string } }) {
    const workCase: WorkCaseProps = await getWorkCase(params.slug);
+
+   if (!workCase) {
+      return (
+         <div className="bg-white text-center">
+            <NavContent isDarkLogo />
+            <CustomBackPage />
+            <Container pb="40">
+               <Text>Проект не найден</Text>
+            </Container>
+            <FooterLayout />
+         </div>
+      );
+   }
 
    return (
       <div className="bg-white text-black">
@@ -71,7 +105,7 @@ export default async function Portfolio({ params }: { params: { slug: string } }
                            fontStyle: 'italic',
                         }}
                      >
-                        {workCase.Title}
+                        {workCase.Title || '-'}
                      </Heading>
 
                      <Flex direction="column" gap="4">
@@ -81,7 +115,8 @@ export default async function Portfolio({ params }: { params: { slug: string } }
                               fontStyle: 'italic',
                            }}
                         >
-                           Ниша: <span className="font-normal not-italic">{workCase.Niche}</span>
+                           Ниша:{' '}
+                           <span className="font-normal not-italic">{workCase.Niche || '-'}</span>
                         </Text>
 
                         <Text
@@ -91,7 +126,9 @@ export default async function Portfolio({ params }: { params: { slug: string } }
                            }}
                         >
                            Тип разработки:{' '}
-                           <span className="font-normal not-italic">{workCase.DevelopType}</span>
+                           <span className="font-normal not-italic">
+                              {workCase.DevelopType || '-'}
+                           </span>
                         </Text>
 
                         <Text
@@ -100,7 +137,8 @@ export default async function Portfolio({ params }: { params: { slug: string } }
                               fontStyle: 'italic',
                            }}
                         >
-                           App: <span className="font-normal not-italic">{workCase.App}</span>
+                           App:{' '}
+                           <span className="font-normal not-italic">{workCase.App || '-'}</span>
                         </Text>
 
                         <Text
@@ -110,7 +148,9 @@ export default async function Portfolio({ params }: { params: { slug: string } }
                            }}
                         >
                            Language:{' '}
-                           <span className="font-normal not-italic">{workCase.Languages}</span>
+                           <span className="font-normal not-italic">
+                              {workCase.Languages || '-'}
+                           </span>
                         </Text>
 
                         <Text
@@ -120,17 +160,19 @@ export default async function Portfolio({ params }: { params: { slug: string } }
                            }}
                         >
                            Result:{' '}
-                           <span className="font-normal not-italic">{workCase.Description}</span>
+                           <span className="font-normal not-italic">
+                              {workCase.Description || '-'}
+                           </span>
                         </Text>
                      </Flex>
                   </Flex>
                   {workCase.Preview ? (
                      <Box w={{ base: '17.5rem', lg: '35rem' }} h={{ base: '15rem', lg: '30rem' }}>
                         <Image
-                           src={workCase.Preview.URL}
+                           src={workCase.Preview.URL || ''}
                            width={560}
                            height={480}
-                           alt={workCase.Title}
+                           alt={workCase.Title || 'Preview Image'}
                            style={{
                               objectFit: 'cover',
                               width: '100%',
@@ -158,10 +200,10 @@ export default async function Portfolio({ params }: { params: { slug: string } }
                               h={{ base: '18rem', lg: '35.5rem' }}
                            >
                               <Image
-                                 src={img}
+                                 src={img || ''}
                                  width={560}
                                  height={566}
-                                 alt={workCase.Title}
+                                 alt={workCase.Title || 'Work Case Image'}
                                  style={{
                                     objectFit: 'cover',
                                     width: '100%',
@@ -182,7 +224,7 @@ export default async function Portfolio({ params }: { params: { slug: string } }
                   </Flex>
                </Flex>
                <Text className={`${inter.className} italic font-light text-lg`}>
-                  {workCase.Description}
+                  {workCase.Description || '-'}
                </Text>
             </Flex>
          </Container>

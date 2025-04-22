@@ -47,12 +47,7 @@ export const PortfolioCards: FC<PortfolioCardsProps> = (props) => {
                                    fontSize="xl"
                                    fontWeight="extrabold"
                                    fontStyle="italic"
-                                   color={{
-                                      base:
-                                         pathname === '/blockchain' && theme === 'light'
-                                            ? 'black'
-                                            : 'white',
-                                   }}
+                                   color={'white'}
                                    className={`${inter.className}`}
                                    maxW="80"
                                    truncate
@@ -66,12 +61,7 @@ export const PortfolioCards: FC<PortfolioCardsProps> = (props) => {
                                       className={`${inter.className}`}
                                       maxW="72"
                                       truncate
-                                      color={{
-                                         base:
-                                            pathname === '/blockchain' && theme === 'light'
-                                               ? 'black'
-                                               : 'white',
-                                      }}
+                                      color={'white'}
                                    >
                                       <b className="font-bold">
                                          <Text as="span" fontStyle="italic">
@@ -86,12 +76,7 @@ export const PortfolioCards: FC<PortfolioCardsProps> = (props) => {
                                       className={`${inter.className}`}
                                       maxW="72"
                                       truncate
-                                      color={{
-                                         base:
-                                            pathname === '/blockchain' && theme === 'light'
-                                               ? 'black'
-                                               : 'white',
-                                      }}
+                                      color={'white'}
                                    >
                                       <b className="font-bold">
                                          <Text as="span" fontStyle="italic">

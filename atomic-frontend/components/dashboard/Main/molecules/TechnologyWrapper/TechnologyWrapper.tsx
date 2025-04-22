@@ -18,6 +18,7 @@ import { inter } from '@/constants/fonts/inter/inter.constants';
 import { useIsMobile } from '@/hooks/useMediaQuery';
 import { TechnologyWrapperProps } from './TechnologyWrapper.types';
 import { RootTechnology } from '@/types/frontend/technology.types';
+import { usePathname } from 'next/navigation';
 
 const technologiesMock = [
    { title: 'Vue.js', icon: atomicVueJsIcon, width: 120, height: 120, top: '15%', left: '10%' },
@@ -32,6 +33,7 @@ const technologiesMock = [
 export const TechnologyWrapper = (props: TechnologyWrapperProps) => {
    const { technologies } = props;
    const isMobile = useIsMobile();
+   const pathname = usePathname();
 
    const getTechnologyWithDefaults = (techFromServer: RootTechnology, index: number) => {
       const fallback = technologiesMock[index] || {};
@@ -61,7 +63,7 @@ export const TechnologyWrapper = (props: TechnologyWrapperProps) => {
          align="center"
          position="relative"
          overflow="hidden"
-         pt="20"
+         pt={!pathname.includes('/blockchain') ? '20' : '0'}
       >
          <Flex justify="center" align="center">
             <HeaderSection

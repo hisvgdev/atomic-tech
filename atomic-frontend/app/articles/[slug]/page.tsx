@@ -14,19 +14,23 @@ export async function generateMetadata({
    params: { slug: string };
 }): Promise<Metadata> {
    const article = await getArticle(params.slug);
-   const categoryNames = article.Categories.map((cat: CategoriesProps) => cat.Name).join(', ');
-   const subCategoryNames = article.SubCategories.map((sub: CategoriesProps) => sub.Name).join(
-      ', ',
-   );
+
+   const categoryNames = article.Categories
+      ? article.Categories.map((cat: CategoriesProps) => cat.Name).join(', ')
+      : '';
+   const subCategoryNames = article.SubCategories
+      ? article.SubCategories.map((sub: CategoriesProps) => sub.Name).join(', ')
+      : '';
    const tags = article.Tags || '';
+
    const keywords = [
-      article.Title,
-      article.ShortTitle,
+      article.Title || '',
+      article.ShortTitle || '',
       ...tags.split(','),
       ...categoryNames.split(','),
       ...subCategoryNames.split(','),
    ]
-      .map((k) => k.trim())
+      .map((k) => k?.trim())
       .filter(Boolean)
       .join(', ');
 
@@ -45,10 +49,10 @@ export async function generateMetadata({
          images: article.ShortImage
             ? [
                  {
-                    url: article.ShortImage.URL,
+                    url: article.ShortImage.URL || '',
                     width: 800,
                     height: 600,
-                    alt: article.ShortImage.ObjectName,
+                    alt: article.ShortImage.ObjectName || 'Article Image',
                  },
               ]
             : [],
@@ -57,7 +61,7 @@ export async function generateMetadata({
          card: 'summary_large_image',
          title: article.Title,
          description: article.ShortDescription || article.Description,
-         images: article.ShortImage ? [article.ShortImage.URL] : [],
+         images: article.ShortImage ? [article.ShortImage.URL || ''] : [],
       },
       category: categoryNames,
    };
@@ -69,6 +73,20 @@ export async function generateStaticParams() {
 
 export default async function Articles({ params }: { params: { slug: string } }) {
    const article = await getArticle(params.slug);
+
+   if (!article) {
+      return (
+         <div className="bg-white text-center">
+            <NavContent isDarkLogo />
+            <CustomBackPage />
+            <Container pb="40">
+               <Text>Статья не найдена</Text>
+            </Container>
+            <FooterLayout />
+         </div>
+      );
+   }
+
    return (
       <div className="bg-white text-center">
          <NavContent isDarkLogo />
@@ -104,10 +122,10 @@ export default async function Articles({ params }: { params: { slug: string } })
                {article.ShortImage ? (
                   <Box w={{ base: '280px', lg: '560px' }} h={{ base: '240px', lg: '480px' }}>
                      <Image
-                        src={article.ShortImage.URL}
+                        src={article.ShortImage.URL || ''}
                         width={560}
                         height={480}
-                        alt={article.ShortImage.ObjectName}
+                        alt={article.ShortImage.ObjectName || 'Article Image'}
                         style={{
                            objectFit: 'cover',
                            width: '100%',

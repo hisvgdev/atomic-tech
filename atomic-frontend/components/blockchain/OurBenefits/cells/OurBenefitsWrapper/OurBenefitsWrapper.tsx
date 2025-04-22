@@ -10,7 +10,7 @@ import OurBenefitsHeading from '../../atoms/OurBenefitsHeading';
 export const OurBenefitsWrapper: FC<OurBenefitsWrapperProps> = (props) => {
    const {} = props;
    return (
-      <MotionBox py="28" initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }}>
+      <MotionBox initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }}>
          <Flex
             direction="column"
             mx="auto"
