@@ -15,7 +15,7 @@ export const metadata: Metadata = {
       type: 'website',
       images: [
          {
-            url: 'https://atomic-tech.ru/assets/images/articles-image.jpg',
+            url: 'https://atomic-tech.ru/assets/images/metadata/articles-image.png',
             width: 1200,
             height: 630,
             alt: 'Статьи от команды Atomic',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
       description: 'Это страница с статьями, которые разрабатываются нашей командой Atomic',
       images: [
          {
-            url: 'https://atomic-tech.ru/assets/images/articles-image.jpg',
+            url: 'https://atomic-tech.ru/assets/images/metadata/articles-image.png',
             width: 1200,
             height: 630,
             alt: 'Статьи от команды Atomic',

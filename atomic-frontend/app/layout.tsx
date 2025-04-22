@@ -28,7 +28,7 @@ export const metadata: Metadata = {
       type: 'website',
       images: [
          {
-            url: 'https://atomic-tech.ru/assets/images/atomic-code-image.jpg',
+            url: 'https://atomic-tech.ru/assets/images/metadata/atomic-code-image.png',
             width: 1200,
             height: 630,
             alt: 'Atomic Code - Разработка программного обеспечения',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
          'Создание инновационных решений и разработка программного обеспечения командой Atomic Code.',
       images: [
          {
-            url: 'https://atomic-tech.ru/assets/images/atomic-code-image.jpg',
+            url: 'https://atomic-tech.ru/assets/images/metadata/atomic-code-image.png',
             width: 1200,
             height: 630,
             alt: 'Atomic Code - Разработка программного обеспечения',

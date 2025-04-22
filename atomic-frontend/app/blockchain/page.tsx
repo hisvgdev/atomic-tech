@@ -15,7 +15,7 @@ export const metadata: Metadata = {
       type: 'website',
       images: [
          {
-            url: 'https://atomic-tech.ru/assets/images/blockchain-image.jpg',
+            url: 'https://atomic-tech.ru/assets/images/metadata/blockchain-image.png',
             width: 1200,
             height: 630,
             alt: 'Блокчейн от команды Atomic',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
          'Страница о блокчейн-разработке, создаваемая командой Atomic, с преимуществами и отзывами.',
       images: [
          {
-            url: 'https://atomic-tech.ru/assets/images/blockchain-image.jpg',
+            url: 'https://atomic-tech.ru/assets/images/metadata/blockchain-image.png',
             width: 1200,
             height: 630,
             alt: 'Блокчейн от команды Atomic',

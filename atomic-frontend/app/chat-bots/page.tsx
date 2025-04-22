@@ -17,7 +17,7 @@ export const metadata: Metadata = {
       type: 'website',
       images: [
          {
-            url: 'https://atomic-tech.ru/assets/images/chatbots-image.jpg',
+            url: 'https://atomic-tech.ru/assets/images/metadata/chatbots-image.png',
             width: 1200,
             height: 630,
             alt: 'Чат-боты от команды Atomic',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
          'Страница, посвященная разработке чат-ботов нашей командой Atomic, с примерами и решениями.',
       images: [
          {
-            url: 'https://atomic-tech.ru/assets/images/chatbots-image.jpg',
+            url: 'https://atomic-tech.ru/assets/images/metadata/chatbots-image.png',
             width: 1200,
             height: 630,
             alt: 'Чат-боты от команды Atomic',

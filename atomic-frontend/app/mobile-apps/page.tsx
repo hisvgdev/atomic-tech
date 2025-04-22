@@ -17,7 +17,7 @@ export const metadata: Metadata = {
       type: 'website',
       images: [
          {
-            url: 'https://atomic-tech.ru/assets/images/mobile-apps-image.jpg',
+            url: 'https://atomic-tech.ru/assets/images/metadata/mobile-apps-image.png',
             width: 1200,
             height: 630,
             alt: 'Мобильные приложения от команды Atomic',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
          'Страница, посвященная разработке мобильных приложений командой Atomic, с примерами и решениями.',
       images: [
          {
-            url: 'https://atomic-tech.ru/assets/images/mobile-apps-image.jpg',
+            url: 'https://atomic-tech.ru/assets/images/metadata/mobile-apps-image.png',
             width: 1200,
             height: 630,
             alt: 'Мобильные приложения от команды Atomic',
