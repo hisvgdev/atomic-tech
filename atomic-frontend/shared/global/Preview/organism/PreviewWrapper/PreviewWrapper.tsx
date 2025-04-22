@@ -4,7 +4,7 @@ import PreviewContent from '../../molecules/PreviewContent';
 import { PreviewWrapperProps } from './PreviewWrapper.types';
 
 export const PreviewWrapper: FC<PreviewWrapperProps> = (props) => {
-   const { title, imgSrc, width, height } = props;
+   const { title, additionalTitle, description, imgSrc, width, height } = props;
    return (
       <Box zIndex={10} position="relative">
          <div
@@ -21,7 +21,14 @@ export const PreviewWrapper: FC<PreviewWrapperProps> = (props) => {
             }}
          />
          <Flex direction="row" gap="10" p={{ base: '10', lg: '0' }}>
-            <PreviewContent title={title} imgSrc={imgSrc} width={width} height={height} />
+            <PreviewContent
+               title={title}
+               additionalTitle={additionalTitle}
+               description={description}
+               imgSrc={imgSrc}
+               width={width}
+               height={height}
+            />
          </Flex>
       </Box>
    );

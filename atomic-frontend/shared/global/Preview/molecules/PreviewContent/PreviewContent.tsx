@@ -16,45 +16,102 @@ const inter = Inter({
 });
 
 export const PreviewContent: FC<PreviewContentProps> = (props) => {
-   const { title, imgSrc, width, height } = props;
+   const { title, additionalTitle, needToBreakAWord, description, imgSrc, width, height } = props;
    const [isOpen, setIsOpen] = useState(false);
 
    const handleOpen = () => setIsOpen(true);
    const handleClose = () => setIsOpen(false);
    return (
       <Box>
-         <Flex direction="row" gap={{ base: '5', lg: '14' }} align="center">
+         <Flex direction="row" gap={{ base: '5', lg: '12' }} align="center">
             <Flex direction="column" gap="7" maxW="41.25rem" w="full">
                <Flex direction="column" gap="2.5">
                   <Heading className={`${inter.className}`} fontSize="2.5" fontWeight="light">
                      ATOMIC CODE
                   </Heading>
-                  <Box lineHeight={{ base: '2.2rem', lg: '3.5rem' }}>
-                     <Text fontSize={{ base: '2rem', lg: '3.18rem' }} fontWeight="semibold">
-                        {title}
-                     </Text>
-                     <Text fontSize={{ base: '2rem', lg: '3.18rem' }} fontWeight="light">
-                        любой сложности
-                     </Text>
-                  </Box>
+                  {title ? (
+                     <Box lineHeight={{ base: '2.2rem', lg: '3.5rem' }}>
+                        {(() => {
+                           if (!title) return;
+                           const words = title.split(' ');
+                           const mid = Math.ceil(words.length / 2);
+                           const firstLine = words.slice(0, mid).join(' ');
+                           const secondLine = words.slice(mid).join(' ');
+
+                           return (
+                              <>
+                                 <Text
+                                    fontSize={{ base: '2rem', lg: '3.18rem' }}
+                                    fontWeight="semibold"
+                                 >
+                                    {firstLine}
+                                 </Text>
+                                 <Text
+                                    fontSize={{ base: '2rem', lg: '3.18rem' }}
+                                    fontWeight="light"
+                                 >
+                                    {secondLine}
+                                 </Text>
+                              </>
+                           );
+                        })()}
+                     </Box>
+                  ) : (
+                     <Box lineHeight={{ base: '2.2rem', lg: '3.5rem' }}>
+                        {(() => {
+                           if (!additionalTitle) return;
+                           const words = additionalTitle.split(' ');
+                           const mid = Math.ceil(words.length / 2);
+                           const firstLine = words.slice(0, mid).join(' ');
+                           const secondLine = words.slice(mid).join(' ');
+
+                           return (
+                              <>
+                                 <Text
+                                    fontSize={{ base: '2rem', lg: '3.18rem' }}
+                                    fontWeight="semibold"
+                                 >
+                                    {firstLine}
+                                 </Text>
+                                 <Text
+                                    fontSize={{ base: '2rem', lg: '3.18rem' }}
+                                    fontWeight="light"
+                                 >
+                                    {secondLine}
+                                 </Text>
+                              </>
+                           );
+                        })()}
+                     </Box>
+                  )}
                </Flex>
                <Flex direction="column" gap="14">
                   <Box maxW="xs">
-                     <Text
-                        fontSize={{ base: 'sm', lg: '5' }}
-                        fontWeight="light"
-                        className={`${inter.className}`}
-                     >
-                        Которые окупаются и приносят прибыль{' '}
+                     {description ? (
                         <Text
-                           as="span"
-                           fontWeight="semibold"
-                           fontStyle="italic"
+                           fontSize={{ base: 'sm', lg: '5' }}
+                           fontWeight="light"
                            className={`${inter.className}`}
                         >
-                           вашему бизнесу
+                           {description}
                         </Text>
-                     </Text>
+                     ) : (
+                        <Text
+                           fontSize={{ base: 'sm', lg: '5' }}
+                           fontWeight="light"
+                           className={`${inter.className}`}
+                        >
+                           Которые окупаются и приносят прибыль{' '}
+                           <Text
+                              as="span"
+                              fontWeight="semibold"
+                              fontStyle="italic"
+                              className={`${inter.className}`}
+                           >
+                              вашему бизнесу
+                           </Text>
+                        </Text>
+                     )}
                   </Box>
                   <Box>
                      <CustomButton
@@ -67,13 +124,26 @@ export const PreviewContent: FC<PreviewContentProps> = (props) => {
                </Flex>
             </Flex>
             <Box className="flex-1" display={{ base: 'none', lg: 'block' }}>
-               <Image
-                  src={imgSrc}
-                  alt="atomic-preview-phone-image"
-                  width={width}
-                  height={height}
-                  className="object-cover"
-               />
+               {typeof imgSrc === 'string' ? (
+                  <Image
+                     src={imgSrc}
+                     alt="atomic-preview-phone-image"
+                     width={width}
+                     height={height}
+                     className="object-cover"
+                     style={{
+                        borderRadius: '1.5rem',
+                     }}
+                  />
+               ) : (
+                  <Image
+                     src={imgSrc}
+                     alt="atomic-preview-phone-image"
+                     width={width}
+                     height={height}
+                     className="object-cover"
+                  />
+               )}
             </Box>
          </Flex>
          <ContactRequestLayout handleClose={handleClose} isOpen={isOpen} />

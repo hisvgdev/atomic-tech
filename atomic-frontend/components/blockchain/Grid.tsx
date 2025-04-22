@@ -7,12 +7,14 @@ import FooterLayout from '@/shared/global/Footer/cells/FooterLayout';
 import HeaderLayout from '@/shared/global/Header/organism/HeaderLayout/HeaderLayout';
 import PortfolioLayout from '@/shared/global/Portfolio/cells/PortfolioLayout/PortfolioLayout';
 import { Flex } from '@chakra-ui/react';
+import { getHeaderPage } from '@/service/api/handlers.api';
 
-export const Grid = () => {
+export default async function Grid() {
+   const header = await getHeaderPage('blockchain');
    return (
       <>
          <Flex direction="column" gap="20">
-            <HeaderLayout />
+            <HeaderLayout header={header} />
             <OurBenefitsLayout />
             <PortfolioLayout />
             <MainLayout />
@@ -22,4 +24,4 @@ export const Grid = () => {
          <FooterLayout />
       </>
    );
-};
+}

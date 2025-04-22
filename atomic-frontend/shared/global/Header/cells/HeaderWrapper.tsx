@@ -13,8 +13,9 @@ import atomicPhonePreviewImage from '@/public/assets/images/chat-bots/atomicCode
 import atomicTabletPreviewImage from '@/public/assets/images/websites/atomicCodeTablet.svg';
 import atomicBlockchainImage from '@/public/assets/images/blockchain/blockchainLogo.svg';
 import { ColorModeButton } from '@/shared/ui/chakra/color-mode';
+import { RootHeader } from '@/types/frontend/header.types';
 
-export const HeaderWrapper = () => {
+export const HeaderWrapper = ({ header }: { header: RootHeader }) => {
    const pathname = usePathname();
    return (
       <Box
@@ -44,39 +45,43 @@ export const HeaderWrapper = () => {
                )}
                {pathname.includes('/chat-bots') && (
                   <PreviewWrapper
-                     imgSrc={atomicPhonePreviewImage}
-                     title="Создание чат-ботов"
-                     width={545}
-                     height={630}
+                     imgSrc={header?.Images?.[0].URL || atomicPhonePreviewImage}
+                     title={header.Title}
+                     additionalTitle="Создание чат-ботов любой сложности"
+                     description={header?.Descriptions?.[0].Text}
+                     width={750}
+                     height={650}
                   />
                )}
                {pathname.includes('/websites') && (
                   <PreviewWrapper
-                     imgSrc={atomicTabletPreviewImage}
-                     title="Создание сайтов"
-                     width={605}
-                     height={440}
+                     imgSrc={header?.Images?.[0].URL || atomicTabletPreviewImage}
+                     title={header.Title}
+                     additionalTitle="Создание сайтов"
+                     description={header?.Descriptions?.[0].Text}
+                     width={750}
+                     height={650}
                   />
                )}
                {pathname.includes('/mobile-apps') && (
                   <PreviewWrapper
-                     imgSrc={atomicPhonePreviewImage}
-                     title="Создание мобильных приложений"
-                     width={545}
-                     height={630}
+                     imgSrc={header?.Images?.[0].URL || atomicPhonePreviewImage}
+                     title={header.Title}
+                     additionalTitle="Создание мобильных приложений"
+                     description={header?.Descriptions?.[0].Text}
+                     width={750}
+                     height={650}
                   />
                )}
                {pathname.includes('/blockchain') && (
-                  <Container
-                     maxW={{ base: '100%', lg: Sizes[SizeValues.primaryContainerSize].primary }}
-                  >
-                     <PreviewWrapper
-                        imgSrc={atomicBlockchainImage}
-                        title="Создание блокчейн проектов"
-                        width={760}
-                        height={650}
-                     />
-                  </Container>
+                  <PreviewWrapper
+                     imgSrc={header?.Images?.[0].URL || atomicBlockchainImage}
+                     additionalTitle="Создание блокчейн проектов"
+                     description={header?.Descriptions?.[0].Text}
+                     title={header.Title}
+                     width={750}
+                     height={650}
+                  />
                )}
             </Flex>
          </Flex>

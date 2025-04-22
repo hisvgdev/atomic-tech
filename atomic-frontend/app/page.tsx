@@ -10,7 +10,7 @@ import React from 'react';
 export default function Home() {
    return (
       <>
-         <HeaderLayout />
+         <HeaderLayout header={null} />
          <PortfolioLayout />
          <ShowreelLayout />
          <MainLayout />

@@ -3,8 +3,11 @@
 import { Box, Flex } from '@chakra-ui/react';
 import HeaderDevTeam from '../../atoms/HeaderDevTeam';
 import CardsDevTeam from '../../atoms/CardsDevTeam';
+import { FC } from 'react';
+import { DevTeamWrapperProps } from './DevTeamWrapper.types';
 
-export const DevTeamWrapper = () => {
+export const DevTeamWrapper: FC<DevTeamWrapperProps> = (props) => {
+   const {} = props;
    return (
       <Box zIndex={10} position="relative">
          <div
