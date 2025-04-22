@@ -19,7 +19,7 @@ export const WorkCasesList = ({ paginatedWorkCases }: WorkCasesListProps) => {
       <Grid templateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }} gap={10} w="full">
          {itemsToRender.map((item, idx) => (
             <Link key={idx} href={`case/${item.ID}`}>
-               <Flex direction="column" gap="2">
+               <Flex justify="center" align="center" direction="column" gap="2">
                   <Box borderRadius="xl" overflow="hidden">
                      {item.Preview ? (
                         <Image
@@ -27,7 +27,7 @@ export const WorkCasesList = ({ paginatedWorkCases }: WorkCasesListProps) => {
                            width={360}
                            height={410}
                            alt={item.Preview.ObjectName}
-                           className="object-contain"
+                           className="object-cover"
                            style={{
                               borderRadius: '1.5rem',
                            }}

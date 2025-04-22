@@ -1,6 +1,6 @@
 'use client';
 import CustomTitle from '@/shared/ui/custom/atom/CustomTitle';
-import { Box, Container, Flex, VStack } from '@chakra-ui/react';
+import { Box, Container, Flex, List, VStack } from '@chakra-ui/react';
 import React, { useMemo, useState } from 'react';
 import ArticleList from '../../atoms/ArticleList';
 import CustomPagination from '@/shared/ui/custom/atom/CustomPagination';
@@ -41,7 +41,7 @@ export const ArticlesWrapper = ({
 
    return (
       <MotionWrapperClient>
-         <Container py="12">
+         <Container py="4">
             <VStack align="start" spaceY="12">
                <CustomTitle title="Статьи" weight="600" size="3rem" isInAnotherPage italic />
                <BtnActionsClient
@@ -52,21 +52,14 @@ export const ArticlesWrapper = ({
                      setCurrentPage(1);
                   }}
                />
-               <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem' }}>
+               <List.Root>
                   <Flex as="li" gap="6" wrap="wrap">
                      {Array.isArray(articleSubCategories) &&
                         articleSubCategories.map((item, idx) => (
-                           <li
-                              key={idx}
-                              style={{
-                                 display: 'inline-block',
-                              }}
-                           >
-                              {item.Name}
-                           </li>
+                           <List.Root key={idx}>{item.Name}</List.Root>
                         ))}
                   </Flex>
-               </ul>
+               </List.Root>
                <ArticleList articles={paginatedArticles} />
                <Flex width="full" justify="end">
                   <CustomPagination

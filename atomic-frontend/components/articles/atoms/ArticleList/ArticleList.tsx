@@ -10,14 +10,23 @@ export const ArticleList = ({ articles }: { articles: ArticlesProps[] }) => {
          {Array.isArray(articles) && articles.length > 0
             ? articles.map((article, idx) => (
                  <GridItem key={idx}>
-                    <VStack bg="#F4F4F4" borderRadius="1.875rem" p={5} spaceY={4} align="stretch">
-                       <Box w="full" h="9.375rem" borderRadius="1.25rem" bg="blue.200" />
+                    <VStack
+                       bg="#F4F4F4"
+                       borderRadius="3xl"
+                       p={5}
+                       spaceY={4}
+                       align="stretch"
+                       maxW="96"
+                    >
+                       <Box w="full" h="10rem" borderRadius="2xl" bg="blue.200" />
                        <VStack align="start">
                           <Heading
                              size="md"
                              fontWeight="semibold"
                              color="black"
                              className={`${inter.className}`}
+                             maxW="xs"
+                             truncate
                           >
                              {article.Title || ''}
                           </Heading>

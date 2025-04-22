@@ -3,7 +3,7 @@
 import React, { useMemo, useState } from 'react';
 import { CaseWrapperProps } from './CaseWrapper.types';
 import MotionWrapperClient from '@/shared/ui/animation/MotionWrapperClient';
-import { Container, Flex, VStack } from '@chakra-ui/react';
+import { Container, Flex, List, VStack } from '@chakra-ui/react';
 import CustomTitle from '@/shared/ui/custom/atom/CustomTitle';
 import BtnActionsClient from '@/shared/global/BtnActions/BtnActionsClient';
 import CustomPagination from '@/shared/ui/custom/atom/CustomPagination';
@@ -46,21 +46,21 @@ export function CaseWrapper(props: CaseWrapperProps) {
                      setCurrentPage(1);
                   }}
                />
-               <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem' }}>
+               <List.Root>
                   <Flex as="li" gap="6" wrap="wrap">
                      {Array.isArray(workCasesSubCategories) &&
                         workCasesSubCategories.map((item, idx) => (
-                           <li
+                           <List.Item
                               key={idx}
                               style={{
                                  display: 'inline-block',
                               }}
                            >
                               {item.Name}
-                           </li>
+                           </List.Item>
                         ))}
                   </Flex>
-               </ul>
+               </List.Root>
                <WorkCasesList paginatedWorkCases={paginatedWorkCases} />
                <Flex width="full" justify="end">
                   <CustomPagination

@@ -120,7 +120,7 @@ export default async function Articles({ params }: { params: { slug: string } })
                   </Flex>
                </Box>
                {article.ShortImage ? (
-                  <Box w={{ base: '280px', lg: '560px' }} h={{ base: '240px', lg: '480px' }}>
+                  <Box w={{ base: '17.5rem', lg: '35rem' }} h={{ base: '15rem', lg: '30rem' }}>
                      <Image
                         src={article.ShortImage.URL || ''}
                         width={560}
@@ -130,12 +130,12 @@ export default async function Articles({ params }: { params: { slug: string } })
                            objectFit: 'cover',
                            width: '100%',
                            height: '100%',
-                           borderRadius: '50px',
+                           borderRadius: '3.125rem',
                         }}
                      />
                   </Box>
                ) : (
-                  <Box bg="gray.400" w="560px" h="480px" rounded="md" />
+                  <Box bg="gray.400" w="35rem" h="30rem" rounded="md" />
                )}
             </Flex>
          </Container>
