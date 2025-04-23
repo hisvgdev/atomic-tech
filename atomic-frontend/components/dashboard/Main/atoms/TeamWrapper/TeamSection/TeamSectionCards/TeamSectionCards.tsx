@@ -15,12 +15,22 @@ export const TeamSectionCards: FC<TeamSectionCardsProps> = (props) => {
             align={{ base: '', lg: 'center' }}
             width="fit-content"
          >
-            {team.length > 0
+            {team && team.length > 0
                ? team.map((t, idx) => {
                     return (
                        <Box
                           key={idx}
-                          flex={{ base: '0 0 100%', lg: '0 0 23%' }}
+                          flex={{
+                             base: '0 0 100%',
+                             lg:
+                                team.length === 1
+                                   ? '0 0 100%'
+                                   : team.length === 2
+                                     ? '0 0 48%'
+                                     : team.length === 3
+                                       ? '0 0 31%'
+                                       : '0 0 23%',
+                          }}
                           cursor={isDragging ? 'grabbing' : 'grab'}
                        >
                           <TeamSectionCard teamInfo={t} />

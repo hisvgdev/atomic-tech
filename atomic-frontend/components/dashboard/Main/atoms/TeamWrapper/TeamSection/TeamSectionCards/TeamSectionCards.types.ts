@@ -1,8 +1,9 @@
+import { RootTeam } from "@/types/frontend/team.types";
 import { EmblaViewportRefType } from "embla-carousel-react";
-import { RootTeam } from "../TeamSection.types";
+
 
 export interface TeamSectionCardsProps {
   emblaRef: EmblaViewportRefType
   isDragging: boolean;
-  team: RootTeam[]
+  team: RootTeam[] | null;
 }

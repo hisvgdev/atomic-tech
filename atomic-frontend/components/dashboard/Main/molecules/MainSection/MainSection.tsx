@@ -10,8 +10,9 @@ import ServiceWrapper from '../ServiceWrapper';
 import MoreClientsWrapper from '../MoreClients/cells';
 import BottomGradient from '@/shared/global/BottomGradient';
 import TeamWrapper from '../../atoms/TeamWrapper/TeamWrapper';
+import { RootTeam } from '@/types/frontend/team.types';
 
-export const MainSection = (props: { team: any; technology: any }) => {
+export const MainSection = (props: { team: RootTeam[]; technology: any }) => {
    return (
       <Box
          className="overflow-hidden relative h-full"

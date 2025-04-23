@@ -12,7 +12,7 @@ export const TeamSectionCard: FC<TeamSectionCardProps> = (props) => {
    return (
       <Box
          bg="#92C8FF"
-         rounded={{ base: '2xl', lg: '3.125rem' }}
+         rounded={{ base: '2xl', lg: '3xl' }}
          flex={{ base: '0 0 100%', lg: '0 0 15%' }}
          overflow="hidden"
       >
@@ -24,18 +24,20 @@ export const TeamSectionCard: FC<TeamSectionCardProps> = (props) => {
                   fontSize="md"
                   className={`${inter.className}`}
                >
-                  {teamInfo?.name || 'Василий Пупочек'}
+                  {teamInfo?.Name || 'Василий Пупочек'}
                </Heading>
                <Text color="black" fontSize="4" fontWeight="light" className={`${inter.className}`}>
-                  {teamInfo?.description || 'Таргетолог'}
+                  {teamInfo?.Description || 'Таргетолог'}
                </Text>
             </Flex>
-            <Image
-               src={teamInfo?.avatar || ourTeamsAvatar}
-               width={260}
-               height={260}
-               alt="avatar-founder"
-            />
+            {teamInfo?.Avatar && (
+               <Image
+                  src={teamInfo?.Avatar.URL || ourTeamsAvatar}
+                  width={260}
+                  height={260}
+                  alt="avatar-founder"
+               />
+            )}
          </Flex>
       </Box>
    );
