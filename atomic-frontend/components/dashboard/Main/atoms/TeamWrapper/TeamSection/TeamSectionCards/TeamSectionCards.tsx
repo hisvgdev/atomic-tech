@@ -8,8 +8,8 @@ export const TeamSectionCards: FC<TeamSectionCardsProps> = (props) => {
    return (
       <Box ref={emblaRef} overflow="hidden">
          <Flex
-            gap={6}
-            p={{ base: '0', lg: '5' }}
+            gap="6"
+            p={{ base: '', lg: '5' }}
             mx={{ base: '', lg: 'auto' }}
             justify={{ base: '', lg: 'center' }}
             align={{ base: '', lg: 'center' }}
@@ -20,6 +20,7 @@ export const TeamSectionCards: FC<TeamSectionCardsProps> = (props) => {
                     return (
                        <Box
                           key={idx}
+                          p={{ base: '4', lg: '0' }}
                           flex={{
                              base: '0 0 100%',
                              lg:
