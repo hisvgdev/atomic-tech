@@ -127,8 +127,8 @@ export const ThemesEnum = () => {
                         bg="{colors.thirtaryDark}"
                         rounded="3xl"
                         p="6"
-                        overflow="hidden"
                         position="relative"
+                        className="overflow-auto overscroll-none themed-scrollbar"
                      >
                         <Flex direction="column" gap="6">
                            <Flex direction="column" gap="6">
@@ -208,6 +208,7 @@ export const ThemesEnum = () => {
                         rounded="3xl"
                         p="6"
                         position="relative"
+                        className="overflow-auto overscroll-none themed-scrollbar"
                      >
                         <Flex direction="column" gap="6">
                            <Flex direction="column" gap="6">
@@ -326,6 +327,7 @@ export const ThemesEnum = () => {
                         rounded="3xl"
                         p="6"
                         position="relative"
+                        className="overflow-auto overscroll-none themed-scrollbar"
                      >
                         <Flex direction="column" gap="6">
                            <Box maxW="96">

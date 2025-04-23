@@ -18,9 +18,18 @@ export const FooterLayout = () => {
    return (
       <Box ref={ref}>
          <MotionBox initial={{ opacity: 0, y: 50 }} animate={inView ? { opacity: 1, y: 0 } : {}}>
-            <Box bg="#232323" py={20} borderTopRadius={{ base: '3rem', lg: '15rem' }}>
+            <Box
+               bg="#232323"
+               py={{ base: '12', lg: '20' }}
+               borderTopRadius={{ base: '3rem', lg: '15rem' }}
+            >
                <Box maxW="6xl" mx="auto" px={4}>
-                  <Flex justify="space-between" align="center" flexWrap="wrap">
+                  <Flex
+                     justify="space-between"
+                     align="center"
+                     flexWrap="wrap"
+                     gap={{ base: '8', lg: '0' }}
+                  >
                      <FooterBranding />
                      {!isMobile ? (
                         <>
@@ -28,7 +37,7 @@ export const FooterLayout = () => {
                            <FooterContacts />
                         </>
                      ) : (
-                        <Flex direction="column" gap="10">
+                        <Flex direction="column" gap="6">
                            <FooterNav />
                            <FooterContacts />
                         </Flex>

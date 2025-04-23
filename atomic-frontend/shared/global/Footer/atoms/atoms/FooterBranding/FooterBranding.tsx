@@ -14,6 +14,7 @@ export const FooterBranding: FC<FooterBrandingProps> = (props) => {
             fontSize="4xl"
             color="white"
             className={`${inter.className}`}
+            textAlign="left"
          >
             Atomic Code
          </Heading>

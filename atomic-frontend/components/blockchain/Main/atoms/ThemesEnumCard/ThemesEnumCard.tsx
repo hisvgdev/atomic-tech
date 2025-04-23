@@ -12,7 +12,7 @@ export const ThemesEnumCard: FC<ThemesEnumCardProps> = (props) => {
          h="sm"
          p="6"
          rounded="3xl"
-         overflow="auto"
+         className="overflow-auto overscroll-none themed-scrollbar"
       >
          <Flex direction="column" gap={{ base: '4', lg: '12' }}>
             <Flex direction="column" gap={{ base: '3', lg: '6' }}>

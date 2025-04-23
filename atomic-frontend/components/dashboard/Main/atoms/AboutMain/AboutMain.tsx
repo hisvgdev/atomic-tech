@@ -12,7 +12,7 @@ export const AboutMain: FC<AboutMainProps> = (props) => {
    return (
       <Box w="full" py="12">
          <Stack direction={{ base: 'column', lg: 'row' }} justify="space-between" align="center">
-            <Flex direction="column" maxW="sm" gap="32">
+            <Flex direction="column" maxW="sm" gap={{ base: '8', lg: '32' }}>
                <Heading
                   textAlign="end"
                   fontSize={{ base: '4xl', lg: '5.625rem' }}
@@ -31,7 +31,11 @@ export const AboutMain: FC<AboutMainProps> = (props) => {
                      вашему бизнесу
                   </Text>
                   <Box position="absolute" bottom="25%" left="1%">
-                     <Text fontWeight="medium" className={`${inter.className} text-5xl`}>
+                     <Text
+                        display={{ base: 'none', lg: 'block' }}
+                        fontWeight="medium"
+                        className={`${inter.className} text-5xl`}
+                     >
                         {'{'}
                      </Text>
                   </Box>

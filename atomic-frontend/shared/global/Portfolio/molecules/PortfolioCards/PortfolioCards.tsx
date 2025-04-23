@@ -17,9 +17,9 @@ export const PortfolioCards: FC<PortfolioCardsProps> = (props) => {
    const pathname = usePathname();
    return (
       <Flex overflow="hidden" ref={emblaRef} direction="column" gap="8">
-         <Flex cursor={isDragging ? 'grabbing' : 'grab'}>
+         <Flex cursor={isDragging ? 'grabbing' : 'grab'} gap={{ base: '4', lg: '6' }}>
             {filteredWorkCases.length > 0
-               ? filteredWorkCases.map((ptCards, idx) => {
+               ? filteredWorkCases.map((ptCards) => {
                     return (
                        <Box
                           key={ptCards.ID}

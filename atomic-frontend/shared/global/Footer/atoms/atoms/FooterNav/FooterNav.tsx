@@ -8,7 +8,7 @@ import Link from 'next/link';
 export const FooterNav: FC<FooterNavProps> = (props) => {
    const {} = props;
    return (
-      <Flex direction="column" gap={4}>
+      <Flex direction="column" align="start" gap={4}>
          {FOOTER_NAV_DATA.map((item, idx) => (
             <Link key={item.id + idx} href={item.link}>
                <Text
