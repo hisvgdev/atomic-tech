@@ -14,7 +14,7 @@ export async function fetchData(endpoint: string, type: "object" | "array" = 'ar
     const response = await fetch(`${apiUrl}/${endpoint}`, {
       method: "GET",
       next: {
-        revalidate: 1800
+        revalidate: 10
       },
       headers: {
         'Content-Type': 'application/json'
