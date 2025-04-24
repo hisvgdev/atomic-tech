@@ -34,6 +34,7 @@ export const ArticleList = ({ articles }: { articles: ArticlesProps[] }) => {
                              fontSize="sm"
                              color="black"
                              maxW="xs"
+                             truncate
                              className={`${inter.className}`}
                           >
                              {article.Description || ''}

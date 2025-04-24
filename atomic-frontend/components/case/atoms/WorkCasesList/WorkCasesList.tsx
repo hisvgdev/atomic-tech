@@ -40,7 +40,7 @@ export const WorkCasesList = ({ paginatedWorkCases }: WorkCasesListProps) => {
                      <Text
                         fontWeight="semibold"
                         fontSize="lg"
-                        className={`${inter.className} text-2xl`}
+                        className={`${inter.className} text-center text-xl`}
                      >
                         {item.Title}
                      </Text>
