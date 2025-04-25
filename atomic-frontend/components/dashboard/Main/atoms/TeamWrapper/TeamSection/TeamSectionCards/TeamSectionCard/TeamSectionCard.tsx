@@ -24,18 +24,23 @@ export const TeamSectionCard: FC<TeamSectionCardProps> = (props) => {
                   fontSize="md"
                   className={`${inter.className}`}
                >
-                  {teamInfo?.Name || 'Василий Пупочек'}
+                  {teamInfo?.Name || 'Имя неизвестно'}
                </Heading>
                <Text color="black" fontSize="4" fontWeight="light" className={`${inter.className}`}>
-                  {teamInfo?.Description || 'Таргетолог'}
+                  {teamInfo?.Description || 'Неизвестно'}
                </Text>
             </Flex>
             {teamInfo?.Avatar && (
                <Image
                   src={teamInfo?.Avatar.URL || ourTeamsAvatar}
-                  width={260}
-                  height={260}
-                  alt="avatar-founder"
+                  width={300}
+                  height={300}
+                  alt={`avatar-team-${teamInfo.Name}`}
+                  style={{
+                     borderRadius: '0.5rem',
+                     aspectRatio: '1/1',
+                     objectFit: 'fill',
+                  }}
                />
             )}
          </Flex>

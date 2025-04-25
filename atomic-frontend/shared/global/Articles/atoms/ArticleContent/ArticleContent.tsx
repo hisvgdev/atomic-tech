@@ -50,6 +50,7 @@ export function ArticleContent(props: ArticleContentProps) {
                                 fontSize="sm"
                                 color="black"
                                 maxW="xs"
+                                truncate
                                 className={`${inter.className}`}
                              >
                                 {articleItem.Description}{' '}

@@ -83,21 +83,9 @@ export const MOBILE_NAV_DATA: MobileNavData[] = [
   },
   {
     id: uuidv4(),
-    title: "Контакты",
-    link: "/contacts",
-    icon: BookUser
-  },
-  {
-    id: uuidv4(),
     title: "Статьи",
     link: "/articles",
     icon: Newspaper
-  },
-  {
-    id: uuidv4(),
-    title: "О нас",
-    link: "/about-us",
-    icon: User
   },
 ]
 

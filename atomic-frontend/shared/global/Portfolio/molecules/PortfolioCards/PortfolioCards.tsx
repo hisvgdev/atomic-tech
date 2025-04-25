@@ -9,6 +9,7 @@ import { inter } from '@/constants/fonts/inter/inter.constants';
 import { useTheme } from 'next-themes';
 import { usePathname } from 'next/navigation';
 import { PortfolioCardsProps } from './PortfolioCards.types';
+import Link from 'next/link';
 
 export const PortfolioCards: FC<PortfolioCardsProps> = (props) => {
    const { filteredWorkCases } = props;
@@ -27,67 +28,72 @@ export const PortfolioCards: FC<PortfolioCardsProps> = (props) => {
                           minW="0"
                           p={{ base: '6', lg: '2' }}
                        >
-                          <Stack spaceY={9} align="start">
-                             {ptCards.Preview ? (
-                                <Image
-                                   src={ptCards.Preview.URL}
-                                   width={360}
-                                   height={410}
-                                   alt={ptCards.Preview.ObjectName}
-                                   className="object-contain"
-                                   style={{
-                                      borderRadius: '1.5rem',
-                                   }}
-                                />
-                             ) : (
-                                <Box w="80" h="25rem" bg="white" rounded="2xl" />
-                             )}
-                             <Stack spaceY={5}>
-                                <Heading
-                                   fontSize="xl"
-                                   fontWeight="extrabold"
-                                   fontStyle="italic"
-                                   color={'white'}
-                                   className={`${inter.className}`}
-                                   maxW="80"
-                                   truncate
-                                >
-                                   {ptCards.Title}
-                                </Heading>
-                                <Box>
-                                   <Text
-                                      fontSize="1.125rem"
-                                      fontWeight="light"
-                                      className={`${inter.className}`}
-                                      maxW="72"
-                                      truncate
+                          <Link href={`/case/${ptCards.ID}`}>
+                             <Stack spaceY={9} align="start">
+                                {ptCards.Preview ? (
+                                   <Image
+                                      src={ptCards.Preview.URL}
+                                      width={360}
+                                      height={410}
+                                      alt={ptCards.Preview.ObjectName}
+                                      style={{
+                                         borderRadius: '1.5rem',
+                                         aspectRatio: '1/1',
+                                         objectFit: 'cover',
+                                         maxWidth: '23rem',
+                                         maxHeight: '23rem',
+                                      }}
+                                   />
+                                ) : (
+                                   <Box w="80" h="25rem" bg="white" rounded="2xl" />
+                                )}
+                                <Stack spaceY={5}>
+                                   <Heading
+                                      fontSize="xl"
+                                      fontWeight="extrabold"
+                                      fontStyle="italic"
                                       color={'white'}
-                                   >
-                                      <b className="font-bold">
-                                         <Text as="span" fontStyle="italic">
-                                            Ниша:{' '}
-                                         </Text>
-                                      </b>
-                                      {ptCards.Niche}
-                                   </Text>
-                                   <Text
-                                      fontSize="1.125rem"
-                                      fontWeight="light"
                                       className={`${inter.className}`}
-                                      maxW="72"
+                                      maxW="80"
                                       truncate
-                                      color={'white'}
                                    >
-                                      <b className="font-bold">
-                                         <Text as="span" fontStyle="italic">
-                                            App:{' '}
-                                         </Text>
-                                      </b>
-                                      {ptCards.App}
-                                   </Text>
-                                </Box>
+                                      {ptCards.Title}
+                                   </Heading>
+                                   <Box>
+                                      <Text
+                                         fontSize="1.125rem"
+                                         fontWeight="light"
+                                         className={`${inter.className}`}
+                                         maxW="72"
+                                         truncate
+                                         color={'white'}
+                                      >
+                                         <b className="font-bold">
+                                            <Text as="span" fontStyle="italic">
+                                               Ниша:{' '}
+                                            </Text>
+                                         </b>
+                                         {ptCards.Niche}
+                                      </Text>
+                                      <Text
+                                         fontSize="1.125rem"
+                                         fontWeight="light"
+                                         className={`${inter.className}`}
+                                         maxW="72"
+                                         truncate
+                                         color={'white'}
+                                      >
+                                         <b className="font-bold">
+                                            <Text as="span" fontStyle="italic">
+                                               App:{' '}
+                                            </Text>
+                                         </b>
+                                         {ptCards.App}
+                                      </Text>
+                                   </Box>
+                                </Stack>
                              </Stack>
-                          </Stack>
+                          </Link>
                        </Box>
                     );
                  })

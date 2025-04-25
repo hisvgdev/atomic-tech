@@ -12,7 +12,7 @@ import {
    ListCollection,
    Portal,
 } from '@chakra-ui/react';
-import { NAV_DATA, LANGUAGE_DATA, MOBILE_NAV_DATA } from './NavContent.constants';
+import { NAV_DATA, MOBILE_NAV_DATA } from './NavContent.constants';
 import Link from 'next/link';
 import { NavData } from './NavContent.types';
 import {

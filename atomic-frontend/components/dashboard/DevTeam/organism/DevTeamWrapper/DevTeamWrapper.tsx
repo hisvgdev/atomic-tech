@@ -9,7 +9,7 @@ import { DevTeamWrapperProps } from './DevTeamWrapper.types';
 export const DevTeamWrapper: FC<DevTeamWrapperProps> = (props) => {
    const {} = props;
    return (
-      <Box zIndex={10} position="relative">
+      <Box zIndex="10" position="relative">
          <div
             style={{
                background:

@@ -1,13 +1,16 @@
 import { inter } from '@/constants/fonts/inter/inter.constants';
+import { MAX_LENGTH } from '@/constants/global.constants';
 import { getWorkCase } from '@/service/api/handlers.api';
 import FooterLayout from '@/shared/global/Footer/cells/FooterLayout';
 import NavContent from '@/shared/global/Header/atom/NavContent';
 import CustomBackPage from '@/shared/ui/custom/atom/CustomBackPage';
 import { CategoriesProps } from '@/types/frontend/categories.types';
 import { WorkCaseProps } from '@/types/frontend/workCase.types';
-import { Box, Container, Flex, Heading, Text, VStack } from '@chakra-ui/react';
+import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
 import { Metadata } from 'next';
-import Image from 'next/image';
+
+import dynamic from 'next/dynamic';
+const ImageModal = dynamic(() => import('@/shared/global/ImageModal/ImageModal'), { ssr: false });
 
 export async function generateMetadata({
    params,
@@ -72,6 +75,10 @@ export async function generateStaticParams() {
 export default async function Portfolio({ params }: { params: { slug: string } }) {
    const workCase: WorkCaseProps = await getWorkCase(params.slug);
 
+   const description = workCase?.Description;
+
+   const isLongText = typeof description === 'string' && description.length > MAX_LENGTH;
+
    if (!workCase) {
       return (
          <div className="bg-white text-center">
@@ -93,7 +100,7 @@ export default async function Portfolio({ params }: { params: { slug: string } }
             <Flex direction="column" gap="14" justify="center" align="center">
                <Flex
                   direction={{ base: 'column', lg: 'row' }}
-                  align="center"
+                  align="start"
                   justify={{ base: 'center', lg: 'space-between' }}
                   width="100%"
                   gap={{ base: '10', lg: '0' }}
@@ -154,31 +161,23 @@ export default async function Portfolio({ params }: { params: { slug: string } }
                         </Text>
 
                         <Text
-                           className={`${inter.className} italic font-semibold text-lg max-w-2xl truncate`}
+                           className={`${inter.className} font-semibold text-lg max-w-2xl`}
                            style={{
                               fontStyle: 'italic',
                            }}
                         >
                            Result:{' '}
-                           <span className="font-normal not-italic">
-                              {workCase.Description || '-'}
+                           <span className="font-normal not-italic text-left max-w-2xl">
+                              {description}
                            </span>
                         </Text>
                      </Flex>
                   </Flex>
                   {workCase.Preview ? (
                      <Box w={{ base: '17.5rem', lg: '35rem' }} h={{ base: '15rem', lg: '30rem' }}>
-                        <Image
-                           src={workCase.Preview.URL || ''}
-                           width={560}
-                           height={480}
+                        <ImageModal
+                           imageUrl={workCase.Preview.URL || ''}
                            alt={workCase.Title || 'Preview Image'}
-                           style={{
-                              objectFit: 'cover',
-                              width: '100%',
-                              height: '100%',
-                              borderRadius: '50px',
-                           }}
                         />
                      </Box>
                   ) : (
@@ -191,36 +190,24 @@ export default async function Portfolio({ params }: { params: { slug: string } }
                   )}
                </Flex>
                <Flex direction="column" gap="10">
-                  <Flex align="center" justify="space-between" width="100%" gap="10" wrap="wrap">
-                     {Array.isArray(workCase.Images) && workCase.Images.length > 0 ? (
-                        workCase.Images.map((img: string, idx: number) => (
-                           <Box
-                              key={idx}
-                              w={{ base: '17.5rem', lg: '35rem' }}
-                              h={{ base: '18rem', lg: '35.5rem' }}
-                           >
-                              <Image
-                                 src={img || ''}
-                                 width={560}
-                                 height={566}
-                                 alt={workCase.Title || 'Work Case Image'}
-                                 style={{
-                                    objectFit: 'cover',
-                                    width: '100%',
-                                    height: '100%',
-                                    borderRadius: '50px',
-                                 }}
-                              />
-                           </Box>
-                        ))
-                     ) : (
-                        <Box
-                           bg="gray.400"
-                           w={{ base: '17.5rem', lg: '35rem' }}
-                           h={{ base: '18rem', lg: '35.5rem' }}
-                           rounded="md"
-                        />
-                     )}
+                  <Flex align="center" justify="center" width="100%" gap="10" wrap="wrap">
+                     {Array.isArray(workCase.Images) &&
+                        workCase.Images.length > 0 &&
+                        workCase.Images.map((img, idx) => {
+                           console.log(img);
+                           return (
+                              <Box
+                                 key={img.ID}
+                                 w={{ base: '17.5rem', lg: '35rem' }}
+                                 h={{ base: '18rem', lg: '35.5rem' }}
+                              >
+                                 <ImageModal
+                                    imageUrl={img.URL || ''}
+                                    alt={img.ObjectName || `Image ${idx + 1}`}
+                                 />
+                              </Box>
+                           );
+                        })}
                   </Flex>
                </Flex>
                <Text className={`${inter.className} italic font-light text-lg`}>

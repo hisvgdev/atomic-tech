@@ -17,6 +17,10 @@ export interface WorkCaseProps {
     ObjectName: string;
   }
   Languages: string;
-  Images: string[] | null;
+  Images: {
+    ID: string;
+    URL: string;
+    ObjectName: string;
+  } | null;
   Description: string;
 }

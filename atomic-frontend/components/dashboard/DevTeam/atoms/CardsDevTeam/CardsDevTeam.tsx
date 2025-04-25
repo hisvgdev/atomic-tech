@@ -122,6 +122,9 @@ export const CardsDevTeam = () => {
                px={14}
                py={5}
                rounded="4xl"
+               _light={{
+                  shadow: { base: '2xl', lg: 'none' },
+               }}
             >
                <Flex direction="column" align="center" gap={4}>
                   <TeamAvatars />
@@ -161,6 +164,9 @@ export const CardsDevTeam = () => {
                display="flex"
                alignItems="center"
                justifyContent="center"
+               _light={{
+                  shadow: { base: '2xl', lg: 'none' },
+               }}
             >
                <Image src={atomicImage} alt="atomic" />
             </MotionBox>
@@ -177,6 +183,10 @@ export const CardsDevTeam = () => {
                h={{ base: '14.68rem', lg: '1/2' }}
                p={6}
                style={{ boxShadow: '0px 4px 15px 0px #FFFFFF26 inset' }}
+               _light={{
+                  bg: { base: 'whiteAlpha.700' },
+               }}
+               overflow="hidden"
             >
                <Text
                   fontSize="sm"
@@ -190,7 +200,7 @@ export const CardsDevTeam = () => {
                   </Text>{' '}
                   вашему бизнесу
                </Text>
-               <Box w="full" h="full" mb="8">
+               <Box w="full" h="full" mb="9" pb={{ base: '4', lg: '0' }}>
                   <CustomChart />
                </Box>
             </MotionBox>
@@ -217,10 +227,13 @@ export const CardsDevTeam = () => {
             w="full"
             h="96"
             bg="white"
-            rounded="1.875rem"
+            rounded="4xl"
             overflow="hidden"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            _light={{
+               shadow: { base: 'xl', lg: 'none' },
+            }}
          >
             <Flex direction="column" align="center" py="9" gap={{ base: '4', lg: '12' }}>
                <Text

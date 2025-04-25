@@ -24,12 +24,15 @@ export const WorkCasesList = ({ paginatedWorkCases }: WorkCasesListProps) => {
                      {item.Preview ? (
                         <Image
                            src={item.Preview.URL}
-                           width={360}
+                           width={400}
                            height={410}
                            alt={item.Preview.ObjectName}
-                           className="object-cover"
                            style={{
                               borderRadius: '1.5rem',
+                              aspectRatio: '1/1',
+                              objectFit: 'cover',
+                              maxWidth: '100%',
+                              maxHeight: '100%',
                            }}
                         />
                      ) : (

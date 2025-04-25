@@ -22,7 +22,7 @@ export const TeamSectionCards: FC<TeamSectionCardsProps> = (props) => {
                           key={idx}
                           p={{ base: '4', lg: '0' }}
                           flex={{
-                             base: '0 0 100%',
+                             base: '0 0 70%',
                              lg:
                                 team.length === 1
                                    ? '0 0 100%'
