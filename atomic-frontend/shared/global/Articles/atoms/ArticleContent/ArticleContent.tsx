@@ -4,6 +4,8 @@ import { Box, GridItem, Heading, VStack, Text, Flex, Button } from '@chakra-ui/r
 import Image from 'next/image';
 import { ArticleContentProps } from './ArticleContent.types';
 import Link from 'next/link';
+import testimg from '@/public/assets/images/Moomin.jpg';
+import ImageModal from '@/shared/global/ImageModal/ImageModal';
 
 export function ArticleContent(props: ArticleContentProps) {
    const { articles } = props;
@@ -23,12 +25,13 @@ export function ArticleContent(props: ArticleContentProps) {
                           <Box borderRadius="2xl" overflow="hidden" w="80" h="36">
                              {articleItem.MainImages?.[0]?.URL ? (
                                 <Box borderRadius="2xl" overflow="hidden" w="80" h="36">
-                                   <Image
-                                      src={articleItem.MainImages[0].URL}
-                                      alt={articleItem.MainImages[0].ObjectName ?? 'Image'}
+                                   <ImageModal
+                                      imageUrl={articleItem.MainImages[0].URL}
                                       width={320}
                                       height={150}
-                                      style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                                      alt={'Image'}
+                                      maxW="20rem"
+                                      maxH="9.375rem"
                                    />
                                 </Box>
                              ) : (

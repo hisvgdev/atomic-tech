@@ -9,10 +9,18 @@ const MotionBox = motion(Box);
 
 export default function ImageModal({
    imageUrl,
+   width = 560,
+   height = 480,
+   maxW = '90vw',
+   maxH = '90vh',
    alt = 'Image',
 }: {
    imageUrl: string;
+   width?: number;
+   height?: number;
    alt?: string;
+   maxW?: string;
+   maxH?: string;
 }) {
    const [isOpen, setIsOpen] = useState(false);
 
@@ -31,8 +39,8 @@ export default function ImageModal({
                src={imageUrl}
                alt={alt}
                objectFit="cover"
-               width={560}
-               height={480}
+               width={width}
+               height={height}
                borderRadius="50px"
             />
          </Box>
@@ -73,8 +81,8 @@ export default function ImageModal({
                   <Image
                      src={imageUrl}
                      alt={alt}
-                     maxW="90vw"
-                     maxH="90vh"
+                     maxW={maxW}
+                     maxH={maxH}
                      objectFit="contain"
                      borderRadius="lg"
                      onClick={(e) => e.stopPropagation()}
