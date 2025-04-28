@@ -1,15 +1,18 @@
 import { inter } from '@/constants/fonts/inter/inter.constants';
-import { MAX_LENGTH } from '@/constants/global.constants';
 import { getArticle } from '@/service/api/handlers.api';
 import FooterLayout from '@/shared/global/Footer/cells/FooterLayout';
 import NavContent from '@/shared/global/Header/atom/NavContent';
 import CustomBackPage from '@/shared/ui/custom/atom/CustomBackPage';
 import { CategoriesProps } from '@/types/frontend/categories.types';
-import { Box, Collapsible, Container, Flex, Heading, Text } from '@chakra-ui/react';
+import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
 import { Metadata } from 'next';
+import Image from 'next/image';
+import { JSDOM } from 'jsdom';
+import createDOMPurify from 'dompurify';
+import parse from 'html-react-parser';
 
-import dynamic from 'next/dynamic';
-const ImageModal = dynamic(() => import('@/shared/global/ImageModal/ImageModal'), { ssr: false });
+const window = new JSDOM('').window;
+const DOMPurify = createDOMPurify(window as unknown as any);
 
 export async function generateMetadata({
    params,
@@ -76,10 +79,7 @@ export async function generateStaticParams() {
 
 export default async function Articles({ params }: { params: { slug: string } }) {
    const article = await getArticle(params.slug);
-
    const description = article?.Description;
-
-   const isLongText = typeof description === 'string' && description.length > MAX_LENGTH;
 
    if (!article) {
       return (
@@ -99,63 +99,32 @@ export default async function Articles({ params }: { params: { slug: string } })
          <NavContent isDarkLogo />
          <CustomBackPage />
          <Container pb="40">
-            <Flex
-               direction={{ base: 'column', lg: 'row' }}
-               align="start"
-               justify={{ base: 'center', lg: 'space-between' }}
-               gap={{ base: '10', lg: '0' }}
-            >
-               <Box maxW="md">
-                  <Flex direction="column" gap="8">
-                     <Heading
-                        fontWeight="semibold"
-                        fontStyle="italic"
-                        className={`${inter.className} text-5xl`}
-                        color="black"
-                        textAlign="left"
-                     >
-                        {article.Title || '-'}
-                     </Heading>
-                     {isLongText ? (
-                        <Collapsible.Root unmountOnExit>
-                           <Collapsible.Trigger>
-                              <Text
-                                 fontSize="1.125rem"
-                                 fontWeight="light"
-                                 className={`${inter.className} max-w-md text-start`}
-                                 color="black"
-                              >
-                                 {description.slice(0, MAX_LENGTH)}...
-                              </Text>
-                           </Collapsible.Trigger>
-                           <Collapsible.Content>
-                              <Text
-                                 fontSize="1.125rem"
-                                 fontWeight="light"
-                                 className={`${inter.className} max-w-md text-start`}
-                                 color="black"
-                              >
-                                 {description.slice(MAX_LENGTH)}
-                              </Text>
-                           </Collapsible.Content>
-                        </Collapsible.Root>
-                     ) : (
-                        <Text
-                           fontSize="1.125rem"
-                           fontWeight="light"
-                           className={`${inter.className} max-w-md text-start`}
-                           color="black"
-                        >
-                           {description || '-'}
-                        </Text>
-                     )}
-                  </Flex>
-               </Box>
+            <Flex direction="column-reverse" align="center" justify="center" gap="10">
+               <Flex direction="column" gap="8">
+                  <Heading
+                     fontWeight="semibold"
+                     fontStyle="italic"
+                     className={`${inter.className}`}
+                     fontSize={{ base: 'xl', lg: '3xl' }}
+                     color="black"
+                     textAlign="center"
+                  >
+                     {article.Title || '-'}
+                  </Heading>
+                  <div className="text-black">{parse(DOMPurify.sanitize(description))}</div>
+               </Flex>
                {article.ShortImage ? (
-                  <Box w={{ base: '17.5rem', lg: '35rem' }} h={{ base: '15rem', lg: '30rem' }}>
-                     <ImageModal
-                        imageUrl={article.ShortImage.URL || ''}
+                  <Box>
+                     <Image
+                        src={article.ShortImage.URL || ''}
                         alt={article.ShortImage.ObjectName || 'Article Image'}
+                        objectFit="cover"
+                        width={820}
+                        height={320}
+                        style={{
+                           width: '100%',
+                           height: '100%',
+                        }}
                      />
                   </Box>
                ) : (

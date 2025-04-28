@@ -9,6 +9,36 @@
    div.bg-white-page {
       @apply bg-white p-0 m-0 box-border;
    }
+
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6 {
+      @apply font-semibold my-1;
+   }
+
+   ul,
+   ol {
+      @apply list-inside pl-4;
+   }
+
+   ul {
+      @apply list-disc;
+   }
+
+   ol {
+      @apply list-decimal;
+   }
+
+   li {
+      @apply my-2;
+   }
+
+   em {
+      @apply italic;
+   }
 }
 
 @utility themed-scrollbar {

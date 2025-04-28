@@ -15,8 +15,8 @@ export const CustomBackPage: FC<CustomBackPageProps> = (props) => {
          <Container>
             <Box py={{ base: '8', lg: '14' }}>
                <Button className="flex items-center gap-6" onClick={() => router.back()}>
-                  <MoveLeft />
-                  <span>Вернуться назад</span>
+                  <MoveLeft color="black" />
+                  <span className="text-black">Вернуться назад</span>
                </Button>
             </Box>
          </Container>

@@ -1,4 +1,5 @@
 import { inter } from '@/constants/fonts/inter/inter.constants';
+import { stripHtmlTags } from '@/shared/tools/stripHtmlTags';
 import { ArticlesProps } from '@/types/frontend/articles.types';
 import { Box, Button, Flex, Grid, GridItem, Heading, Text, VStack } from '@chakra-ui/react';
 import Link from 'next/link';
@@ -37,7 +38,7 @@ export const ArticleList = ({ articles }: { articles: ArticlesProps[] }) => {
                              truncate
                              className={`${inter.className}`}
                           >
-                             {article.Description || ''}
+                             {article.Description ? stripHtmlTags(article.Description) : ''}
                           </Text>
                           <Text
                              fontSize="sm"

@@ -16,10 +16,13 @@
     "axios": "^1.7.9",
     "chart.js": "^4.4.8",
     "clsx": "^2.1.1",
+    "dompurify": "^3.2.5",
     "embla-carousel-react": "^8.5.2",
     "formik": "^2.4.6",
     "framer-motion": "^12.4.0",
     "gsap": "^3.12.7",
+    "html-react-parser": "^5.2.3",
+    "jsdom": "^26.1.0",
     "lucide-react": "^0.479.0",
     "matter-js": "^0.20.0",
     "next": "14.2.23",
@@ -35,6 +38,7 @@
     "yup": "^1.6.1"
   },
   "devDependencies": {
+    "@types/jsdom": "^21.1.7",
     "@types/matter-js": "^0.19.8",
     "@types/node": "^20",
     "@types/react": "^18",

@@ -6,6 +6,7 @@ import { ArticleContentProps } from './ArticleContent.types';
 import Link from 'next/link';
 import testimg from '@/public/assets/images/Moomin.jpg';
 import ImageModal from '@/shared/global/ImageModal/ImageModal';
+import { stripHtmlTags } from '@/shared/tools/stripHtmlTags';
 
 export function ArticleContent(props: ArticleContentProps) {
    const { articles } = props;
@@ -56,7 +57,9 @@ export function ArticleContent(props: ArticleContentProps) {
                                 truncate
                                 className={`${inter.className}`}
                              >
-                                {articleItem.Description}{' '}
+                                {articleItem.Description
+                                   ? stripHtmlTags(articleItem.Description)
+                                   : ''}
                              </Text>
                              <Text
                                 fontSize="sm"
