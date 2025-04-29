@@ -15,7 +15,7 @@ export const BtnActionsClient: FC<BtnActionsClientProps> = ({
 }) => {
    const { theme } = useTheme();
    const pathname = usePathname();
-   const specificRoute = ['/articles', '/portfolio'].includes(pathname);
+   const specificRoute = ['/articles', '/case'].includes(pathname);
 
    if (!Array.isArray(categories) || categories.length === 0) return null;
 
@@ -44,9 +44,11 @@ export const BtnActionsClient: FC<BtnActionsClientProps> = ({
                            ? '#5547FF'
                            : isInsideInCenter && theme === 'light'
                              ? 'black'
-                             : 'white'
+                             : specificRoute
+                               ? 'black'
+                               : 'white'
                      }
-                     color={isActive ? 'white' : ''}
+                     color={isActive || !specificRoute ? 'white' : ''}
                      _hover={{
                         bg: '#5547FF',
                         borderColor: '#5547FF',

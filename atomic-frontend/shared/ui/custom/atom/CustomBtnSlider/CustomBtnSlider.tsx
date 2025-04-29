@@ -20,7 +20,7 @@ export const CustomBtnSlider: FC<CustomBtnSliderProps> = (props) => {
                borderColor={{ base: 'black', _dark: 'white' }}
                onClick={slidePrev ? slidePrev : undefined}
             >
-               <MoveLeft color={theme === 'light' ? 'black' : 'white'} />
+               <MoveLeft color="white" />
             </Button>
             <Button
                rounded="full"

@@ -17,6 +17,7 @@ import { RootHeader } from '@/types/frontend/header.types';
 
 export const HeaderWrapper = ({ header }: { header: RootHeader }) => {
    const pathname = usePathname();
+   console.log(header);
    return (
       <Box
          className="h-auto"
@@ -45,7 +46,7 @@ export const HeaderWrapper = ({ header }: { header: RootHeader }) => {
                )}
                {pathname.includes('/chat-bots') && (
                   <PreviewWrapper
-                     imgSrc={header?.Images?.[0].URL || atomicPhonePreviewImage}
+                     imgSrc={header?.Images?.[1].URL || atomicPhonePreviewImage.src}
                      title={header.Title}
                      additionalTitle="Создание чат-ботов любой сложности"
                      description={header?.Descriptions?.[0].Text}
@@ -55,7 +56,7 @@ export const HeaderWrapper = ({ header }: { header: RootHeader }) => {
                )}
                {pathname.includes('/websites') && (
                   <PreviewWrapper
-                     imgSrc={header?.Images?.[0].URL || atomicTabletPreviewImage}
+                     imgSrc={header?.Images?.[1].URL || atomicTabletPreviewImage.src}
                      title={header.Title}
                      additionalTitle="Создание сайтов"
                      description={header?.Descriptions?.[0].Text}
@@ -65,7 +66,7 @@ export const HeaderWrapper = ({ header }: { header: RootHeader }) => {
                )}
                {pathname.includes('/mobile-apps') && (
                   <PreviewWrapper
-                     imgSrc={header?.Images?.[0].URL || atomicPhonePreviewImage}
+                     imgSrc={header?.Images?.[1].URL || atomicPhonePreviewImage.src}
                      title={header.Title}
                      additionalTitle="Создание мобильных приложений"
                      description={header?.Descriptions?.[0].Text}
@@ -75,7 +76,7 @@ export const HeaderWrapper = ({ header }: { header: RootHeader }) => {
                )}
                {pathname.includes('/blockchain') && (
                   <PreviewWrapper
-                     imgSrc={header?.Images?.[0].URL || atomicBlockchainImage}
+                     imgSrc={header?.Images?.[1].URL || atomicBlockchainImage.src}
                      additionalTitle="Создание блокчейн проектов"
                      description={header?.Descriptions?.[0].Text}
                      title={header.Title}

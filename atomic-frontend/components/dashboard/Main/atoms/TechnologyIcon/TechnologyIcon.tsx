@@ -18,7 +18,6 @@ export const TechnologyIcon: FC<TechnologyIconProps> = (props) => {
       ImageID,
       Name,
    } = props;
-   console.log(Image);
    return (
       <motion.div
          animate={{

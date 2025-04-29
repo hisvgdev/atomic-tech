@@ -21,6 +21,7 @@ export const PreviewContent: FC<PreviewContentProps> = (props) => {
 
    const handleOpen = () => setIsOpen(true);
    const handleClose = () => setIsOpen(false);
+
    return (
       <Box>
          <Flex direction="row" gap={{ base: '5', lg: '12' }} align="center">
@@ -124,26 +125,16 @@ export const PreviewContent: FC<PreviewContentProps> = (props) => {
                </Flex>
             </Flex>
             <Box className="flex-1" display={{ base: 'none', lg: 'block' }}>
-               {typeof imgSrc === 'string' ? (
-                  <Image
-                     src={imgSrc}
-                     alt="atomic-preview-phone-image"
-                     width={width}
-                     height={height}
-                     className="object-cover"
-                     style={{
-                        borderRadius: '1.5rem',
-                     }}
-                  />
-               ) : (
-                  <Image
-                     src={imgSrc}
-                     alt="atomic-preview-phone-image"
-                     width={width}
-                     height={height}
-                     className="object-cover"
-                  />
-               )}
+               <Image
+                  src={imgSrc}
+                  alt={description || ''}
+                  width={width}
+                  height={height}
+                  className="object-cover"
+                  style={{
+                     borderRadius: '1.5rem',
+                  }}
+               />
             </Box>
          </Flex>
          <ContactRequestLayout handleClose={handleClose} isOpen={isOpen} />
