@@ -8,7 +8,7 @@ import { Box, Stack, Heading, Text, Flex } from '@chakra-ui/react';
 import { inter } from '@/constants/fonts/inter/inter.constants';
 
 export const AboutMain: FC<AboutMainProps> = (props) => {
-   const {} = props;
+   const { getLead } = props;
    return (
       <Box w="full" py="12">
          <Stack direction={{ base: 'column', lg: 'row' }} justify="space-between" align="center">
@@ -30,7 +30,7 @@ export const AboutMain: FC<AboutMainProps> = (props) => {
                      </Text>
                      вашему бизнесу
                   </Text>
-                  <Box position="absolute" bottom="25%" left="1%">
+                  <Box position="absolute" bottom="23%" left="2%">
                      <Text
                         display={{ base: 'none', lg: 'block' }}
                         fontWeight="medium"
@@ -46,7 +46,20 @@ export const AboutMain: FC<AboutMainProps> = (props) => {
                position="relative"
                background="linear-gradient(180deg, #5547FF 0%, rgba(85, 71, 255, 0.75) 100%), linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%)"
             >
-               <Image src={avatarFounder} width={415} height={640} alt="avatar-founder" />
+               {getLead.Avatar ? (
+                  <Image
+                     src={getLead.Avatar.URL}
+                     width={415}
+                     height={640}
+                     alt={getLead.Avatar.ObjectName || '-'}
+                     style={{
+                        borderRadius: '1.5rem',
+                        objectFit: 'cover',
+                     }}
+                  />
+               ) : (
+                  <Image src={avatarFounder} width={415} height={640} alt="avatar-founder" />
+               )}
                <Box position="absolute" bottom="2" right="12">
                   <Heading
                      as="h4"
@@ -56,7 +69,7 @@ export const AboutMain: FC<AboutMainProps> = (props) => {
                      color="white"
                      className={`${inter.className}`}
                   >
-                     Альберт Каренович
+                     {getLead.Name}
                   </Heading>
                   <Text
                      fontSize="base"
@@ -65,7 +78,7 @@ export const AboutMain: FC<AboutMainProps> = (props) => {
                      color="white"
                      className={`${inter.className}`}
                   >
-                     Основатель компании
+                     {getLead.Description}
                   </Text>
                </Box>
                <Box position="absolute" bottom="3" right="5">

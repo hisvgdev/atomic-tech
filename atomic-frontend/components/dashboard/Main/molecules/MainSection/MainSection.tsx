@@ -13,6 +13,8 @@ import TeamWrapper from '../../atoms/TeamWrapper/TeamWrapper';
 import { RootTeam } from '@/types/frontend/team.types';
 
 export const MainSection = (props: { team: RootTeam[]; technology: any }) => {
+   const { team, technology } = props;
+   const getLead = team.filter((t) => t.IsLead);
    return (
       <Box
          className="overflow-hidden relative h-full"
@@ -46,15 +48,15 @@ export const MainSection = (props: { team: RootTeam[]; technology: any }) => {
                maxW={{ base: '100%', lg: Sizes[SizeValues.primaryContainerSize].primary }}
                mx="auto"
             >
-               <AboutMain />
+               <AboutMain getLead={getLead[0]} />
             </Container>
-            <TeamWrapper team={props.team} />
+            <TeamWrapper team={team} />
             <Container
                maxW={{ base: '100%', lg: Sizes[SizeValues.primaryContainerSize].primary }}
                mx="auto"
             >
                <ForecastSection />
-               <TechnologyWrapper technologies={props.technology} />
+               <TechnologyWrapper technologies={technology} />
                <ServiceWrapper />
             </Container>
             <MoreClientsWrapper />
