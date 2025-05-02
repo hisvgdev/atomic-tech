@@ -85,7 +85,7 @@ export const PortfolioCards: FC<PortfolioCardsProps> = (props) => {
                                       >
                                          <b className="font-bold">
                                             <Text as="span" fontStyle="italic">
-                                               App:{' '}
+                                               Ссылка:{' '}
                                             </Text>
                                          </b>
                                          {ptCards.App}
@@ -153,7 +153,7 @@ export const PortfolioCards: FC<PortfolioCardsProps> = (props) => {
                                 >
                                    <b className="font-bold">
                                       <Text as="span" fontStyle="italic">
-                                         App:{' '}
+                                         Ссылка:{' '}
                                       </Text>
                                    </b>
                                    {ptCards.app}

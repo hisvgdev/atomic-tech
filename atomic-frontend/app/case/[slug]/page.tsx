@@ -10,6 +10,7 @@ import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
 import { Metadata } from 'next';
 
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 const ImageModal = dynamic(() => import('@/shared/global/ImageModal/ImageModal'), { ssr: false });
 
 export async function generateMetadata({
@@ -144,8 +145,13 @@ export default async function Portfolio({ params }: { params: { slug: string } }
                               fontStyle: 'italic',
                            }}
                         >
-                           App:{' '}
-                           <span className="font-normal not-italic">{workCase.App || '-'}</span>
+                           Ссылка:{' '}
+                           <Link
+                              href={workCase.App || '/'}
+                              className="font-normal not-italic underline"
+                           >
+                              {workCase.App || '-'}
+                           </Link>
                         </Text>
 
                         <Text
@@ -154,7 +160,7 @@ export default async function Portfolio({ params }: { params: { slug: string } }
                               fontStyle: 'italic',
                            }}
                         >
-                           Language:{' '}
+                           Язык:{' '}
                            <span className="font-normal not-italic">
                               {workCase.Languages || '-'}
                            </span>
@@ -166,7 +172,7 @@ export default async function Portfolio({ params }: { params: { slug: string } }
                               fontStyle: 'italic',
                            }}
                         >
-                           Result:{' '}
+                           Описание:{' '}
                            <span className="font-normal not-italic text-left max-w-2xl">
                               {description}
                            </span>
@@ -194,7 +200,6 @@ export default async function Portfolio({ params }: { params: { slug: string } }
                      {Array.isArray(workCase.Images) &&
                         workCase.Images.length > 0 &&
                         workCase.Images.map((img, idx) => {
-                           console.log(img);
                            return (
                               <Box
                                  key={img.ID}
