@@ -14,19 +14,11 @@ import parse from 'html-react-parser';
 const window = new JSDOM('').window;
 const DOMPurify = createDOMPurify(window as unknown as any);
 
-export async function generateMetadata({
-   params,
-}: {
-   params: { slug: string };
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
    const article = await getArticle(params.slug);
 
-   const categoryNames = article.Categories
-      ? article.Categories.map((cat: CategoriesProps) => cat.Name).join(', ')
-      : '';
-   const subCategoryNames = article.SubCategories
-      ? article.SubCategories.map((sub: CategoriesProps) => sub.Name).join(', ')
-      : '';
+   const categoryNames = article.Categories ? article.Categories.map((cat: CategoriesProps) => cat.Name).join(', ') : '';
+   const subCategoryNames = article.SubCategories ? article.SubCategories.map((sub: CategoriesProps) => sub.Name).join(', ') : '';
    const tags = article.Tags || '';
 
    const keywords = [
@@ -42,10 +34,7 @@ export async function generateMetadata({
 
    return {
       title: article.Title || params.slug,
-      description:
-         article.ShortDescription?.slice(0, 160) ||
-         article.Description?.slice(0, 160) ||
-         'Статья от Atomic',
+      description: article.ShortDescription?.slice(0, 160) || article.Description?.slice(0, 160) || 'Статья от Atomic',
       keywords,
       openGraph: {
          title: article.Title,
@@ -112,7 +101,7 @@ export default async function Articles({ params }: { params: { slug: string } })
                   >
                      {article.Title || '-'}
                   </Heading>
-                  <div className="text-black">{parse(DOMPurify.sanitize(description))}</div>
+                  <div className="text-black text-left">{parse(DOMPurify.sanitize(description))}</div>
                </Flex>
                {article.ShortImage ? (
                   <Box>
