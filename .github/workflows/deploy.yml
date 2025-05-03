@@ -24,27 +24,26 @@ jobs:
           DIR=$(find . -type d -name atomic-frontend | head -n 1)
           echo "directory=$DIR" >> $GITHUB_OUTPUT
 
-      - name: Stop and remove Docker container and clean up
+      - name: Build Docker image and save to tar
         run: |
-          ssh -o StrictHostKeyChecking=no root@85.193.82.242 << 'EOF'
+          cd ${{ steps.find_dir.outputs.directory }}
+          docker build -t atomic-tech.ru .
+          docker save atomic-tech.ru -o atomic-tech.ru.tar
+
+      - name: Rsync tar and project to server
+        run: |
+          rsync -avz --delete ${{ steps.find_dir.outputs.directory }}/ root@85.193.82.242:/var/www/atomic-tech.ru/
+          rsync -avz ${{ steps.find_dir.outputs.directory }}/atomic-tech.ru.tar root@85.193.82.242:/var/www/atomic-tech.ru/
+
+      - name: Load image and run container on remote
+        run: |
+          ssh root@85.193.82.242 << 'EOF'
             docker stop atomic-tech.ru || true
             docker rm atomic-tech.ru || true
             docker rmi atomic-tech.ru || true
             docker system prune -a -f
-            rm -rf /var/www/atomic-tech.ru
-          EOF
-
-      - name: Rsync project to remote server
-        run: |
-          rsync -avz --delete ${{ steps.find_dir.outputs.directory }}/ root@85.193.82.242:/var/www/atomic-tech.ru/
-
-      - name: Rebuild and start Docker container, reload Nginx
-        run: |
-          ssh root@85.193.82.242 << 'EOF'
             cd /var/www/atomic-tech.ru
-            docker build -t atomic-tech.ru .
+            docker load -i atomic-tech.ru.tar
             docker run -d --name atomic-tech.ru -p 3000:3000 atomic-tech.ru
-
-            # Перезапуск Nginx
             systemctl reload nginx || systemctl restart nginx
           EOF
