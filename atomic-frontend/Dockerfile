@@ -3,18 +3,16 @@ FROM node:20-slim AS builder
 
 WORKDIR /app
 
-# Объявляем аргументы, которые мы будем передавать
-ARG API_URL
-
-# Устанавливаем переменные окружения на основе аргументов
-ENV API_URL=${API_URL}
-
-# Копируем зависимости и устанавливаем
+# Копируем зависимости
 COPY package*.json ./
+
+# Устанавливаем зависимости
 RUN npm install --legacy-peer-deps
 
-# Копируем исходные файлы и сборка
+# Копируем исходные файлы проекта, включая .env
 COPY . .
+
+# Запускаем build
 RUN npm run build
 
 # Этап production
@@ -22,14 +20,14 @@ FROM node:20-alpine AS production
 
 WORKDIR /app
 
-# Копируем все файлы из этапа сборки
+# Копируем все файлы из builder
 COPY --from=builder /app ./
 
-# Устанавливаем только производственные зависимости
+# Устанавливаем только прод-зависимости
 RUN npm install --legacy-peer-deps --only=production
 
-# Открываем порт 3000
+# Указываем порт
 EXPOSE 3000
 
-# Запускаем приложение в продакшн-режиме
+# Запуск
 CMD ["npm", "start"]
