@@ -7,10 +7,6 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install --legacy-peer-deps
 
-# Копируем env файлы в образ
-
-COPY .env .env.local
-
 # Копируем исходные файлы и сборка
 COPY . .
 RUN npm run build
