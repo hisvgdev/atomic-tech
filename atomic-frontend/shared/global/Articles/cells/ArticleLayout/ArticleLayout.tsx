@@ -6,6 +6,7 @@ import ArticleWrapper from '../../molecules/ArticleWrapper';
 
 export const ArticleLayout = async () => {
    const articles = await getAllArticles();
+   console.log(articles);
    return (
       <ArticleWrapper>
          <ArticleContent articles={articles} />

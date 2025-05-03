@@ -21,7 +21,7 @@ export const FooterContacts: FC<FooterContactsProps> = (props) => {
             color="white"
             className={`${inter.className}`}
          >
-            mail@company.com
+            atomic.tech@mail.ru
          </Text>
       </Flex>
    );

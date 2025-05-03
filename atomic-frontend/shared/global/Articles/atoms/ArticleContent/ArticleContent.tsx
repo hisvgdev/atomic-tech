@@ -24,10 +24,10 @@ export function ArticleContent(props: ArticleContentProps) {
                           align="stretch"
                        >
                           <Box borderRadius="2xl" overflow="hidden" w="80" h="36">
-                             {articleItem.MainImages?.[0]?.URL ? (
+                             {articleItem.ShortImage ? (
                                 <Box borderRadius="2xl" overflow="hidden" w="80" h="36">
                                    <ImageModal
-                                      imageUrl={articleItem.MainImages[0].URL}
+                                      imageUrl={articleItem.ShortImage.URL}
                                       width={320}
                                       height={150}
                                       alt={'Image'}

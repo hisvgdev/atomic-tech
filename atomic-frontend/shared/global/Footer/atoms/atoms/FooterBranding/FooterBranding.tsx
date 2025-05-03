@@ -18,7 +18,7 @@ export const FooterBranding: FC<FooterBrandingProps> = (props) => {
          >
             Atomic Code
          </Heading>
-         <Link href="#" color="#B5EF69" fontSize="base" textDecoration="underline">
+         <Link href="/policy" color="#B5EF69" fontSize="base" textDecoration="underline">
             Политика обработки персональных данных
          </Link>
          <Flex align="center" gap={6}>

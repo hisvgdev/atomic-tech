@@ -108,6 +108,7 @@ export default async function Articles({ params }: { params: { slug: string } })
                      fontSize={{ base: 'xl', lg: '3xl' }}
                      color="black"
                      textAlign="center"
+                     lineHeight="3.25rem"
                   >
                      {article.Title || '-'}
                   </Heading>

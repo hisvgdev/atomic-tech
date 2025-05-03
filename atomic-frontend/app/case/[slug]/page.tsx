@@ -215,9 +215,6 @@ export default async function Portfolio({ params }: { params: { slug: string } }
                         })}
                   </Flex>
                </Flex>
-               <Text className={`${inter.className} italic font-light text-lg`}>
-                  {workCase.Description || '-'}
-               </Text>
             </Flex>
          </Container>
          <FooterLayout />
