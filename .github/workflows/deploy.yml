@@ -28,7 +28,7 @@ jobs:
         run: |
           cd ${{ steps.find_dir.outputs.directory }}
 
-          # Передача всех переменных окружения в Docker через --build-arg
+          # Передаем переменные окружения через --build-arg
           docker build --build-arg API_URL=${{ secrets.API_URL }} \
                        -t atomic-tech.ru .
           docker save atomic-tech.ru -o atomic-tech.ru.tar

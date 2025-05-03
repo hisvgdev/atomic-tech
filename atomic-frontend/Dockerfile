@@ -3,7 +3,13 @@ FROM node:20-slim AS builder
 
 WORKDIR /app
 
-# Комируем зависимости и устанавливаем
+# Объявляем аргументы, которые мы будем передавать
+ARG API_URL
+
+# Устанавливаем переменные окружения на основе аргументов
+ENV API_URL=${API_URL}
+
+# Копируем зависимости и устанавливаем
 COPY package*.json ./
 RUN npm install --legacy-peer-deps
 
