@@ -18,6 +18,10 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
+      - name: Add SSH host key to known_hosts
+        run: |
+          ssh-keyscan -H 85.193.82.242 >> ~/.ssh/known_hosts
+
       - name: Find atomic-frontend directory path
         id: find_dir
         run: |
@@ -27,16 +31,14 @@ jobs:
       - name: Build Docker image and save to tar
         run: |
           cd ${{ steps.find_dir.outputs.directory }}
-
-          # Передаем переменные окружения через --build-arg
           docker build --build-arg API_URL=${{ secrets.API_URL }} \
                        -t atomic-tech.ru .
           docker save atomic-tech.ru -o atomic-tech.ru.tar
 
       - name: Rsync tar and project to server
         run: |
-          rsync -avz --delete ${{ steps.find_dir.outputs.directory }}/ root@85.193.82.242:/var/www/atomic-tech.ru/
-          rsync -avz ${{ steps.find_dir.outputs.directory }}/atomic-tech.ru.tar root@85.193.82.242:/var/www/atomic-tech.ru/
+          rsync -avz -e "ssh -o StrictHostKeyChecking=no" --delete ${{ steps.find_dir.outputs.directory }}/ root@85.193.82.242:/var/www/atomic-tech.ru/
+          rsync -avz -e "ssh -o StrictHostKeyChecking=no" ${{ steps.find_dir.outputs.directory }}/atomic-tech.ru.tar root@85.193.82.242:/var/www/atomic-tech.ru/
 
       - name: Load image and run container on remote
         run: |
