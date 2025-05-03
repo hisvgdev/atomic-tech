@@ -27,7 +27,11 @@ jobs:
       - name: Build Docker image and save to tar
         run: |
           cd ${{ steps.find_dir.outputs.directory }}
-          docker build -t atomic-tech.ru .
+
+          # Передача всех переменных окружения в Docker через --build-arg
+          docker build --build-arg API_URL=${{ secrets.API_URL }} \
+                       --build-arg DATABASE_URL=${{ secrets.DATABASE_URL }} \
+                       -t atomic-tech.ru .
           docker save atomic-tech.ru -o atomic-tech.ru.tar
 
       - name: Rsync tar and project to server
