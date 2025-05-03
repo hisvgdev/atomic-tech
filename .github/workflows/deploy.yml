@@ -1,50 +1,50 @@
 name: Deploy to Remote Server
 
 on:
-   push:
-      branches:
-         - main
+  push:
+    branches:
+      - main
 
 jobs:
-   deploy:
-      runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-latest
 
-      steps:
-         - name: Checkout code
-           uses: actions/checkout@v3
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-         - name: Set up SSH
-           uses: webfactory/ssh-agent@v0.8.1
-           with:
-              ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-         - name: Find atomic-frontend directory path
-           id: find_dir
-           run: |
-              DIR=$(find . -type d -name atomic-frontend | head -n 1)
-              echo "directory=$DIR" >> $GITHUB_OUTPUT
+      - name: Find atomic-frontend directory path
+        id: find_dir
+        run: |
+          DIR=$(find . -type d -name atomic-frontend | head -n 1)
+          echo "directory=$DIR" >> $GITHUB_OUTPUT
 
-         - name: Stop and remove Docker container and clean up
-           run: |
-              ssh -o StrictHostKeyChecking=no root@85.193.82.242 << 'EOF'
-                docker stop atomic-tech.ru || true
-                docker rm atomic-tech.ru || true
-                docker rmi atomic-tech.ru || true
-                docker system prune -a -f
-                rm -rf /var/www/atomic-tech.ru
-              EOF
+      - name: Stop and remove Docker container and clean up
+        run: |
+          ssh -o StrictHostKeyChecking=no root@85.193.82.242 << 'EOF'
+            docker stop atomic-tech.ru || true
+            docker rm atomic-tech.ru || true
+            docker rmi atomic-tech.ru || true
+            docker system prune -a -f
+            rm -rf /var/www/atomic-tech.ru
+          EOF
 
-         - name: Rsync project to remote server
-           run: |
-              rsync -avz --delete ${{ steps.find_dir.outputs.directory }}/ root@85.193.82.242:/var/www/atomic-tech.ru/
+      - name: Rsync project to remote server
+        run: |
+          rsync -avz --delete ${{ steps.find_dir.outputs.directory }}/ root@85.193.82.242:/var/www/atomic-tech.ru/
 
-         - name: Rebuild and start Docker container, reload Nginx
-           run: |
-              ssh root@85.193.82.242 << 'EOF'
-                cd /var/www/atomic-tech.ru
-                docker build -t atomic-tech.ru .
-                docker run -d --name atomic-tech.ru -p 3000:3000 atomic-tech.ru
+      - name: Rebuild and start Docker container, reload Nginx
+        run: |
+          ssh root@85.193.82.242 << 'EOF'
+            cd /var/www/atomic-tech.ru
+            docker build -t atomic-tech.ru .
+            docker run -d --name atomic-tech.ru -p 3000:3000 atomic-tech.ru
 
-                # Перезапуск Nginx
-                systemctl reload nginx || systemctl restart nginx
-              EOF
+            # Перезапуск Nginx
+            systemctl reload nginx || systemctl restart nginx
+          EOF
