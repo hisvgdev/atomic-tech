@@ -12,7 +12,6 @@ export default async function ArticlesLayout(props: ArticlesLayoutProps) {
    const articleSubCategories = await getAllArticleSubCategories();
    const articleCategories = await getAllArticleCategories();
    const articles = await getAllArticles();
-
    return (
       <ArticlesWrapper
          articles={articles}

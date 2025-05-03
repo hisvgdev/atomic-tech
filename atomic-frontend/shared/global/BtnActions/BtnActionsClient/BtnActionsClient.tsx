@@ -24,7 +24,7 @@ export const BtnActionsClient: FC<BtnActionsClientProps> = ({
          align="center"
          mx="auto"
          width={{ base: undefined, lg: specificRoute ? 'full' : undefined }}
-         justify={{ base: 'center', lg: specificRoute ? 'space-between' : undefined }}
+         justify={{ base: 'center', lg: specificRoute ? 'start' : undefined }}
          gap={{ base: '4', lg: '8' }}
          flexWrap={{ base: 'wrap', smToLg: 'wrap' }}
       >

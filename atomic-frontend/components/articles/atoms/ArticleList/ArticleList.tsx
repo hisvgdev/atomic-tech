@@ -1,4 +1,5 @@
 import { inter } from '@/constants/fonts/inter/inter.constants';
+import ImageModal from '@/shared/global/ImageModal/ImageModal';
 import { stripHtmlTags } from '@/shared/tools/stripHtmlTags';
 import { ArticlesProps } from '@/types/frontend/articles.types';
 import { Box, Button, Flex, Grid, GridItem, Heading, Text, VStack } from '@chakra-ui/react';
@@ -19,7 +20,29 @@ export const ArticleList = ({ articles }: { articles: ArticlesProps[] }) => {
                        align="stretch"
                        maxW="96"
                     >
-                       <Box w="full" h="10rem" borderRadius="2xl" bg="blue.200" />
+                       <Box borderRadius="2xl" overflow="hidden" w="full">
+                          {article.ShortImage ? (
+                             <Box
+                                borderRadius="2xl"
+                                overflow="hidden"
+                                w="full"
+                                h="auto"
+                                maxH="9.375rem"
+                             >
+                                <ImageModal
+                                   imageUrl={article.ShortImage.URL}
+                                   alt={article.ShortImage.ObjectName || ''}
+                                   maxW="100%"
+                                   maxH="auto"
+                                   width={350}
+                                   height={150}
+                                />
+                             </Box>
+                          ) : (
+                             <Box w="full" h="9.375rem" borderRadius="1.25rem" bg="blue.200" />
+                          )}
+                       </Box>
+
                        <VStack align="start">
                           <Heading
                              size="md"
