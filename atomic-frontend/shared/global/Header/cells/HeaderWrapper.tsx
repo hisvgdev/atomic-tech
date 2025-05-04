@@ -19,19 +19,11 @@ export const HeaderWrapper = ({ header }: { header: RootHeader }) => {
    const pathname = usePathname();
    console.log(header);
    return (
-      <Box
-         className="h-auto"
-         bg={{ base: '{colors.light}', _dark: '{colors.dark}' }}
-         borderBottomRadius={{ base: '3rem', lg: '15rem' }}
-      >
+      <Box className="h-auto" bg={{ base: '{colors.light}', _dark: '{colors.dark}' }} borderBottomRadius={{ base: '3rem', lg: '15rem' }}>
          <Flex className="w-full" direction="column" gap={{ base: '4', lg: '8' }}>
             <NavContent />
             <Container maxW={{ base: '100%', lg: '8xl' }}>
-               <MotionBox
-                  className="w-full"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-               >
+               <MotionBox className="w-full" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
                   <Flex className="w-full" justify="end">
                      <ColorModeButton />
                   </Flex>
@@ -46,7 +38,7 @@ export const HeaderWrapper = ({ header }: { header: RootHeader }) => {
                )}
                {pathname.includes('/chat-bots') && (
                   <PreviewWrapper
-                     imgSrc={header?.Images?.[1].URL || atomicPhonePreviewImage.src}
+                     imgSrc={header?.Images?.[4].URL || atomicPhonePreviewImage.src}
                      title={header.Title}
                      additionalTitle="Создание чат-ботов любой сложности"
                      description={header?.Descriptions?.[0].Text}
@@ -56,7 +48,7 @@ export const HeaderWrapper = ({ header }: { header: RootHeader }) => {
                )}
                {pathname.includes('/websites') && (
                   <PreviewWrapper
-                     imgSrc={header?.Images?.[1].URL || atomicTabletPreviewImage.src}
+                     imgSrc={header?.Images?.[2].URL || atomicTabletPreviewImage.src}
                      title={header.Title}
                      additionalTitle="Создание сайтов"
                      description={header?.Descriptions?.[0].Text}
@@ -66,7 +58,7 @@ export const HeaderWrapper = ({ header }: { header: RootHeader }) => {
                )}
                {pathname.includes('/mobile-apps') && (
                   <PreviewWrapper
-                     imgSrc={header?.Images?.[1].URL || atomicPhonePreviewImage.src}
+                     imgSrc={header?.Images?.[2].URL || atomicPhonePreviewImage.src}
                      title={header.Title}
                      additionalTitle="Создание мобильных приложений"
                      description={header?.Descriptions?.[0].Text}
@@ -76,7 +68,7 @@ export const HeaderWrapper = ({ header }: { header: RootHeader }) => {
                )}
                {pathname.includes('/blockchain') && (
                   <PreviewWrapper
-                     imgSrc={header?.Images?.[1].URL || atomicBlockchainImage.src}
+                     imgSrc={header?.Images?.[2].URL || atomicBlockchainImage.src}
                      additionalTitle="Создание блокчейн проектов"
                      description={header?.Descriptions?.[0].Text}
                      title={header.Title}

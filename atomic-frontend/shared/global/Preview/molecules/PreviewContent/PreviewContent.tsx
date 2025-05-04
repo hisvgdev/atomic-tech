@@ -7,6 +7,9 @@ import Image from 'next/image';
 import React, { FC, useState } from 'react';
 import { PreviewContentProps } from './PreviewContent.types';
 import ContactRequestLayout from '@/shared/global/ContactRequest/organism';
+import { usePathname } from 'next/navigation';
+import atomicCodePhone from '@/public/assets/images/websites/atomicCodePhone.svg';
+import atomicCode from '@/public/assets/images/websites/atomicCode.svg';
 
 const inter = Inter({
    weight: ['300', '700'],
@@ -21,6 +24,7 @@ export const PreviewContent: FC<PreviewContentProps> = (props) => {
 
    const handleOpen = () => setIsOpen(true);
    const handleClose = () => setIsOpen(false);
+   const pathname = usePathname();
 
    return (
       <Box>
@@ -41,16 +45,10 @@ export const PreviewContent: FC<PreviewContentProps> = (props) => {
 
                            return (
                               <>
-                                 <Text
-                                    fontSize={{ base: '2rem', lg: '3.18rem' }}
-                                    fontWeight="semibold"
-                                 >
+                                 <Text fontSize={{ base: '2rem', lg: '3.18rem' }} fontWeight="semibold">
                                     {firstLine}
                                  </Text>
-                                 <Text
-                                    fontSize={{ base: '2rem', lg: '3.18rem' }}
-                                    fontWeight="light"
-                                 >
+                                 <Text fontSize={{ base: '2rem', lg: '3.18rem' }} fontWeight="light">
                                     {secondLine}
                                  </Text>
                               </>
@@ -68,16 +66,10 @@ export const PreviewContent: FC<PreviewContentProps> = (props) => {
 
                            return (
                               <>
-                                 <Text
-                                    fontSize={{ base: '2rem', lg: '3.18rem' }}
-                                    fontWeight="semibold"
-                                 >
+                                 <Text fontSize={{ base: '2rem', lg: '3.18rem' }} fontWeight="semibold">
                                     {firstLine}
                                  </Text>
-                                 <Text
-                                    fontSize={{ base: '2rem', lg: '3.18rem' }}
-                                    fontWeight="light"
-                                 >
+                                 <Text fontSize={{ base: '2rem', lg: '3.18rem' }} fontWeight="light">
                                     {secondLine}
                                  </Text>
                               </>
@@ -89,52 +81,89 @@ export const PreviewContent: FC<PreviewContentProps> = (props) => {
                <Flex direction="column" gap="14">
                   <Box maxW="xs">
                      {description ? (
-                        <Text
-                           fontSize={{ base: 'sm', lg: '5' }}
-                           fontWeight="light"
-                           className={`${inter.className}`}
-                        >
+                        <Text fontSize={{ base: 'sm', lg: '5' }} fontWeight="light" className={`${inter.className}`}>
                            {description}
                         </Text>
                      ) : (
-                        <Text
-                           fontSize={{ base: 'sm', lg: '5' }}
-                           fontWeight="light"
-                           className={`${inter.className}`}
-                        >
+                        <Text fontSize={{ base: 'sm', lg: '5' }} fontWeight="light" className={`${inter.className}`}>
                            Которые окупаются и приносят прибыль{' '}
-                           <Text
-                              as="span"
-                              fontWeight="semibold"
-                              fontStyle="italic"
-                              className={`${inter.className}`}
-                           >
+                           <Text as="span" fontWeight="semibold" fontStyle="italic" className={`${inter.className}`}>
                               вашему бизнесу
                            </Text>
                         </Text>
                      )}
                   </Box>
                   <Box>
-                     <CustomButton
-                        variant={VariantButton.default}
-                        text="Обсудить проект"
-                        width="17rem"
-                        onClick={handleOpen}
-                     />
+                     <CustomButton variant={VariantButton.default} text="Обсудить проект" width="17rem" onClick={handleOpen} />
                   </Box>
                </Flex>
             </Flex>
             <Box className="flex-1" display={{ base: 'none', lg: 'block' }}>
-               <Image
-                  src={imgSrc}
-                  alt={description || ''}
-                  width={width}
-                  height={height}
-                  className="object-cover"
-                  style={{
-                     borderRadius: '1.5rem',
-                  }}
-               />
+               {pathname.includes('/websites') ? (
+                  <Box position="relative">
+                     <Box position="absolute" right="-24" top="-20" zIndex="-10">
+                        <pre className={`${inter.className} text-xs`} style={{ opacity: '40%' }}>
+                           {`.code
+{
+  border: 1px solid #E0E0E0;
+  padding: 1px;
+  margin: 0 1ex;
+  overflow: hidden;
+}
+
+`}
+                        </pre>
+                     </Box>
+                     <Box zIndex="0">
+                        <Image
+                           src={imgSrc}
+                           alt={description || ''}
+                           width={width}
+                           height={height}
+                           className="object-cover"
+                           style={{
+                              borderRadius: '1.5rem',
+                           }}
+                        />
+                     </Box>
+                     <Box position="absolute" zIndex="10" top="32" left="0">
+                        <Image
+                           src={atomicCodePhone}
+                           alt={description || ''}
+                           width={240}
+                           height={350}
+                           className="object-cover"
+                           style={{
+                              borderRadius: '1.5rem',
+                           }}
+                        />
+                     </Box>
+                     <Box position="absolute" top="72" left="-32">
+                        <pre className={`${inter.className} text-xs`} style={{ opacity: '40%' }}>
+                           {`.code
+{
+  border: 1px solid #E0E0E0;
+  padding: 1px;
+  margin: 0 1ex;
+  overflow: hidden;
+}
+
+`}
+                        </pre>
+                     </Box>
+                  </Box>
+               ) : (
+                  <Image
+                     src={imgSrc}
+                     alt={description || ''}
+                     width={width}
+                     height={height}
+                     className="object-cover"
+                     style={{
+                        borderRadius: '1.5rem',
+                     }}
+                  />
+               )}
             </Box>
          </Flex>
          <ContactRequestLayout handleClose={handleClose} isOpen={isOpen} />

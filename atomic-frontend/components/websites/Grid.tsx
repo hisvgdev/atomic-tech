@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-   getAllWorkCaseCategories,
-   getAllWorkCases,
-   getHeaderPage,
-} from '@/service/api/handlers.api';
+import { getAllWorkCaseCategories, getAllWorkCases, getHeaderPage } from '@/service/api/handlers.api';
 import MainWrapper from '@/components/websites/Main/molecules/MainWrapper';
 import ArticleLayout from '@/shared/global/Articles/cells/ArticleLayout';
 import Feedbacks from '@/shared/global/Feedbacks/molecules/Feedbacks';
