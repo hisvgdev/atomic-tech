@@ -19,7 +19,7 @@ export default async function Grid() {
             <PortfolioLayout />
             <MainLayout />
          </Flex>
-         <Feedbacks isBgWhite withSpacing withTitle />
+         {/* <Feedbacks isBgWhite withSpacing withTitle /> */}
          <ArticleLayout />
          <FooterLayout />
       </>

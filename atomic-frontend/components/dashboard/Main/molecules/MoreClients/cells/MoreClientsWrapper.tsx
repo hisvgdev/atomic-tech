@@ -11,7 +11,7 @@ export const MoreClientsWrapper = () => {
          <Flex direction="column" gap="14">
             <Flex direction="column" gap="24">
                <MoreClientsHeading />
-               <Feedbacks isBgWhite={theme === 'light'} />
+               {/* <Feedbacks isBgWhite={theme === 'light'} /> */}
             </Flex>
          </Flex>
       </Box>

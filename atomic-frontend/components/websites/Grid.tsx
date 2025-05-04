@@ -17,7 +17,7 @@ export default async function Grid() {
          <HeaderLayout header={header} />
          <PortfolioWrapper workCases={workCases} workCasesCategories={workCasesCategoriests} />
          <MainWrapper />
-         <Feedbacks isBgWhite withSpacing withTitle />
+         {/* <Feedbacks isBgWhite withSpacing withTitle /> */}
          <ArticleLayout />
          <FooterLayout />
       </>
